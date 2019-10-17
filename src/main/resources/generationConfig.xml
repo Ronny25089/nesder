@@ -20,7 +20,6 @@
             <property name="addMapperAnnotation" value="true"/>
         </commentGenerator>
 
-
 		<jdbcConnection driverClass="org.postgresql.Driver"
 			connectionURL="jdbc:postgresql://localhost:5433/nesder"
 			userId="postgres" password="root">

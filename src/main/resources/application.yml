@@ -1,0 +1,14 @@
+security:
+  user:
+    name: nesder
+    password: nesder
+    
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/nesder
+    username: postgres
+    password: root
+    driverClassName: org.postgresql.Driver
+    
+server:
+  port: 80
