@@ -11,7 +11,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import com.nesder.config.DataBaseConfig;
 
@@ -23,7 +22,7 @@ public class NesderApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(NesderApplication.class, args);
 	}
-
+	
 	@Autowired
 	DataBaseConfig dataBaseConfig;
 	
