@@ -1,39 +1,46 @@
 package com.nesder.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nesder.dao.domain.Account;
-import com.nesder.dto.SignAccount;
 import com.nesder.service.AccountService;
+import com.nesder.vo.ApiResponse;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/nesder/user")
 public class AccountController {
 
 	@Autowired
 	private AccountService accountService;
 	
-	@RequestMapping(value = "/accounts", method = RequestMethod.GET)
-    public List<Account> listUser() {
-        return accountService.findAll();
+//	@RequestMapping(value = "/accounts", method = RequestMethod.GET)
+    @GetMapping("/accounts")
+	public ApiResponse listUser() {
+		ApiResponse apiResponse = new ApiResponse();
+		apiResponse.setData(accountService.findAll());
+		return apiResponse;
     }
 	
-	@RequestMapping(value="/sign",method=RequestMethod.POST)
-	public String sign(@RequestBody SignAccount signAccount) {
-		accountService.sign(signAccount);
-		return "sigh";
+//	@RequestMapping(value="/register",method=RequestMethod.POST)
+	@PostMapping("/register")
+    public ApiResponse sign(@RequestBody Account account) {
+		ApiResponse apiResponse = new ApiResponse();
+		apiResponse.setData(accountService.sign(account));
+		return apiResponse;
 	}
 	
-	@RequestMapping(value = "/account/{id}", method = RequestMethod.DELETE)
-    public String delete(@PathVariable(value = "id") int id) {
-		accountService.delete(id);
-        return "success";
+//	@RequestMapping(value = "/account/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("/account/{id}")
+	public ApiResponse delete(@PathVariable("id") Integer id) {
+		ApiResponse apiResponse = new ApiResponse();
+		apiResponse.setData(accountService.delete(id));
+        return apiResponse;
     }
 }

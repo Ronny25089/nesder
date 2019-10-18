@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
-import com.nesder.config.DataBaseConfig;
+import com.nesder.config.DatasourceConfig;
 
 @SpringBootApplication
 @MapperScan(basePackages = "com.nesder.dao.repository")
@@ -24,7 +24,7 @@ public class NesderApplication {
 	}
 	
 	@Autowired
-	DataBaseConfig dataBaseConfig;
+	DatasourceConfig dataBaseConfig;
 	
 	@Bean
 	public SqlSessionFactory sqlSessionFactory() throws Exception {

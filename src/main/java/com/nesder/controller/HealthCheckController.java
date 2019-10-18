@@ -3,18 +3,16 @@ package com.nesder.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nesder.vo.HealthModel;
+import com.nesder.vo.ApiResponse;
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/nesder/test")
 public class HealthCheckController {
 
 	@RequestMapping("/hello")
-	public HealthModel Hello() {
-		HealthModel healModel = new HealthModel();
-		healModel.setCode(200);
-		healModel.setStatus("success");
-		return healModel;
+	public ApiResponse Hello() {
+		ApiResponse apiResponse = new ApiResponse();
+		return apiResponse;
 	}
 
 	@RequestMapping("/te")
