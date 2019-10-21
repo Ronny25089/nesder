@@ -294,63 +294,73 @@ public class AccountExample {
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_typeIsNull() {
-			addCriterion("account_type is null");
+		public Criteria andRoleIsNull() {
+			addCriterion("role is null");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_typeIsNotNull() {
-			addCriterion("account_type is not null");
+		public Criteria andRoleIsNotNull() {
+			addCriterion("role is not null");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_typeEqualTo(Integer value) {
-			addCriterion("account_type =", value, "account_type");
+		public Criteria andRoleEqualTo(String value) {
+			addCriterion("role =", value, "role");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_typeNotEqualTo(Integer value) {
-			addCriterion("account_type <>", value, "account_type");
+		public Criteria andRoleNotEqualTo(String value) {
+			addCriterion("role <>", value, "role");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_typeGreaterThan(Integer value) {
-			addCriterion("account_type >", value, "account_type");
+		public Criteria andRoleGreaterThan(String value) {
+			addCriterion("role >", value, "role");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_typeGreaterThanOrEqualTo(Integer value) {
-			addCriterion("account_type >=", value, "account_type");
+		public Criteria andRoleGreaterThanOrEqualTo(String value) {
+			addCriterion("role >=", value, "role");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_typeLessThan(Integer value) {
-			addCriterion("account_type <", value, "account_type");
+		public Criteria andRoleLessThan(String value) {
+			addCriterion("role <", value, "role");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_typeLessThanOrEqualTo(Integer value) {
-			addCriterion("account_type <=", value, "account_type");
+		public Criteria andRoleLessThanOrEqualTo(String value) {
+			addCriterion("role <=", value, "role");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_typeIn(List<Integer> values) {
-			addCriterion("account_type in", values, "account_type");
+		public Criteria andRoleLike(String value) {
+			addCriterion("role like", value, "role");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_typeNotIn(List<Integer> values) {
-			addCriterion("account_type not in", values, "account_type");
+		public Criteria andRoleNotLike(String value) {
+			addCriterion("role not like", value, "role");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_typeBetween(Integer value1, Integer value2) {
-			addCriterion("account_type between", value1, value2, "account_type");
+		public Criteria andRoleIn(List<String> values) {
+			addCriterion("role in", values, "role");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_typeNotBetween(Integer value1, Integer value2) {
-			addCriterion("account_type not between", value1, value2, "account_type");
+		public Criteria andRoleNotIn(List<String> values) {
+			addCriterion("role not in", values, "role");
+			return (Criteria) this;
+		}
+
+		public Criteria andRoleBetween(String value1, String value2) {
+			addCriterion("role between", value1, value2, "role");
+			return (Criteria) this;
+		}
+
+		public Criteria andRoleNotBetween(String value1, String value2) {
+			addCriterion("role not between", value1, value2, "role");
 			return (Criteria) this;
 		}
 

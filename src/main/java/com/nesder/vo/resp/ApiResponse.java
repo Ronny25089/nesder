@@ -1,12 +1,12 @@
-package com.nesder.vo;
+package com.nesder.vo.resp;
 
 public class ApiResponse {
-	
-    private int statusCode = 200;
 
-    private String Msg = "success";
+	private int statusCode = 200;
 
-    private Object data;
+	private String Msg = "success";
+
+	private Object data;
 
 	/**
 	 * @return statusCode

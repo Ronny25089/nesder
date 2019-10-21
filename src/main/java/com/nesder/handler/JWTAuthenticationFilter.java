@@ -17,13 +17,13 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nesder.model.JwtUser;
-import com.nesder.model.LoginUser;
+import com.nesder.model.UserContext;
 import com.nesder.utils.JwtTokenUtils;
+import com.nesder.vo.resq.LoginUser;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
-	private ThreadLocal<Integer> rememberMe = new ThreadLocal<>();
+//	private ThreadLocal<Integer> rememberMe = new ThreadLocal<>();
 	private AuthenticationManager authenticationManager;
 
 	public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
@@ -35,10 +35,9 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException {
 
-		// 从输入流中获取到登录的信息
+		// 获取到登录的信息
 		try {
 			LoginUser loginUser = new ObjectMapper().readValue(request.getInputStream(), LoginUser.class);
-			rememberMe.set(loginUser.getRememberMe());
 			return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUser.getUsername(),
 					loginUser.getPassword(), new ArrayList<>()));
 		} catch (IOException e) {
@@ -51,28 +50,32 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	// 如果验证成功，就生成token并返回
 	@Override
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
-			Authentication authResult) throws IOException, ServletException {
+			Authentication authentication) throws IOException, ServletException {
 
-		JwtUser jwtUser = (JwtUser) authResult.getPrincipal();
-		boolean isRemember = rememberMe.get() == 1;
+		UserContext userContext = (UserContext) authentication.getPrincipal();
 
-		String role = "";
-		Collection<? extends GrantedAuthority> authorities = jwtUser.getAuthorities();
-		for (GrantedAuthority authority : authorities) {
-			role = authority.getAuthority();
-		}
-
-		String token = JwtTokenUtils.createToken(jwtUser.getUsername(), role, isRemember);
-//        String token = JwtTokenUtils.createToken(jwtUser.getUsername(), false);
+		String accessToken = JwtTokenUtils.createToken(userContext);
 		// 返回创建成功的token
 		// 但是这里创建的token只是单纯的token
 		// 按照jwt的规定，最后请求的时候应该是 `Bearer token`
-		response.setHeader("token", JwtTokenUtils.TOKEN_PREFIX + token);
+		response.setHeader("token", JwtTokenUtils.TOKEN_PREFIX + accessToken);
+		
+//        String refreshToken = JwtTokenUtils.refreshToken(userContext);
+        
+//        Map<String, String> tokenMap = new HashMap<String, String>();
+//        tokenMap.put("token", accessToken);
+//        tokenMap.put("refreshToken", refreshToken);
+//
+//        response.setStatus(HttpStatus.OK.value());
+//        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+//        mapper.writeValue(response.getWriter(), tokenMap);
 	}
 
 	@Override
 	protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException failed) throws IOException, ServletException {
+		response.setStatus(403);
 		response.getWriter().write("authentication failed, reason: " + failed.getMessage());
 	}
+	
 }

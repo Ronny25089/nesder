@@ -8,15 +8,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.nesder.vo.ApiResponse;
+import com.nesder.vo.resp.ApiResponse;
 
 @RestControllerAdvice
 public class ApiExceptionHandler {
 
 	private static final Logger LOG = LoggerFactory.getLogger(ApiExceptionHandler.class);
+
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ResponseBody
+	@ResponseBody
 	public ApiResponse handleException(Exception exception) {
 		LOG.error("ApiExceptionHandler", exception);
 

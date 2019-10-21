@@ -1,7 +1,10 @@
 package com.nesder.utils;
 
 import java.util.Date;
-import java.util.HashMap;
+import java.util.stream.Collectors;
+
+import com.nesder.model.UserContext;
+import com.nimbusds.oauth2.sdk.util.StringUtils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -17,28 +20,56 @@ public class JwtTokenUtils {
     private static final String ISS = "echisan";
 
     // 角色的key
-    private static final String ROLE_CLAIMS = "rol";
+    private static final String ROLE_CLAIMS = "role";
+    
+    private static final String SCOPE = "scopes";
 
     // 过期时间是3600秒，既是1个小时
-    private static final long EXPIRATION = 3600L;
+//    private static final long EXPIRATION = 3600L;
 
-    // 选择了记住我之后的过期时间为7天
-    private static final long EXPIRATION_REMEMBER = 604800L;
+    // 过期时间为7天
+    private static final long EXPIRATION_7DAY = 604800L;
 
     // 创建token
-    public static String createToken(String username,String role, boolean isRememberMe) {
-        long expiration = isRememberMe ? EXPIRATION_REMEMBER : EXPIRATION;
-        HashMap<String, Object> map = new HashMap<>();
-        map.put(ROLE_CLAIMS, role);
+    public static String createToken(UserContext userContext) {
+    	if (StringUtils.isBlank(userContext.getUsername())) 
+            throw new IllegalArgumentException("Cannot create JWT Token without username");
+
+        if (userContext.getAuthorities() == null || userContext.getAuthorities().isEmpty()) 
+            throw new IllegalArgumentException("User doesn't have any privileges");
+
+        Claims claims = Jwts.claims().setSubject(userContext.getUsername());
+        claims.put(SCOPE, userContext.getAuthorities().stream().map(s -> s.toString()).collect(Collectors.toList()));
+        claims.put(ROLE_CLAIMS, userContext.getAuthorities().stream().map(s -> s.toString()).collect(Collectors.toList()));
+        
         return Jwts.builder()
                 .signWith(SignatureAlgorithm.HS512, SECRET)
-                .setClaims(map)
+                .setClaims(claims)
                 .setIssuer(ISS)
-                .setSubject(username)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + expiration * 1000))
+                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_7DAY * 1000))
                 .compact();
     }
+    
+    // 刷新token
+//    public static String refreshToken(UserContext userContext) {
+//    	if (StringUtils.isBlank(userContext.getUsername())) {
+//            throw new IllegalArgumentException("Cannot create JWT Token without username");
+//        }
+//        
+//    	Claims claims = Jwts.claims().setSubject(userContext.getUsername());
+//        claims.put(SCOPE, Arrays.asList(Scopes.REFRESH_TOKEN.authority()));
+//        claims.put(ROLE_CLAIMS, userContext.getAuthorities().stream().map(s -> s.toString()).collect(Collectors.toList()));
+//        
+//        return Jwts.builder()
+//                .signWith(SignatureAlgorithm.HS512, SECRET)
+//                .setClaims(claims)
+//                .setIssuer(ISS)
+//                .setId(UUID.randomUUID().toString())
+//                .setIssuedAt(new Date())
+//                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_7DAY * 1000))
+//                .compact();    	
+//    }
 
     // 从token中获取用户名
     public static String getUsername(String token){
@@ -47,7 +78,7 @@ public class JwtTokenUtils {
 
     // 获取用户角色
     public static String getUserRole(String token){
-        return (String) getTokenBody(token).get(ROLE_CLAIMS);
+        return getTokenBody(token).get(ROLE_CLAIMS).toString();
     }
 
     // 是否已过期

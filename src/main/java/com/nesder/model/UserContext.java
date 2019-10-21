@@ -1,11 +1,15 @@
 package com.nesder.model;
 
 import java.util.Collection;
+import java.util.Collections;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class JwtUser implements UserDetails {
+import com.nesder.dao.domain.Account;
+
+public class UserContext implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
 
@@ -17,9 +21,12 @@ public class JwtUser implements UserDetails {
 
 	private Collection<? extends GrantedAuthority> authorities;
 
-	public JwtUser(String username, String password) {
-		this.username = username;
-		this.password = password;
+	public UserContext(Account user) {
+		this.id = user.getId();
+		this.username = user.getAccount_id();
+		this.password = user.getPassword();
+		this.authorities = Collections.singleton(new SimpleGrantedAuthority(user.getRole()));
+
 	}
 
 	/**

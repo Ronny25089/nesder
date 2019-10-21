@@ -3,7 +3,6 @@ package com.nesder.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -47,18 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/nesder/**").authenticated()
 //                .antMatchers(HttpMethod.DELETE, "/tasks/**").hasRole("ADMIN")
                 // 其他都放行了
-                .antMatchers(
-                        HttpMethod.GET,
-                        "/",
-                        "/auth/**",
-                        "/webjars/**",
-                        "/*.html",
-                        "/favicon.ico",
-                        "*.html",
-                        "/**/*.html",
-                        "/**/*.css",
-                        "/**/*.js"
-                ).permitAll()
+                .anyRequest().permitAll()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
                 .addFilter(new JWTAuthorizationFilter(authenticationManager()))

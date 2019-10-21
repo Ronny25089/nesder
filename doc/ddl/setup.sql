@@ -9,16 +9,6 @@ drop table if exists Module;
 drop table if exists Chat_Content;
 drop table if exists Chat_Group;
 drop table if exists Account;
-drop table if exists Authority;
-
-create or replace function upd_timestamp() returns trigger as
-$$
-begin
-  new.Modify_Date = current_timestamp;
-  return new;
-end
-$$
-language plpgsql;
 
 DROP SEQUENCE if exists public.Account_Id;
 DROP SEQUENCE if exists public.Module_Id;
@@ -28,6 +18,15 @@ DROP SEQUENCE if exists public.Reply_Id;
 DROP SEQUENCE if exists public.Reply_2_Reply_Id;
 DROP SEQUENCE if exists public.Chat_Group_Id;
 DROP SEQUENCE if exists public.Chat_Content_Id;
+
+create or replace function upd_timestamp() returns trigger as
+$$
+begin
+  new.Modify_Date = current_timestamp;
+  return new;
+end
+$$
+language plpgsql;
 
 CREATE SEQUENCE public.Account_Id
     INCREMENT 1
@@ -88,8 +87,8 @@ CREATE SEQUENCE public.Chat_Content_Id
 --用户账号
 create table Account(
 	Id int DEFAULT nextval('public.Account_Id'::regclass) primary key,
-	Account_Id varchar NOT NULL,
-	Account_Type int NOT NULL DEFAULT 0,-- 0:一般用户 1:管理者
+	Account_Id varchar NOT NULL UNIQUE,
+	Role varchar NOT NULL DEFAULT 'USER',-- USER:一般用户 ADMIN:管理者
 	Password varchar NOT NULL,
 	Nick_Name varchar NOT NULL,
 	Email varchar NOT NULL,
@@ -106,7 +105,7 @@ create table Account(
 --板块
 create table Module(
 	Id int DEFAULT nextval('public.Module_Id'::regclass) primary key,
-	MName varchar NOT NULL,
+	MName varchar NOT NULL UNIQUE,
 	Create_Date Date NOT NULL,
 	Introduction varchar,
 	Created_Account int NOT NULL,
@@ -116,7 +115,7 @@ create table Module(
 --频道
 create table Channel(
 	Id int DEFAULT nextval('public.Channel_Id'::regclass) primary key,
-	Name int NOT NULL,
+	Name int NOT NULL UNIQUE,
 	Created_Account int,
 	MID int NOT NULL,
 	FOREIGN KEY(MID) references Module(Id),

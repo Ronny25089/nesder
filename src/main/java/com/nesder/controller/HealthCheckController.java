@@ -3,7 +3,7 @@ package com.nesder.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nesder.vo.ApiResponse;
+import com.nesder.vo.resp.ApiResponse;
 
 @RestController
 @RequestMapping("/nesder/test")
@@ -20,4 +20,3 @@ public class HealthCheckController {
 		return "test";
 	}
 }
-
