@@ -43,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 .authorizeRequests()
                 // 需要验证了的用户才能访问
-                .antMatchers("/nesder/**").authenticated()
+//                .antMatchers("/nesder/**").authenticated()
 //                .antMatchers(HttpMethod.DELETE, "/tasks/**").hasRole("ADMIN")
                 // 其他都放行了
                 .anyRequest().permitAll()

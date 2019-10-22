@@ -34,28 +34,28 @@ CREATE SEQUENCE public.Account_Id
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-    
+
 CREATE SEQUENCE public.Module_Id
     INCREMENT 1
     START 10000001
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-    
+
 CREATE SEQUENCE public.Channel_Id
     INCREMENT 1
     START 10000001
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-    
+
 CREATE SEQUENCE public.Article_Id
     INCREMENT 1
     START 10000001
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-    
+
 CREATE SEQUENCE public.Reply_Id
     INCREMENT 1
     START 10000001
@@ -69,14 +69,14 @@ CREATE SEQUENCE public.Reply_2_Reply_Id
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-    
+
 CREATE SEQUENCE public.Chat_Group_Id
     INCREMENT 1
     START 10000001
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-    
+
 CREATE SEQUENCE public.Chat_Content_Id
     INCREMENT 1
     START 10000001
@@ -96,7 +96,7 @@ create table Account(
 	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	Age int NOT NULL,
 	Introduction varchar,
-	login_Auth int NOT NULL DEFAULT 0,--登陆权限 0:一般用户 -1:禁言用户 
+	login_Auth int NOT NULL DEFAULT 0,--登陆权限 0:一般用户 -1:禁言用户
 	AvatarUrl varchar NOT NULL
 );
 --ALTER TABLE Account ALTER COLUMN Id SET DEFAULT nextval('public.Account_Id'::regclass);
@@ -106,7 +106,7 @@ create table Account(
 create table Module(
 	Id int DEFAULT nextval('public.Module_Id'::regclass) primary key,
 	MName varchar NOT NULL UNIQUE,
-	Create_Date Date NOT NULL,
+	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	Introduction varchar,
 	Created_Account int NOT NULL,
 	FOREIGN KEY(Created_Account) references Account(Id)
