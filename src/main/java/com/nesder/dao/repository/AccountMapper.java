@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.nesder.dao.domain.Account;
-import com.nesder.dao.domain.AccountExample;
+import com.nesder.dao.entity.Account;
+import com.nesder.dao.entity.AccountExample;
 
 public interface AccountMapper {
 

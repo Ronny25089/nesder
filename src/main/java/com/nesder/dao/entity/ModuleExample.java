@@ -1,4 +1,4 @@
-package com.nesder.dao.domain;
+package com.nesder.dao.entity;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -164,6 +164,32 @@ public class ModuleExample {
 			criteria.add(new Criterion(condition, value1, value2));
 		}
 
+		protected void addCriterionForJDBCDate(String condition, Date value, String property) {
+			if (value == null) {
+				throw new RuntimeException("Value for " + property + " cannot be null");
+			}
+			addCriterion(condition, new java.sql.Date(value.getTime()), property);
+		}
+
+		protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
+			if (values == null || values.size() == 0) {
+				throw new RuntimeException("Value list for " + property + " cannot be null or empty");
+			}
+			List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
+			Iterator<Date> iter = values.iterator();
+			while (iter.hasNext()) {
+				dateList.add(new java.sql.Date(iter.next().getTime()));
+			}
+			addCriterion(condition, dateList, property);
+		}
+
+		protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
+			if (value1 == null || value2 == null) {
+				throw new RuntimeException("Between values for " + property + " cannot be null");
+			}
+			addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
+		}
+
 		public Criteria andIdIsNull() {
 			addCriterion("id is null");
 			return (Criteria) this;
@@ -305,52 +331,52 @@ public class ModuleExample {
 		}
 
 		public Criteria andCreate_dateEqualTo(Date value) {
-			addCriterion("create_date =", value, "create_date");
+			addCriterionForJDBCDate("create_date =", value, "create_date");
 			return (Criteria) this;
 		}
 
 		public Criteria andCreate_dateNotEqualTo(Date value) {
-			addCriterion("create_date <>", value, "create_date");
+			addCriterionForJDBCDate("create_date <>", value, "create_date");
 			return (Criteria) this;
 		}
 
 		public Criteria andCreate_dateGreaterThan(Date value) {
-			addCriterion("create_date >", value, "create_date");
+			addCriterionForJDBCDate("create_date >", value, "create_date");
 			return (Criteria) this;
 		}
 
 		public Criteria andCreate_dateGreaterThanOrEqualTo(Date value) {
-			addCriterion("create_date >=", value, "create_date");
+			addCriterionForJDBCDate("create_date >=", value, "create_date");
 			return (Criteria) this;
 		}
 
 		public Criteria andCreate_dateLessThan(Date value) {
-			addCriterion("create_date <", value, "create_date");
+			addCriterionForJDBCDate("create_date <", value, "create_date");
 			return (Criteria) this;
 		}
 
 		public Criteria andCreate_dateLessThanOrEqualTo(Date value) {
-			addCriterion("create_date <=", value, "create_date");
+			addCriterionForJDBCDate("create_date <=", value, "create_date");
 			return (Criteria) this;
 		}
 
 		public Criteria andCreate_dateIn(List<Date> values) {
-			addCriterion("create_date in", values, "create_date");
+			addCriterionForJDBCDate("create_date in", values, "create_date");
 			return (Criteria) this;
 		}
 
 		public Criteria andCreate_dateNotIn(List<Date> values) {
-			addCriterion("create_date not in", values, "create_date");
+			addCriterionForJDBCDate("create_date not in", values, "create_date");
 			return (Criteria) this;
 		}
 
 		public Criteria andCreate_dateBetween(Date value1, Date value2) {
-			addCriterion("create_date between", value1, value2, "create_date");
+			addCriterionForJDBCDate("create_date between", value1, value2, "create_date");
 			return (Criteria) this;
 		}
 
 		public Criteria andCreate_dateNotBetween(Date value1, Date value2) {
-			addCriterion("create_date not between", value1, value2, "create_date");
+			addCriterionForJDBCDate("create_date not between", value1, value2, "create_date");
 			return (Criteria) this;
 		}
 

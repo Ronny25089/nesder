@@ -1,9 +1,10 @@
 package com.nesder.dao.repository;
 
-import com.nesder.dao.domain.Article;
-import com.nesder.dao.domain.ArticleExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import com.nesder.dao.entity.Article;
+import com.nesder.dao.entity.ArticleExample;
 
 public interface ArticleMapper {
 

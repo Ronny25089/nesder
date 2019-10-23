@@ -1,9 +1,10 @@
 package com.nesder.dao.repository;
 
-import com.nesder.dao.domain.FllowAccount;
-import com.nesder.dao.domain.FllowAccountExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import com.nesder.dao.entity.FllowAccount;
+import com.nesder.dao.entity.FllowAccountExample;
 
 public interface FllowAccountMapper {
 

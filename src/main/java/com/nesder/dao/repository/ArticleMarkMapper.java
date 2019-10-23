@@ -1,9 +1,10 @@
 package com.nesder.dao.repository;
 
-import com.nesder.dao.domain.ArticleMark;
-import com.nesder.dao.domain.ArticleMarkExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import com.nesder.dao.entity.ArticleMark;
+import com.nesder.dao.entity.ArticleMarkExample;
 
 public interface ArticleMarkMapper {
 

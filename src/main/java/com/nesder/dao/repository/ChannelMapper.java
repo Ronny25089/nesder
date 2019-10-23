@@ -1,9 +1,10 @@
 package com.nesder.dao.repository;
 
-import com.nesder.dao.domain.Channel;
-import com.nesder.dao.domain.ChannelExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import com.nesder.dao.entity.Channel;
+import com.nesder.dao.entity.ChannelExample;
 
 public interface ChannelMapper {
 

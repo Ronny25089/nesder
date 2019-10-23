@@ -1,8 +1,7 @@
-package com.nesder.dao.domain;
+package com.nesder.dao.entity;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class AccountExample {

@@ -1,9 +1,10 @@
 package com.nesder.dao.repository;
 
-import com.nesder.dao.domain.Module;
-import com.nesder.dao.domain.ModuleExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import com.nesder.dao.entity.Module;
+import com.nesder.dao.entity.ModuleExample;
 
 public interface ModuleMapper {
 

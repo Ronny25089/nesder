@@ -1,9 +1,10 @@
 package com.nesder.dao.repository;
 
-import com.nesder.dao.domain.ChatGroup;
-import com.nesder.dao.domain.ChatGroupExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import com.nesder.dao.entity.ChatGroup;
+import com.nesder.dao.entity.ChatGroupExample;
 
 public interface ChatGroupMapper {
 

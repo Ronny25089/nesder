@@ -1,9 +1,10 @@
 package com.nesder.dao.repository;
 
-import com.nesder.dao.domain.ChatContent;
-import com.nesder.dao.domain.ChatContentExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import com.nesder.dao.entity.ChatContent;
+import com.nesder.dao.entity.ChatContentExample;
 
 public interface ChatContentMapper {
 

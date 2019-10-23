@@ -1,6 +1,8 @@
 package com.nesder.vo.resq;
 
 public class RegistUser {
+	
+	private int id;
 
 	private String account_id;
 
@@ -19,6 +21,20 @@ public class RegistUser {
 	private String introduction;
 
 	private String avatarurl;
+
+	/**
+	 * @return id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id 設定する id
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	/**
 	 * @return account_id

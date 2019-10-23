@@ -20,7 +20,6 @@ public class ModuleController {
 	@Autowired
 	private ModuleService moduleService;
 
-//	@RequestMapping(value = "/accounts", method = RequestMethod.GET)
 	@GetMapping("/all")
 	public ApiResponse listUser() {
 		ApiResponse apiResponse = new ApiResponse();
@@ -28,7 +27,6 @@ public class ModuleController {
 		return apiResponse;
 	}
 
-//	@PostMapping(value = "/accounts", method = RequestMethod.POST)
 	@PostMapping("/add")
 	public ApiResponse addModule(@RequestBody AddModule mode) {
 		ApiResponse apiResponse = new ApiResponse();
@@ -36,15 +34,13 @@ public class ModuleController {
 		return apiResponse;
 	}
 
-//	@RequestMapping(value = "/account/{id}", method = RequestMethod.DELETE)
-	@DeleteMapping("/account/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ApiResponse delete(@PathVariable("id") Integer id) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(moduleService.delete(id));
+		apiResponse.setData(moduleService.deleteModule(id));
 		return apiResponse;
 	}
 	
-//	@PostMapping(value = "/accounts", method = RequestMethod.POST)
 	@PostMapping("/update")
 	public ApiResponse updateModule(@RequestBody AddModule mode) {
 		ApiResponse apiResponse = new ApiResponse();

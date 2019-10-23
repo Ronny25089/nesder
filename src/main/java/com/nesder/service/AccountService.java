@@ -10,8 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.nesder.dao.domain.Account;
-import com.nesder.dao.domain.AccountExample;
+import com.nesder.dao.entity.Account;
+import com.nesder.dao.entity.AccountExample;
 import com.nesder.dao.repository.AccountMapper;
 import com.nesder.model.UserContext;
 import com.nesder.vo.resq.RegistUser;
@@ -26,11 +26,20 @@ public class AccountService implements UserDetailsService {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+	/**
+	 * get all of account
+	 * @return
+	 */
 	public List<Account> findAll() {
 		AccountExample example = new AccountExample();
 		return accountMapper.selectByExample(example);
 	}
 
+	/**
+	 * regist a account
+	 * @param user
+	 * @return
+	 */
 	public int sign(RegistUser user) {
 		Account account = new Account();
 		account.setAccount_id(user.getAccount_id());
@@ -45,10 +54,37 @@ public class AccountService implements UserDetailsService {
 		return accountMapper.insertSelective(account);
 	}
 
+	/**
+	 * delete account by id
+	 * @param id
+	 * @return
+	 */
 	public int delete(int id) {
 		AccountExample example = new AccountExample();
 		example.createCriteria().andIdEqualTo(id);
 		return accountMapper.deleteByExample(example);
+	}
+	
+	/**
+	 * update Account by id
+	 * @param model
+	 * @return
+	 */
+	public int updateAccount(RegistUser model) {
+		//条件
+		AccountExample example = new AccountExample();
+		example.createCriteria().andIdEqualTo(model.getId());
+
+		//request data to DAO entity
+		Account account = new Account();
+		account.setAge(model.getAge());
+		account.setEmail(model.getEmail());
+		account.setNick_name(model.getNick_name());
+		account.setIntroduction(model.getIntroduction());
+		account.setAvatarurl(model.getAvatarurl());
+		account.setRole(model.getRole());
+		
+		return accountMapper.updateByExampleSelective(account, example);
 	}
 
 	@Override

@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.nesder.dao.domain.Account;
+import com.nesder.dao.entity.Account;
 
 public class UserContext implements UserDetails {
 

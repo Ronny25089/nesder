@@ -1,4 +1,4 @@
-package com.nesder.dao.domain;
+package com.nesder.dao.entity;
 
 public class ArticleMark {
 

@@ -21,12 +21,12 @@
 		</commentGenerator>
 
 		<jdbcConnection driverClass="org.postgresql.Driver"
-			connectionURL="jdbc:postgresql://localhost:5432/nesder"
+			connectionURL="jdbc:postgresql://localhost:5433/nesder"
 			userId="postgres" password="root">
 		</jdbcConnection>
 
 		<javaModelGenerator
-			targetPackage="com.nesder.dao.domain"
+			targetPackage="com.nesder.dao.entity"
 			targetProject="nesder/src/main/java">
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>

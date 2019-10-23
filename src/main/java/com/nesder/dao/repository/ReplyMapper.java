@@ -1,9 +1,10 @@
 package com.nesder.dao.repository;
 
-import com.nesder.dao.domain.Reply;
-import com.nesder.dao.domain.ReplyExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import com.nesder.dao.entity.Reply;
+import com.nesder.dao.entity.ReplyExample;
 
 public interface ReplyMapper {
 

@@ -1,9 +1,10 @@
 package com.nesder.dao.repository;
 
-import com.nesder.dao.domain.BrowseHistory;
-import com.nesder.dao.domain.BrowseHistoryExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import com.nesder.dao.entity.BrowseHistory;
+import com.nesder.dao.entity.BrowseHistoryExample;
 
 public interface BrowseHistoryMapper {
 

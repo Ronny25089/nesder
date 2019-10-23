@@ -34,28 +34,28 @@ CREATE SEQUENCE public.Account_Id
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-
+    
 CREATE SEQUENCE public.Module_Id
     INCREMENT 1
     START 10000001
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-
+    
 CREATE SEQUENCE public.Channel_Id
     INCREMENT 1
     START 10000001
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-
+    
 CREATE SEQUENCE public.Article_Id
     INCREMENT 1
     START 10000001
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-
+    
 CREATE SEQUENCE public.Reply_Id
     INCREMENT 1
     START 10000001
@@ -69,14 +69,14 @@ CREATE SEQUENCE public.Reply_2_Reply_Id
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-
+    
 CREATE SEQUENCE public.Chat_Group_Id
     INCREMENT 1
     START 10000001
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-
+    
 CREATE SEQUENCE public.Chat_Content_Id
     INCREMENT 1
     START 10000001
@@ -96,7 +96,7 @@ create table Account(
 	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	Age int NOT NULL,
 	Introduction varchar,
-	login_Auth int NOT NULL DEFAULT 0,--登陆权限 0:一般用户 -1:禁言用户
+	login_Auth int NOT NULL DEFAULT 0,--登陆权限 0:一般用户 -1:禁言用户 
 	AvatarUrl varchar NOT NULL
 );
 --ALTER TABLE Account ALTER COLUMN Id SET DEFAULT nextval('public.Account_Id'::regclass);
@@ -106,28 +106,30 @@ create table Account(
 create table Module(
 	Id int DEFAULT nextval('public.Module_Id'::regclass) primary key,
 	MName varchar NOT NULL UNIQUE,
-	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	Create_Date Date NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	Introduction varchar,
 	Created_Account int NOT NULL,
-	FOREIGN KEY(Created_Account) references Account(Id)
+	FOREIGN KEY(Created_Account) references Account(Id) ON DELETE CASCADE
 );
 
 --频道
 create table Channel(
 	Id int DEFAULT nextval('public.Channel_Id'::regclass) primary key,
 	Name int NOT NULL UNIQUE,
+	Create_Date Date NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	Introduction varchar,
 	Created_Account int,
 	MID int NOT NULL,
-	FOREIGN KEY(MID) references Module(Id),
-	FOREIGN KEY(Created_Account) references Account(Id)
+	FOREIGN KEY(MID) references Module(Id) ON DELETE CASCADE,
+	FOREIGN KEY(Created_Account) references Account(Id) ON DELETE CASCADE
 );
 
 --用户关注_关系表
 create table Fllow_Account(
 	Fllowed_ID int NOT NULL,
 	Fllower_ID int NOT NULL,
-	FOREIGN KEY(Fllower_ID) references Account(Id),
-	FOREIGN KEY(Fllowed_ID) references Account(Id)
+	FOREIGN KEY(Fllower_ID) references Account(Id) ON DELETE CASCADE,
+	FOREIGN KEY(Fllowed_ID) references Account(Id) ON DELETE CASCADE
 );
 
 --发表文章
@@ -142,8 +144,8 @@ create table Article(
 	enable_Edit bool DEFAULT TRUE,
 	Channel_Id int NOT NULL,
 	Created_Account int NOT NULL,
-	FOREIGN KEY(Created_Account) references Account(Id),
-	FOREIGN KEY(Channel_Id) references Channel(Id)
+	FOREIGN KEY(Created_Account) references Account(Id) ON DELETE CASCADE,
+	FOREIGN KEY(Channel_Id) references Channel(Id) ON DELETE CASCADE
 );
 create trigger T_Article before update on Article for each row execute procedure upd_timestamp();
 
@@ -151,8 +153,8 @@ create trigger T_Article before update on Article for each row execute procedure
 create table Article_Mark(
 	AID int NOT NULL,
 	UID int NOT NULL,
-	FOREIGN KEY(AID) references Article(Id),
-	FOREIGN KEY(UID) references Account(Id)
+	FOREIGN KEY(AID) references Article(Id) ON DELETE CASCADE,
+	FOREIGN KEY(UID) references Account(Id) ON DELETE CASCADE
 );
 
 --回复文章
@@ -160,11 +162,11 @@ create table Reply(
 	Id int DEFAULT nextval('public.Reply_Id'::regclass) primary key,
 	Content text NOT NULL,
 	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	Modify_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	Modify_Date TIMESTAMP,
 	AID int NOT NULL,
 	UID int NOT NULL,
-	FOREIGN KEY(UID) references Account(Id),
-	FOREIGN KEY(AID) references Article(Id)
+	FOREIGN KEY(UID) references Account(Id) ON DELETE CASCADE,
+	FOREIGN KEY(AID) references Article(Id) ON DELETE CASCADE
 );
 create trigger T_Reply before update on Reply for each row execute procedure upd_timestamp();
 
@@ -173,22 +175,23 @@ create table Reply_2_Reply(
 	Id int DEFAULT nextval('public.Reply_2_Reply_Id'::regclass) primary key,
 	Content text NOT NULL,
 	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	Modify_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	Modify_Date TIMESTAMP,
 	RID int NOT NULL,
 	UID int NOT NULL,
 	AID int NOT NULL,
-	FOREIGN KEY(UID) references Account(Id),
-	FOREIGN KEY(RID) references Reply(Id),
-	FOREIGN KEY(AID) references Article(Id)
+	FOREIGN KEY(UID) references Account(Id) ON DELETE CASCADE,
+	FOREIGN KEY(RID) references Reply(Id) ON DELETE CASCADE,
+	FOREIGN KEY(AID) references Article(Id) ON DELETE CASCADE
 );
+create trigger T2_Reply before update on Reply_2_Reply for each row execute procedure upd_timestamp();
 
 --浏览记录
 create table Browse_History(
 	BrowseDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	UID int NOT NULL,
 	AID int NOT NULL,
-	FOREIGN KEY(UID) references Account(Id),
-	FOREIGN KEY(AID) references Article(Id)
+	FOREIGN KEY(UID) references Account(Id) ON DELETE CASCADE,
+	FOREIGN KEY(AID) references Article(Id) ON DELETE CASCADE
 );
 
 
@@ -202,7 +205,7 @@ create table Chat_Group(
 	AvatorUrl varchar NOT NULL,
 	Created_Account int NOT NULL,
 	Chat_Type int NOT NULL DEFAULT 0,--0:私聊  1:群聊
-	FOREIGN KEY(Created_Account) references Account(Id)
+	FOREIGN KEY(Created_Account) references Account(Id) ON DELETE CASCADE
 );
 
 --单条聊天内容
@@ -212,6 +215,6 @@ create table Chat_Content(
 	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	Chat_Group_Id int NOT NULL,
 	Created_Account int NOT NULL,
-	FOREIGN KEY(Created_Account) references Account(Id),
-	FOREIGN KEY(Chat_Group_Id) references Chat_Group(Id)
+	FOREIGN KEY(Created_Account) references Account(Id) ON DELETE CASCADE,
+	FOREIGN KEY(Chat_Group_Id) references Chat_Group(Id) ON DELETE CASCADE
 );
