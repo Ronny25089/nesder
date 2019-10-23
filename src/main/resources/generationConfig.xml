@@ -21,7 +21,7 @@
 		</commentGenerator>
 
 		<jdbcConnection driverClass="org.postgresql.Driver"
-			connectionURL="jdbc:postgresql://localhost:5433/nesder"
+			connectionURL="jdbc:postgresql://localhost:5432/nesder"
 			userId="postgres" password="root">
 		</jdbcConnection>
 

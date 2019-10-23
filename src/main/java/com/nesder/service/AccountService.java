@@ -44,7 +44,7 @@ public class AccountService implements UserDetailsService {
 		Account account = new Account();
 		account.setAccount_id(user.getAccount_id());
 		account.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		account.setAge(user.getAge());
+		account.setBirthday(user.getBirthday());
 		account.setEmail(user.getEmail());
 		account.setGender(user.getGender());
 		account.setAvatarurl(user.getAvatarurl());
@@ -77,7 +77,7 @@ public class AccountService implements UserDetailsService {
 
 		//request data to DAO entity
 		Account account = new Account();
-		account.setAge(model.getAge());
+		account.setBirthday(model.getBirthday());
 		account.setEmail(model.getEmail());
 		account.setNick_name(model.getNick_name());
 		account.setIntroduction(model.getIntroduction());

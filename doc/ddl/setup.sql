@@ -34,28 +34,28 @@ CREATE SEQUENCE public.Account_Id
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-    
+
 CREATE SEQUENCE public.Module_Id
     INCREMENT 1
     START 10000001
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-    
+
 CREATE SEQUENCE public.Channel_Id
     INCREMENT 1
     START 10000001
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-    
+
 CREATE SEQUENCE public.Article_Id
     INCREMENT 1
     START 10000001
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-    
+
 CREATE SEQUENCE public.Reply_Id
     INCREMENT 1
     START 10000001
@@ -69,14 +69,14 @@ CREATE SEQUENCE public.Reply_2_Reply_Id
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-    
+
 CREATE SEQUENCE public.Chat_Group_Id
     INCREMENT 1
     START 10000001
     MINVALUE 1
     MAXVALUE 99999999
     CACHE 1;
-    
+
 CREATE SEQUENCE public.Chat_Content_Id
     INCREMENT 1
     START 10000001
@@ -94,9 +94,9 @@ create table Account(
 	Email varchar NOT NULL,
 	Gender int NOT NULL,--0:男 1:女
 	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	Age int NOT NULL,
+	BirthDay TIMESTAMP NOT NULL,
 	Introduction varchar,
-	login_Auth int NOT NULL DEFAULT 0,--登陆权限 0:一般用户 -1:禁言用户 
+	login_Auth int NOT NULL DEFAULT 0,--登陆权限 0:一般用户 -1:禁言用户
 	AvatarUrl varchar NOT NULL
 );
 --ALTER TABLE Account ALTER COLUMN Id SET DEFAULT nextval('public.Account_Id'::regclass);
