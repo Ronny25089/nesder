@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,9 +21,6 @@ public class AccountService implements UserDetailsService {
 
 	@Autowired
 	private AccountMapper accountMapper;
-
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	/**
 	 * get all of account
@@ -43,7 +39,7 @@ public class AccountService implements UserDetailsService {
 	public int sign(RegistUser user) {
 		Account account = new Account();
 		account.setAccount_id(user.getAccount_id());
-		account.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+//		account.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		account.setBirthday(user.getBirthday());
 		account.setEmail(user.getEmail());
 		account.setGender(user.getGender());
