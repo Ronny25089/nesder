@@ -14,7 +14,7 @@
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="gender" jdbcType="INTEGER" property="gender" />
     <result column="create_date" jdbcType="TIMESTAMP" property="create_date" />
-    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
     <result column="introduction" jdbcType="VARCHAR" property="introduction" />
     <result column="login_auth" jdbcType="INTEGER" property="login_auth" />
     <result column="avatarurl" jdbcType="VARCHAR" property="avatarurl" />
@@ -151,7 +151,7 @@
       )
     values (#{id,jdbcType=INTEGER}, #{account_id,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR}, 
       #{password,jdbcType=VARCHAR}, #{nick_name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{gender,jdbcType=INTEGER}, #{create_date,jdbcType=TIMESTAMP}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{gender,jdbcType=INTEGER}, #{create_date,jdbcType=TIMESTAMP}, #{birthday,jdbcType=DATE}, 
       #{introduction,jdbcType=VARCHAR}, #{login_auth,jdbcType=INTEGER}, #{avatarurl,jdbcType=VARCHAR}
       )
   </insert>
@@ -225,7 +225,7 @@
         #{create_date,jdbcType=TIMESTAMP},
       </if>
       <if test="birthday != null">
-        #{birthday,jdbcType=TIMESTAMP},
+        #{birthday,jdbcType=DATE},
       </if>
       <if test="introduction != null">
         #{introduction,jdbcType=VARCHAR},
@@ -280,7 +280,7 @@
         create_date = #{record.create_date,jdbcType=TIMESTAMP},
       </if>
       <if test="record.birthday != null">
-        birthday = #{record.birthday,jdbcType=TIMESTAMP},
+        birthday = #{record.birthday,jdbcType=DATE},
       </if>
       <if test="record.introduction != null">
         introduction = #{record.introduction,jdbcType=VARCHAR},
@@ -310,7 +310,7 @@
       email = #{record.email,jdbcType=VARCHAR},
       gender = #{record.gender,jdbcType=INTEGER},
       create_date = #{record.create_date,jdbcType=TIMESTAMP},
-      birthday = #{record.birthday,jdbcType=TIMESTAMP},
+      birthday = #{record.birthday,jdbcType=DATE},
       introduction = #{record.introduction,jdbcType=VARCHAR},
       login_auth = #{record.login_auth,jdbcType=INTEGER},
       avatarurl = #{record.avatarurl,jdbcType=VARCHAR}
@@ -347,7 +347,7 @@
         create_date = #{create_date,jdbcType=TIMESTAMP},
       </if>
       <if test="birthday != null">
-        birthday = #{birthday,jdbcType=TIMESTAMP},
+        birthday = #{birthday,jdbcType=DATE},
       </if>
       <if test="introduction != null">
         introduction = #{introduction,jdbcType=VARCHAR},
@@ -374,7 +374,7 @@
       email = #{email,jdbcType=VARCHAR},
       gender = #{gender,jdbcType=INTEGER},
       create_date = #{create_date,jdbcType=TIMESTAMP},
-      birthday = #{birthday,jdbcType=TIMESTAMP},
+      birthday = #{birthday,jdbcType=DATE},
       introduction = #{introduction,jdbcType=VARCHAR},
       login_auth = #{login_auth,jdbcType=INTEGER},
       avatarurl = #{avatarurl,jdbcType=VARCHAR}

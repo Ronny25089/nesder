@@ -2,7 +2,7 @@ package com.nesder.vo.resq;
 
 public class AddModule {
 
-	private int createdAccount;
+	private int created_account;
 
 	private String mName;
 	
@@ -18,12 +18,12 @@ public class AddModule {
 		this.id = id;
 	}
 
-	public int getCreatedAccount() {
-		return createdAccount;
+	public int getCreated_account() {
+		return created_account;
 	}
 
-	public void setCreatedAccount(int createdAccount) {
-		this.createdAccount = createdAccount;
+	public void setCreated_account(int created_account) {
+		this.created_account = created_account;
 	}
 
 	public String getmName() {

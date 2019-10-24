@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.nesder.dao.entity.Module;
-import com.nesder.dao.entity.ModuleExample;
 import com.nesder.dao.repository.ModuleMapper;
 import com.nesder.vo.resq.AddModule;
 
@@ -23,8 +22,7 @@ public class ModuleService {
 	 * @return
 	 */
 	public List<Module> findAll() {
-		ModuleExample example = new ModuleExample();
-		return moduleMapper.selectByExample(example);
+		return moduleMapper.selectByExample(null);
 	}
 
 	/**
@@ -37,7 +35,7 @@ public class ModuleService {
 		Module module = new Module();
 		module.setMname(modle.getmName());
 		module.setIntroduction(modle.getIntroduction());
-		module.setCreated_account(modle.getCreatedAccount());
+		module.setCreated_account(modle.getCreated_account());
 		
 		return moduleMapper.insertSelective(module);
 	}
@@ -49,9 +47,7 @@ public class ModuleService {
 	 */
 	public int deleteModule(int id) {
 		//条件
-		ModuleExample example = new ModuleExample();
-		example.createCriteria().andIdEqualTo(id);
-		return moduleMapper.deleteByExample(example);
+		return moduleMapper.deleteByPrimaryKey(id);
 	}
 	
 	/**
@@ -60,14 +56,13 @@ public class ModuleService {
 	 * @return
 	 */
 	public int updateModule(AddModule modle) {
-		//条件
-		ModuleExample example = new ModuleExample();
-		example.createCriteria().andIdEqualTo(modle.getId());
 		//request data to DAO entity
 		Module module = new Module();
+		module.setId(modle.getId());
 		module.setMname(modle.getmName());
 		module.setIntroduction(modle.getIntroduction());
+		module.setCreated_account(modle.getCreated_account());		
 		
-		return moduleMapper.updateByExampleSelective(module,example);
+		return moduleMapper.updateByPrimaryKeySelective(module);
 	}
 }

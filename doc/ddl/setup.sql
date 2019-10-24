@@ -94,7 +94,7 @@ create table Account(
 	Email varchar NOT NULL,
 	Gender int NOT NULL,--0:男 1:女
 	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	BirthDay TIMESTAMP NOT NULL,
+	BirthDay Date NOT NULL,
 	Introduction varchar,
 	login_Auth int NOT NULL DEFAULT 0,--登陆权限 0:一般用户 -1:禁言用户
 	AvatarUrl varchar NOT NULL
@@ -115,7 +115,7 @@ create table Module(
 --频道
 create table Channel(
 	Id int DEFAULT nextval('public.Channel_Id'::regclass) primary key,
-	Name int NOT NULL UNIQUE,
+	Name varchar NOT NULL UNIQUE,
 	Create_Date Date NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	Introduction varchar,
 	Created_Account int,
