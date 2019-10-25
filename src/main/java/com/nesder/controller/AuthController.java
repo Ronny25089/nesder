@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nesder.model.UserContext;
 import com.nesder.service.AccountService;
 import com.nesder.vo.resp.ApiResponse;
 import com.nesder.vo.resq.RegistUser;
@@ -22,6 +23,14 @@ public class AuthController {
 	public ApiResponse sign(@RequestBody RegistUser user) {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(accountService.sign(user));
+		return apiResponse;
+	}
+	
+	@PostMapping("/login")
+	public ApiResponse login(@RequestBody UserContext loginUser) {
+		ApiResponse apiResponse = new ApiResponse();
+		accountService.loadUserByUsername(loginUser.getUsername());
+//		apiResponse.setData();
 		return apiResponse;
 	}
 }

@@ -13,10 +13,10 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 public class JwtTokenUtils {
 
-    public static final String TOKEN_HEADER = "Authorization";
+    public static final String TOKEN_HEADER = "Token";
     public static final String TOKEN_PREFIX = "Bearer ";
 
-    private static final String SECRET = "jwtsecretdemo";
+    private static final String SECRET = "nesderSecretdemo";
     private static final String ISS = "echisan";
 
     // 角色的key
@@ -44,6 +44,7 @@ public class JwtTokenUtils {
         
         return Jwts.builder()
                 .signWith(SignatureAlgorithm.HS512, SECRET)
+                .setId(userContext.getId().toString())
                 .setClaims(claims)
                 .setIssuer(ISS)
                 .setIssuedAt(new Date())
@@ -79,6 +80,11 @@ public class JwtTokenUtils {
     // 获取用户角色
     public static String getUserRole(String token){
         return getTokenBody(token).get(ROLE_CLAIMS).toString();
+    }
+    
+    // 获取用户id
+    public static int getUserId(String token){
+        return Integer.parseInt(getTokenBody(token).getId());
     }
 
     // 是否已过期
