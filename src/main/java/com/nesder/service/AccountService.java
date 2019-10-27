@@ -44,9 +44,8 @@ public class AccountService implements UserDetailsService {
 	public List<Account> findAll() {
 		return accountMapper.selectByExample(null);
 	}
-
+	
 	/**
-	 * regist a account
 	 * 
 	 * @param user
 	 * @return

@@ -126,8 +126,8 @@ create table Channel(
 
 --用户关注_关系表
 create table Fllow_Account(
-	Fllowed_ID int NOT NULL,
-	Fllower_ID int NOT NULL,
+	Fllowed_ID int NOT NULL,--被关注者
+	Fllower_ID int NOT NULL,--粉丝
 	FOREIGN KEY(Fllower_ID) references Account(Id) ON DELETE CASCADE,
 	FOREIGN KEY(Fllowed_ID) references Account(Id) ON DELETE CASCADE
 );
@@ -151,8 +151,8 @@ create trigger T_Article before update on Article for each row execute procedure
 
 --关注文章
 create table Article_Mark(
-	AID int NOT NULL,
-	UID int NOT NULL,
+	AID int NOT NULL,--articleid
+	UID int NOT NULL,--userid
 	FOREIGN KEY(AID) references Article(Id) ON DELETE CASCADE,
 	FOREIGN KEY(UID) references Account(Id) ON DELETE CASCADE
 );
