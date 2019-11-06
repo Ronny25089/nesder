@@ -10,42 +10,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nesder.service.ChannelService;
+import com.nesder.service.ChatContentService;
 import com.nesder.vo.resp.ApiResponse;
-import com.nesder.vo.resq.AddChannel;
+import com.nesder.vo.resq.AddChatContent;
 
 @RestController
-@RequestMapping("/nesder/channel")
-public class ChannelController {
+@RequestMapping("/nesder/chatcontent")
+public class ChatContentController {
 
 	@Autowired
-	private ChannelService channelService;
+	private ChatContentService ChatContentService;
 
 	@GetMapping("/all")
 	public ApiResponse listUser() {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(channelService.findAll());
+		apiResponse.setData(ChatContentService.findAll());
 		return apiResponse;
 	}
 
 	@PostMapping("/add")
-	public ApiResponse addchannel(@RequestBody AddChannel channel1) {
+	public ApiResponse addChatContentInfo(@RequestBody AddChatContent chatcontent1) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(channelService.addChannel(channel1));
+		apiResponse.setData(ChatContentService.addChatContent(chatcontent1));
 		return apiResponse;
-	}	
+	}
 
 	@DeleteMapping("/delete/{id}")
 	public ApiResponse delete(@PathVariable("id") Integer id) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(channelService.deleteChannel(id));
+		apiResponse.setData(ChatContentService.deleteChatContent(id));
 		return apiResponse;
 	}
 	
 	@PutMapping("/update")
-	public ApiResponse updateChannel(@RequestBody AddChannel channel1) {
+	public ApiResponse updateChatContentInfo(@RequestBody AddChatContent chatcontent1) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(channelService.updateChannel(channel1));
+		apiResponse.setData(ChatContentService.updateChatContent(chatcontent1));
 		return apiResponse;
 	}
 }

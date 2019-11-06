@@ -6,11 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.nesder.dao.entity.Article;
 import com.nesder.dao.entity.ArticleMark;
 import com.nesder.dao.entity.ArticleMarkExample;
 import com.nesder.dao.repository.ArticleMarkMapper;
-import com.nesder.vo.resq.AddArticle;
 import com.nesder.vo.resq.AddArticleMark;
 
 @Service
@@ -27,7 +25,30 @@ public class ArticleMarkService {
 	public List<ArticleMark> findAll() {
 		return articleMarkMapper.selectByExample(null);
 	}
-		
+	
+	/**
+	 * 	
+	 * @param articleMark1
+	 * @return
+	 */
+	public List<ArticleMark> findAid(AddArticleMark articleMark1) {
+		ArticleMarkExample example = new ArticleMarkExample();
+		example.createCriteria().andUidEqualTo(articleMark1.getUid());
+		return articleMarkMapper.selectByExample(example);
+	}
+	
+	/**
+	 * 
+	 * @param articleMark1
+	 * @return
+	 */
+	public List<ArticleMark> findUid(AddArticleMark articleMark1) {
+		ArticleMarkExample example = new ArticleMarkExample();
+		example.createCriteria().andAidEqualTo(articleMark1.getAid());
+		return articleMarkMapper.selectByExample(example);
+	}
+	
+	
 	/**
 	 * 
 	 * @param articleMark1

@@ -9,49 +9,50 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nesder.service.ArticleMarkService;
+import com.nesder.service.BrowseHistoryService;
 import com.nesder.vo.resp.ApiResponse;
-import com.nesder.vo.resq.AddArticleMark;
+import com.nesder.vo.resq.AddBrowseHistory;
 
 @RestController
-@RequestMapping("/nesder/articlemark")
-public class ArticleMarkController {
+@RequestMapping("/nesder/browsehistory")
+public class BrowseHistoryController {
 
 	@Autowired
-	private ArticleMarkService articleMarkService;
+	private BrowseHistoryService BrowseHistoryService;
 
 	@GetMapping("/all")
-	public ApiResponse listArticleMark() {
+	public ApiResponse listBrowseHistory() {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(articleMarkService.findAll());
+		apiResponse.setData(BrowseHistoryService.findAll());
 		return apiResponse;
 	}
 	
 	@PostMapping("/findaid")
-	public ApiResponse findAidInfo(@RequestBody AddArticleMark articleMark1) {
+	public ApiResponse findAidInfo(@RequestBody AddBrowseHistory browsehistory1) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(articleMarkService.findAid(articleMark1));
+		apiResponse.setData(BrowseHistoryService.findAid(browsehistory1));
 		return apiResponse;
 	}	
 	
 	@PostMapping("/finduid")
-	public ApiResponse findUidInfo(@RequestBody AddArticleMark articleMark1) {
+	public ApiResponse findUidInfo(@RequestBody AddBrowseHistory browsehistory1) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(articleMarkService.findUid(articleMark1));
+		apiResponse.setData(BrowseHistoryService.findUid(browsehistory1));
 		return apiResponse;
-	}	
+	}
+	
 	
 	@PostMapping("/add")
-	public ApiResponse addArticleMark(@RequestBody AddArticleMark articleMark1) {
+	public ApiResponse addReply(@RequestBody AddBrowseHistory browsehistory1) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(articleMarkService.addAticleMarkInfo(articleMark1));
+		apiResponse.setData(BrowseHistoryService.addBrowseHistoryInfo(browsehistory1));
 		return apiResponse;
 	}	
 	
 	@DeleteMapping("/delete/{aid}/{uid}")
 	public ApiResponse delete(@PathVariable("aid" ) Integer aid,@PathVariable("uid" ) Integer uid) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(articleMarkService.deleteArticleMark(aid, uid));
+		apiResponse.setData(BrowseHistoryService.deleteReply(aid, uid));
 		return apiResponse;
 	}
 }
