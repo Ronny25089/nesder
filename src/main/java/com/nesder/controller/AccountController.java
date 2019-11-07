@@ -14,7 +14,7 @@ import com.nesder.vo.resp.ApiResponse;
 import com.nesder.vo.resq.RegistUser;
 
 @RestController
-@RequestMapping("/nesder/user")
+@RequestMapping("/nesder")
 public class AccountController {
 
 	@Autowired
@@ -35,7 +35,7 @@ public class AccountController {
 		return apiResponse;
 	}
 	
-	@PutMapping("/update")
+	@PutMapping("/account")
 	public ApiResponse updateModule(@RequestBody RegistUser model) {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(accountService.updateAccount(model));

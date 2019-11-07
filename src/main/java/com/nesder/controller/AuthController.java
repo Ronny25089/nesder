@@ -18,7 +18,6 @@ public class AuthController {
 	@Autowired
 	private AccountService accountService;
 
-//	@RequestMapping(value="/register",method=RequestMethod.POST)
 	@PostMapping("/regist")
 	public ApiResponse sign(@RequestBody RegistUser user) {
 		ApiResponse apiResponse = new ApiResponse();
@@ -30,7 +29,6 @@ public class AuthController {
 	public ApiResponse login(@RequestBody UserContext loginUser) {
 		ApiResponse apiResponse = new ApiResponse();
 		accountService.loadUserByUsername(loginUser.getUsername());
-//		apiResponse.setData();
 		return apiResponse;
 	}
 }

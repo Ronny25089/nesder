@@ -24,6 +24,15 @@ public class ModuleService {
 	public List<Module> findAll() {
 		return moduleMapper.selectByExample(null);
 	}
+	
+	/**
+	 * getById
+	 * @param id
+	 * @return
+	 */
+	public Module getById(int id) {
+		return moduleMapper.selectByPrimaryKey(id);
+	}
 
 	/**
 	 * add a record Module
