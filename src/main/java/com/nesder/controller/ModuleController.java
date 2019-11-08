@@ -21,7 +21,7 @@ public class ModuleController {
 	@Autowired
 	private ModuleService moduleService;
 
-	@GetMapping("/all")
+	@GetMapping("/module/all")
 	public ApiResponse listUser() {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(moduleService.findAll());

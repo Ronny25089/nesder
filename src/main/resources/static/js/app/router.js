@@ -6,6 +6,7 @@ define(function (require) {
         Backbone    = require('backbone'),
         ShellView   = require('app/views/Shell'),
         HomeView    = require('app/views/Home'),
+        RegistView	= require('app/views/regist'),
 
         $body = $('body'),
         shellView = new ShellView({el: $body}).render(),
@@ -31,6 +32,14 @@ define(function (require) {
         	"regist": "regist",
         	"login": "login"
         },
+        
+		initialize: function(){
+        	// global
+	
+		    this.loginView = new RegistView(this);
+		    this.loginFlag = false;
+		
+		},
 
         home: function () {
             homeView.delegateEvents(); // delegate events when the view is recycled
@@ -62,11 +71,8 @@ define(function (require) {
         },
         
 		regist: function () {
-			require(["app/views/regist"], function (RegistView) {
-				var view = new RegistView({el: $content});
-				view.render();
-                shellView.selectMenuItem('regist-menu');    
-		    });
+			this.loginView.render();
+            shellView.selectMenuItem('regist-menu');  
 		},
 		
 		login: function () {

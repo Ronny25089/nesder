@@ -1,78 +1,76 @@
 <div class="row-fluid">
-	<h2>Create your daccount</h2>
-    <form class="form-horizontal">
-		<!-- <div class="btn-group">
-		  <button class="btn dropdown-toggle" data-toggle="dropdown">avatar <span class="caret"></span></button>
-		  <ul class="dropdown-menu">
-			    <li class="text-center"><img class="avatar avatar-24 img-circle" src="pics/Amy_Jones.jpg"/><p>avatar-lg</p></li>
-			    <li class="text-center"><img class="avatar avatar-32 img-circle" src="pics/Amy_Jones.jpg"/><p>avatar-lg</p></li>
-			    <li class="text-center"><img class="avatar avatar-48 img-circle" src="pics/Amy_Jones.jpg"/><p>avatar-lg</p></li>
-		  </ul>
-		</div> -->
-	  <div class="control-group">
-	    <label class="control-label" for="inputAvatar">Avatar</label>
-	    <div class="controls">
-	      <input type="text" id="inputAccount_Id" placeholder="Account">
-	    </div>
-	  </div>
-	  <div class="control-group">
-	    <label class="control-label" for="inputAccount_Id">Account Id</label>
-	    <div class="controls">
-	      <input type="text" id="inputAccount_Id" placeholder="Account">
-	    </div>
-	  </div>
-	  <div class="control-group">
-	    <label class="control-label" for="inputPassword">Password</label>
-	    <div class="controls">
-	      <input type="password" id="inputPassword" placeholder="Password">
-	    </div>
-	  </div>
-	  <div class="control-group">
-	    <label class="control-label" for="inputNick_Name">Nick Name</label>
-	    <div class="controls">
-	      <input type="text" id="inputNick_Name" placeholder="Nick Name">
-	    </div>
-	  </div>
-	  <div class="control-group">
-	    <label class="control-label" for="inputEmail">Email</label>
-	    <div class="controls">
-	      <input type="text" id="inputEmail" placeholder="Email">
-	    </div>
-	  </div>
-	  <div class="control-group">
-	    <label class="control-label" for="inputGender">Gender</label>
-	    <div class="controls">
-	      <label class="radio">
-		  <input type="radio" name="Gender" id="male" value="male" checked>
-		  male
-		</label>
-		<label class="radio">
-		  <input type="radio" name="Gender" id="female" value="female">
-		  female
-		</label>
-	    </div>
-	  </div>
-	  <div class="control-group">
-	    <label class="control-label" for="inputBirthDay">BirthDay</label>
-	    <div class="controls">
-	      <input type="date" id="inputBirthDay" placeholder="Password">
-	    </div>
-	  </div>
-	  <div class="control-group">
-	    <label class="control-label" for="inputIntroduction">Introduction</label>
-	    <div class="controls">
-	      <textarea class="form-control" rows="5" d="inputIntroduction" placeholder="Introduction"></textarea>
-	    </div>
-	  </div>
-	  
-	  <div class="control-group">
-	    <div class="controls">
-	      <label class="checkbox">
-	        <input type="checkbox"> Remember me
-	      </label>
-	      <button type="submit" class="btn">Sign up</button>
-	    </div>
-	  </div>
-	  
+	<h1>Create your daccount</h1>
+	<form class="form-horizontal">
+		<div class="control-group">
+			<label class="control-label" for="inputAvatar"></label>
+			<div class="avatar-wrapper controls">
+				<img class="profile-pic" src="" />
+				<div class="upload-button">
+					<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+				</div>
+				<input class="file-upload" type="file" accept="image/*" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputAccount_Id">Account Id</label>
+			<div class="controls">
+				<input type="text" id="inputAccount_Id" placeholder="Account"
+				 pattern="[a-zA-Z0-9_-]{6,18}" required>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputPassword">Password</label>
+			<div class="controls">
+				<input type="password" id="inputPassword" placeholder="Password"
+				pattern="[a-zA-Z0-9_-]{6,18}" required >
+			</div>
+		</div>
+		
+		<div class="control-group">
+			<label class="control-label" for="inputNick_Name">Nick Name</label>
+			<div class="controls">
+				<input type="text" id="inputNick_Name" placeholder="Nick Name"
+				required>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputEmail">Email</label>
+			<div class="controls">
+				<input type="Email" id="inputEmail" placeholder="Email" 
+				required>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputGender">Gender</label>
+			<div class="controls">
+				<label class="radio"> <input type="radio" name="Gender"
+					id="male" value="0" checked> male
+				</label> <label class="radio"> <input type="radio" name="Gender"
+					id="female" value="1"> female
+				</label>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputBirthDay">BirthDay</label>
+			<div class="controls">
+				<input type="date" id="inputBirthDay" required>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputIntroduction">Introduction</label>
+			<div class="controls">
+				<textarea class="form-control" rows="5" id="inputIntroduction"
+					placeholder="Introduction"></textarea>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<label class="checkbox"> <input type="checkbox">
+					Remember me
+				</label>
+				<button type="submit" class="btn" >Sign up</button>
+			</div>
+		</div>
 	</form>
 </div>

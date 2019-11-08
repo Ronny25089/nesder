@@ -21,7 +21,7 @@ public class AccountController {
 	private AccountService accountService;
 
 //	@RequestMapping(value = "/accounts", method = RequestMethod.GET)
-	@GetMapping("/all")
+	@GetMapping("/account/all")
 	public ApiResponse listUser() {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(accountService.findAll());
