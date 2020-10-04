@@ -1,38 +1,44 @@
 define(function(require) {
 
-	"use strict";
+    "use strict";
 
-	var $ = require('jquery'), 
-		_ = require('underscore'), 
-		Backbone = require('backbone'), 
-		tpl = require('text!tpl/Dialog.html'),
-		
-		template = _.template(tpl);
+    var $ = require('jquery'),
+        _ = require('underscore'),
+        Backbone = require('backbone'),
+        tpl = require('text!tpl/Dialog.html'),
 
-	return Backbone.View.extend({
+        template = _.template(tpl);
 
-		el : '#content',
+    return Backbone.View.extend({
 
-		initialize : function(router) {
-			this.router = router;
-			this.render();
-		},
+        el: '#dialog_content',
 
-		render : function() {
-			this.$el.html(template());
-			return this;
-		},
+        initialize: function(router) {
+            this.router = router;
+        },
 
-		events : {
+        render: function() {
+            this.$el.append(template());
+            // this.$el.html(template());
+            return this;
+        },
 
-		},
+        events: {
+            "click button.btn.btn-danger": "closeError"
 
-		openErrorDialog : function(title, msg, toPage) {
-			console.log('error')
-			$('#errorModal').fadeIn();
-			return false;
-		}
+        },
 
-	});
+        openErrorDialog: function(title, msg, toPage) {
+            console.log('error')
+            $('#errorModal').fadeIn();
+            return false;
+        },
+
+        closeError: function() {
+            $('#errorModal').fadeOut();
+            return false;
+        }
+
+    });
 
 });

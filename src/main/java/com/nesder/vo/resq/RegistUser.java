@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class RegistUser {
 	
+	private int id;
+	
 	private String account_id;
 
 	private String role;
@@ -21,6 +23,14 @@ public class RegistUser {
 	private String introduction;
 
 	private String avatarurl;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getAccount_id() {
 		return account_id;

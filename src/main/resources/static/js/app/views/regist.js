@@ -1,83 +1,83 @@
 define(function(require) {
 
-	"use strict";
+    "use strict";
 
-	var $ = require('jquery'), 
-		_ = require('underscore'), 
-		Backbone = require('backbone'), 
-		tpl = require('text!tpl/Regist.html'),
-		models = require('app/models/account'),
-		dialogs = require('app/views/dialog'),
-		
-		template = _.template(tpl);
+    var $ = require('jquery'),
+        _ = require('underscore'),
+        Backbone = require('backbone'),
+        tpl = require('text!tpl/Regist.html'),
+        models = require('app/models/account'),
+        dialogs = require('app/views/dialog'),
 
-	return Backbone.View.extend({
-		
-		el: '#content',
-		
-		initialize: function(router) {
-			this.router = router;
-			this.dialog = new dialogs();
-		},
+        template = _.template(tpl);
 
-		render : function() {
-			this.$el.html(template());
-			$('input[required]').before('<span style="color:red">*</span>');
-			return this;
-		},
+    return Backbone.View.extend({
 
-		events : {
-			"change .file-upload" : "readURL",
-			"click .upload-button" : "uploadAvatar",
-			"submit .form-horizontal" : "regist"
-		},
+        el: '#content',
 
-		readURL : function(event) {
-			if (event.currentTarget.files && event.currentTarget.files[0]) {
-				var reader = new FileReader();
+        initialize: function(router) {
+            this.router = router;
+        },
 
-				reader.onload = function(e) {
-					$('.profile-pic').attr('src', e.target.result);
-				}
+        render: function() {
+            this.$el.html(template());
+            $('input[required]').before('<span style="color:red">*</span>');
+            this.dialog = new dialogs().render();
+            return this;
+        },
 
-				reader.readAsDataURL(event.currentTarget.files[0]);
-			}
-		},
+        events: {
+            "change .file-upload": "readURL",
+            "click .upload-button": "uploadAvatar",
+            "click .form-horizontal": "regist"
+        },
 
-		uploadAvatar : function(event) {
-			$(".file-upload").click();
-		},
+        readURL: function(event) {
+            if (event.currentTarget.files && event.currentTarget.files[0]) {
+                var reader = new FileReader();
 
-		regist : function(event) {
-			var data = new models.Account({
-				account_id: $('#inputAccount_Id').val(),
-				password: $('#inputPassword').val(),
-				nick_name: $('#inputNick_Name').val(),
-				email: $('#inputEmail').val(),
-				gender: $('input[name="Gender"]:checked').val(),
-				birthday: $('#inputBirthDay').val(),
-				introduction: $('#inputIntroduction').val(),
-				avatarurl: ""
-			});
-			var self = this;
-			data.save(null, {
-				url: '/auth/regist',
-                success: function(model, resp, options){
-					
-                    console.log('model',model);
-                    console.log('resp',resp);
-                    // index
-                    self.router.navigate("login", {trigger: true});
-                },
-				error: function(model, resp, options){
-                	self.dialog.openErrorDialog();
-					// index
-				}
+                reader.onload = function(e) {
+                    $('.profile-pic').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(event.currentTarget.files[0]);
+            }
+        },
+
+        uploadAvatar: function(event) {
+            $(".file-upload").click();
+        },
+
+        regist: function(event) {
+            var data = new models.Account({
+                account_id: $('#inputAccount_Id').val(),
+                password: $('#inputPassword').val(),
+                nick_name: $('#inputNick_Name').val(),
+                email: $('#inputEmail').val(),
+                gender: $('input[name="Gender"]:checked').val(),
+                birthday: $('#inputBirthDay').val(),
+                introduction: $('#inputIntroduction').val(),
+                avatarurl: ""
             });
-			
-			return false;
-		}
+            var self = this;
+            data.save(null, {
+                url: '/auth/regist',
+                success: function(model, resp, options) {
 
-	});
+                    console.log('model', model);
+                    console.log('resp', resp);
+                    // index
+                    self.router.navigate("login", { trigger: true });
+                },
+                error: function(model, resp, options) {
+                    self.dialog.openErrorDialog();
+                    // index
+                }
+            });
+
+            return false;
+        }
+
+    });
 
 });
