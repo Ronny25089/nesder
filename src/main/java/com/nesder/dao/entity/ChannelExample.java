@@ -190,63 +190,63 @@ public class ChannelExample {
 			addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
 		}
 
-		public Criteria andIdIsNull() {
-			addCriterion("id is null");
+		public Criteria andChannel_idIsNull() {
+			addCriterion("channel_id is null");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdIsNotNull() {
-			addCriterion("id is not null");
+		public Criteria andChannel_idIsNotNull() {
+			addCriterion("channel_id is not null");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdEqualTo(Integer value) {
-			addCriterion("id =", value, "id");
+		public Criteria andChannel_idEqualTo(Integer value) {
+			addCriterion("channel_id =", value, "channel_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdNotEqualTo(Integer value) {
-			addCriterion("id <>", value, "id");
+		public Criteria andChannel_idNotEqualTo(Integer value) {
+			addCriterion("channel_id <>", value, "channel_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdGreaterThan(Integer value) {
-			addCriterion("id >", value, "id");
+		public Criteria andChannel_idGreaterThan(Integer value) {
+			addCriterion("channel_id >", value, "channel_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdGreaterThanOrEqualTo(Integer value) {
-			addCriterion("id >=", value, "id");
+		public Criteria andChannel_idGreaterThanOrEqualTo(Integer value) {
+			addCriterion("channel_id >=", value, "channel_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdLessThan(Integer value) {
-			addCriterion("id <", value, "id");
+		public Criteria andChannel_idLessThan(Integer value) {
+			addCriterion("channel_id <", value, "channel_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdLessThanOrEqualTo(Integer value) {
-			addCriterion("id <=", value, "id");
+		public Criteria andChannel_idLessThanOrEqualTo(Integer value) {
+			addCriterion("channel_id <=", value, "channel_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdIn(List<Integer> values) {
-			addCriterion("id in", values, "id");
+		public Criteria andChannel_idIn(List<Integer> values) {
+			addCriterion("channel_id in", values, "channel_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdNotIn(List<Integer> values) {
-			addCriterion("id not in", values, "id");
+		public Criteria andChannel_idNotIn(List<Integer> values) {
+			addCriterion("channel_id not in", values, "channel_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdBetween(Integer value1, Integer value2) {
-			addCriterion("id between", value1, value2, "id");
+		public Criteria andChannel_idBetween(Integer value1, Integer value2) {
+			addCriterion("channel_id between", value1, value2, "channel_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdNotBetween(Integer value1, Integer value2) {
-			addCriterion("id not between", value1, value2, "id");
+		public Criteria andChannel_idNotBetween(Integer value1, Integer value2) {
+			addCriterion("channel_id not between", value1, value2, "channel_id");
 			return (Criteria) this;
 		}
 

@@ -163,63 +163,63 @@ public class ArticleExample {
 			criteria.add(new Criterion(condition, value1, value2));
 		}
 
-		public Criteria andIdIsNull() {
-			addCriterion("id is null");
+		public Criteria andArticle_idIsNull() {
+			addCriterion("article_id is null");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdIsNotNull() {
-			addCriterion("id is not null");
+		public Criteria andArticle_idIsNotNull() {
+			addCriterion("article_id is not null");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdEqualTo(Integer value) {
-			addCriterion("id =", value, "id");
+		public Criteria andArticle_idEqualTo(Integer value) {
+			addCriterion("article_id =", value, "article_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdNotEqualTo(Integer value) {
-			addCriterion("id <>", value, "id");
+		public Criteria andArticle_idNotEqualTo(Integer value) {
+			addCriterion("article_id <>", value, "article_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdGreaterThan(Integer value) {
-			addCriterion("id >", value, "id");
+		public Criteria andArticle_idGreaterThan(Integer value) {
+			addCriterion("article_id >", value, "article_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdGreaterThanOrEqualTo(Integer value) {
-			addCriterion("id >=", value, "id");
+		public Criteria andArticle_idGreaterThanOrEqualTo(Integer value) {
+			addCriterion("article_id >=", value, "article_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdLessThan(Integer value) {
-			addCriterion("id <", value, "id");
+		public Criteria andArticle_idLessThan(Integer value) {
+			addCriterion("article_id <", value, "article_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdLessThanOrEqualTo(Integer value) {
-			addCriterion("id <=", value, "id");
+		public Criteria andArticle_idLessThanOrEqualTo(Integer value) {
+			addCriterion("article_id <=", value, "article_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdIn(List<Integer> values) {
-			addCriterion("id in", values, "id");
+		public Criteria andArticle_idIn(List<Integer> values) {
+			addCriterion("article_id in", values, "article_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdNotIn(List<Integer> values) {
-			addCriterion("id not in", values, "id");
+		public Criteria andArticle_idNotIn(List<Integer> values) {
+			addCriterion("article_id not in", values, "article_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdBetween(Integer value1, Integer value2) {
-			addCriterion("id between", value1, value2, "id");
+		public Criteria andArticle_idBetween(Integer value1, Integer value2) {
+			addCriterion("article_id between", value1, value2, "article_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdNotBetween(Integer value1, Integer value2) {
-			addCriterion("id not between", value1, value2, "id");
+		public Criteria andArticle_idNotBetween(Integer value1, Integer value2) {
+			addCriterion("article_id not between", value1, value2, "article_id");
 			return (Criteria) this;
 		}
 

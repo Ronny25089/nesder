@@ -49,7 +49,7 @@ public class ArticleService {
 	public int updateAticleInfo(AddArticle article1) {
 		//条件
 		Article article = new Article();
-		article.setId(article1.getId());
+		article.setArticle_id(article1.getId());
 		article.setTitle(article1.getTitle());
 		article.setContent(article1.getContent());
 		article.setChannel_id(article1.getChannel_id());

@@ -6,8 +6,8 @@ security:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/nesder
-    username: postgres
-    password: root
+    username: nesder
+    password: nesder
     driverClassName: org.postgresql.Driver
 
 server:

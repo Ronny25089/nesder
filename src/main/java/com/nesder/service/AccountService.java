@@ -52,7 +52,6 @@ public class AccountService implements UserDetailsService {
 	 */
 	public int sign(RegistUser user) {
 		Account account = new Account();
-		account.setAccount_id(user.getAccount_id());
 		account.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		account.setBirthday(user.getBirthday());
 		account.setEmail(user.getEmail());
@@ -83,7 +82,7 @@ public class AccountService implements UserDetailsService {
 	public int updateAccount(RegistUser model) {
 		// request data to DAO entity
 		Account account = new Account();
-		account.setId(model.getId());
+		account.setAccount_id(model.getId());
 		account.setBirthday(model.getBirthday());
 		account.setEmail(model.getEmail());
 		account.setNick_name(model.getNick_name());
@@ -97,7 +96,7 @@ public class AccountService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String accountId) throws UsernameNotFoundException {
 		AccountExample example = new AccountExample();
-		example.createCriteria().andAccount_idEqualTo(accountId);
+		example.createCriteria().andAccount_idEqualTo(Integer.valueOf(accountId));
 		List<Account> list = accountMapper.selectByExample(example);
 		if (list.size() == 0) {
 

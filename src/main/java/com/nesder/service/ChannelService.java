@@ -59,7 +59,7 @@ public class ChannelService {
 	public int updateChannel(AddChannel channel1) {
 		// 条件
 		Channel channel = new Channel();
-		channel.setId(channel1.getId());
+		channel.setChannel_id(channel1.getId());
 		channel.setName(channel1.getName());
 		channel.setIntroduction(channel1.getIntroduction());
 		channel.setCreated_account(channel1.getCreated_account());

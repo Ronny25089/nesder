@@ -61,7 +61,7 @@ public class ChatGroupService {
 	public int updateChatGroup(AddChatGroup chatGroup1) {
 		//request data to DAO entity
 		ChatGroup chatGroup = new ChatGroup();
-		chatGroup.setId(chatGroup1.getId());
+		chatGroup.setChat_group_id(chatGroup1.getId());
 		chatGroup.setGroup_account_type(chatGroup1.getGroup_Account_Type());
 		chatGroup.setGname(chatGroup1.getgName());
 		chatGroup.setIntroduction(chatGroup1.getIntroduction());

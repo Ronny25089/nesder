@@ -43,18 +43,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()	
                 .authorizeRequests()	
                 // 需要验证了的用户才能访问	
-                .antMatchers("/nesder/**").authenticated()	
+//                .antMatchers("/nesder/**").authenticated()	
 //                .antMatchers(HttpMethod.DELETE, "/tasks/**").hasRole("ADMIN")	
                 // 其他都放行了	
-                .anyRequest().permitAll()	
-                .and()	
-                .addFilter(new JWTUsernameAuthenticationFilter(authenticationManager()))	
-                .addFilter(new JWTBasicAuthenticationFilter(authenticationManager()))	
+                .anyRequest().permitAll();
+//                .and()	
+//                .addFilter(new JWTUsernameAuthenticationFilter(authenticationManager()))	
+//                .addFilter(new JWTBasicAuthenticationFilter(authenticationManager()))	
                 // 不需要session	
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)	
-                .and()	
-                .exceptionHandling().authenticationEntryPoint(new JWTAuthenticationEntryPoint())	
-                .accessDeniedHandler(new JWTAccessDeniedHandler());      //添加无权限时的处理	
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)	
+//                .and()	
+//                .exceptionHandling().authenticationEntryPoint(new JWTAuthenticationEntryPoint())	
+//                .accessDeniedHandler(new JWTAccessDeniedHandler());      //添加无权限时的处理	
     }	
 
     @Bean	

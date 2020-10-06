@@ -22,8 +22,8 @@ public class UserContext implements UserDetails {
 	private Collection<? extends GrantedAuthority> authorities;
 
 	public UserContext(Account user) {
-		this.id = user.getId();
-		this.username = user.getAccount_id();
+		this.id = user.getAccount_id();
+		this.username = user.getNick_name();
 		this.password = user.getPassword();
 		this.authorities = Collections.singleton(new SimpleGrantedAuthority(user.getRole()));
 

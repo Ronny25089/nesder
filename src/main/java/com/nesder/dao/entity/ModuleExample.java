@@ -190,63 +190,63 @@ public class ModuleExample {
 			addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
 		}
 
-		public Criteria andIdIsNull() {
-			addCriterion("id is null");
+		public Criteria andModule_idIsNull() {
+			addCriterion("module_id is null");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdIsNotNull() {
-			addCriterion("id is not null");
+		public Criteria andModule_idIsNotNull() {
+			addCriterion("module_id is not null");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdEqualTo(Integer value) {
-			addCriterion("id =", value, "id");
+		public Criteria andModule_idEqualTo(Integer value) {
+			addCriterion("module_id =", value, "module_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdNotEqualTo(Integer value) {
-			addCriterion("id <>", value, "id");
+		public Criteria andModule_idNotEqualTo(Integer value) {
+			addCriterion("module_id <>", value, "module_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdGreaterThan(Integer value) {
-			addCriterion("id >", value, "id");
+		public Criteria andModule_idGreaterThan(Integer value) {
+			addCriterion("module_id >", value, "module_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdGreaterThanOrEqualTo(Integer value) {
-			addCriterion("id >=", value, "id");
+		public Criteria andModule_idGreaterThanOrEqualTo(Integer value) {
+			addCriterion("module_id >=", value, "module_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdLessThan(Integer value) {
-			addCriterion("id <", value, "id");
+		public Criteria andModule_idLessThan(Integer value) {
+			addCriterion("module_id <", value, "module_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdLessThanOrEqualTo(Integer value) {
-			addCriterion("id <=", value, "id");
+		public Criteria andModule_idLessThanOrEqualTo(Integer value) {
+			addCriterion("module_id <=", value, "module_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdIn(List<Integer> values) {
-			addCriterion("id in", values, "id");
+		public Criteria andModule_idIn(List<Integer> values) {
+			addCriterion("module_id in", values, "module_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdNotIn(List<Integer> values) {
-			addCriterion("id not in", values, "id");
+		public Criteria andModule_idNotIn(List<Integer> values) {
+			addCriterion("module_id not in", values, "module_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdBetween(Integer value1, Integer value2) {
-			addCriterion("id between", value1, value2, "id");
+		public Criteria andModule_idBetween(Integer value1, Integer value2) {
+			addCriterion("module_id between", value1, value2, "module_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdNotBetween(Integer value1, Integer value2) {
-			addCriterion("id not between", value1, value2, "id");
+		public Criteria andModule_idNotBetween(Integer value1, Integer value2) {
+			addCriterion("module_id not between", value1, value2, "module_id");
 			return (Criteria) this;
 		}
 

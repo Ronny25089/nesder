@@ -163,63 +163,63 @@ public class ReplyExample {
 			criteria.add(new Criterion(condition, value1, value2));
 		}
 
-		public Criteria andIdIsNull() {
-			addCriterion("id is null");
+		public Criteria andReply_idIsNull() {
+			addCriterion("reply_id is null");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdIsNotNull() {
-			addCriterion("id is not null");
+		public Criteria andReply_idIsNotNull() {
+			addCriterion("reply_id is not null");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdEqualTo(Integer value) {
-			addCriterion("id =", value, "id");
+		public Criteria andReply_idEqualTo(Integer value) {
+			addCriterion("reply_id =", value, "reply_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdNotEqualTo(Integer value) {
-			addCriterion("id <>", value, "id");
+		public Criteria andReply_idNotEqualTo(Integer value) {
+			addCriterion("reply_id <>", value, "reply_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdGreaterThan(Integer value) {
-			addCriterion("id >", value, "id");
+		public Criteria andReply_idGreaterThan(Integer value) {
+			addCriterion("reply_id >", value, "reply_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdGreaterThanOrEqualTo(Integer value) {
-			addCriterion("id >=", value, "id");
+		public Criteria andReply_idGreaterThanOrEqualTo(Integer value) {
+			addCriterion("reply_id >=", value, "reply_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdLessThan(Integer value) {
-			addCriterion("id <", value, "id");
+		public Criteria andReply_idLessThan(Integer value) {
+			addCriterion("reply_id <", value, "reply_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdLessThanOrEqualTo(Integer value) {
-			addCriterion("id <=", value, "id");
+		public Criteria andReply_idLessThanOrEqualTo(Integer value) {
+			addCriterion("reply_id <=", value, "reply_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdIn(List<Integer> values) {
-			addCriterion("id in", values, "id");
+		public Criteria andReply_idIn(List<Integer> values) {
+			addCriterion("reply_id in", values, "reply_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdNotIn(List<Integer> values) {
-			addCriterion("id not in", values, "id");
+		public Criteria andReply_idNotIn(List<Integer> values) {
+			addCriterion("reply_id not in", values, "reply_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdBetween(Integer value1, Integer value2) {
-			addCriterion("id between", value1, value2, "id");
+		public Criteria andReply_idBetween(Integer value1, Integer value2) {
+			addCriterion("reply_id between", value1, value2, "reply_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andIdNotBetween(Integer value1, Integer value2) {
-			addCriterion("id not between", value1, value2, "id");
+		public Criteria andReply_idNotBetween(Integer value1, Integer value2) {
+			addCriterion("reply_id not between", value1, value2, "reply_id");
 			return (Criteria) this;
 		}
 

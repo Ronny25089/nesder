@@ -190,66 +190,6 @@ public class AccountExample {
 			addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
 		}
 
-		public Criteria andIdIsNull() {
-			addCriterion("id is null");
-			return (Criteria) this;
-		}
-
-		public Criteria andIdIsNotNull() {
-			addCriterion("id is not null");
-			return (Criteria) this;
-		}
-
-		public Criteria andIdEqualTo(Integer value) {
-			addCriterion("id =", value, "id");
-			return (Criteria) this;
-		}
-
-		public Criteria andIdNotEqualTo(Integer value) {
-			addCriterion("id <>", value, "id");
-			return (Criteria) this;
-		}
-
-		public Criteria andIdGreaterThan(Integer value) {
-			addCriterion("id >", value, "id");
-			return (Criteria) this;
-		}
-
-		public Criteria andIdGreaterThanOrEqualTo(Integer value) {
-			addCriterion("id >=", value, "id");
-			return (Criteria) this;
-		}
-
-		public Criteria andIdLessThan(Integer value) {
-			addCriterion("id <", value, "id");
-			return (Criteria) this;
-		}
-
-		public Criteria andIdLessThanOrEqualTo(Integer value) {
-			addCriterion("id <=", value, "id");
-			return (Criteria) this;
-		}
-
-		public Criteria andIdIn(List<Integer> values) {
-			addCriterion("id in", values, "id");
-			return (Criteria) this;
-		}
-
-		public Criteria andIdNotIn(List<Integer> values) {
-			addCriterion("id not in", values, "id");
-			return (Criteria) this;
-		}
-
-		public Criteria andIdBetween(Integer value1, Integer value2) {
-			addCriterion("id between", value1, value2, "id");
-			return (Criteria) this;
-		}
-
-		public Criteria andIdNotBetween(Integer value1, Integer value2) {
-			addCriterion("id not between", value1, value2, "id");
-			return (Criteria) this;
-		}
-
 		public Criteria andAccount_idIsNull() {
 			addCriterion("account_id is null");
 			return (Criteria) this;
@@ -260,62 +200,52 @@ public class AccountExample {
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_idEqualTo(String value) {
+		public Criteria andAccount_idEqualTo(Integer value) {
 			addCriterion("account_id =", value, "account_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_idNotEqualTo(String value) {
+		public Criteria andAccount_idNotEqualTo(Integer value) {
 			addCriterion("account_id <>", value, "account_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_idGreaterThan(String value) {
+		public Criteria andAccount_idGreaterThan(Integer value) {
 			addCriterion("account_id >", value, "account_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_idGreaterThanOrEqualTo(String value) {
+		public Criteria andAccount_idGreaterThanOrEqualTo(Integer value) {
 			addCriterion("account_id >=", value, "account_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_idLessThan(String value) {
+		public Criteria andAccount_idLessThan(Integer value) {
 			addCriterion("account_id <", value, "account_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_idLessThanOrEqualTo(String value) {
+		public Criteria andAccount_idLessThanOrEqualTo(Integer value) {
 			addCriterion("account_id <=", value, "account_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_idLike(String value) {
-			addCriterion("account_id like", value, "account_id");
-			return (Criteria) this;
-		}
-
-		public Criteria andAccount_idNotLike(String value) {
-			addCriterion("account_id not like", value, "account_id");
-			return (Criteria) this;
-		}
-
-		public Criteria andAccount_idIn(List<String> values) {
+		public Criteria andAccount_idIn(List<Integer> values) {
 			addCriterion("account_id in", values, "account_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_idNotIn(List<String> values) {
+		public Criteria andAccount_idNotIn(List<Integer> values) {
 			addCriterion("account_id not in", values, "account_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_idBetween(String value1, String value2) {
+		public Criteria andAccount_idBetween(Integer value1, Integer value2) {
 			addCriterion("account_id between", value1, value2, "account_id");
 			return (Criteria) this;
 		}
 
-		public Criteria andAccount_idNotBetween(String value1, String value2) {
+		public Criteria andAccount_idNotBetween(Integer value1, Integer value2) {
 			addCriterion("account_id not between", value1, value2, "account_id");
 			return (Criteria) this;
 		}

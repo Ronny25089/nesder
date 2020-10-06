@@ -2,6 +2,7 @@ package com.nesder.dao.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 public class FllowAccountExample {
     /**
@@ -279,6 +280,66 @@ public class FllowAccountExample {
 
 		public Criteria andFllower_idNotBetween(Integer value1, Integer value2) {
 			addCriterion("fllower_id not between", value1, value2, "fllower_id");
+			return (Criteria) this;
+		}
+
+		public Criteria andCreate_dateIsNull() {
+			addCriterion("create_date is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andCreate_dateIsNotNull() {
+			addCriterion("create_date is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andCreate_dateEqualTo(Date value) {
+			addCriterion("create_date =", value, "create_date");
+			return (Criteria) this;
+		}
+
+		public Criteria andCreate_dateNotEqualTo(Date value) {
+			addCriterion("create_date <>", value, "create_date");
+			return (Criteria) this;
+		}
+
+		public Criteria andCreate_dateGreaterThan(Date value) {
+			addCriterion("create_date >", value, "create_date");
+			return (Criteria) this;
+		}
+
+		public Criteria andCreate_dateGreaterThanOrEqualTo(Date value) {
+			addCriterion("create_date >=", value, "create_date");
+			return (Criteria) this;
+		}
+
+		public Criteria andCreate_dateLessThan(Date value) {
+			addCriterion("create_date <", value, "create_date");
+			return (Criteria) this;
+		}
+
+		public Criteria andCreate_dateLessThanOrEqualTo(Date value) {
+			addCriterion("create_date <=", value, "create_date");
+			return (Criteria) this;
+		}
+
+		public Criteria andCreate_dateIn(List<Date> values) {
+			addCriterion("create_date in", values, "create_date");
+			return (Criteria) this;
+		}
+
+		public Criteria andCreate_dateNotIn(List<Date> values) {
+			addCriterion("create_date not in", values, "create_date");
+			return (Criteria) this;
+		}
+
+		public Criteria andCreate_dateBetween(Date value1, Date value2) {
+			addCriterion("create_date between", value1, value2, "create_date");
+			return (Criteria) this;
+		}
+
+		public Criteria andCreate_dateNotBetween(Date value1, Date value2) {
+			addCriterion("create_date not between", value1, value2, "create_date");
 			return (Criteria) this;
 		}
 	}

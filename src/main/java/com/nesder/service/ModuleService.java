@@ -67,7 +67,7 @@ public class ModuleService {
 	public int updateModule(AddModule modle) {
 		//request data to DAO entity
 		Module module = new Module();
-		module.setId(modle.getId());
+		module.setModule_id(modle.getId());
 		module.setMname(modle.getmName());
 		module.setIntroduction(modle.getIntroduction());
 		module.setCreated_account(modle.getCreated_account());		

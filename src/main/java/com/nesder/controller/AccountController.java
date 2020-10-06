@@ -25,6 +25,8 @@ public class AccountController {
 	public ApiResponse listUser() {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(accountService.findAll());
+		apiResponse.setStatusCode(00);;
+		apiResponse.setMsg("这是一个响应");
 		return apiResponse;
 	}
 

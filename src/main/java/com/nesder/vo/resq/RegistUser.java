@@ -6,8 +6,6 @@ public class RegistUser {
 	
 	private int id;
 	
-	private String account_id;
-
 	private String role;
 
 	private String password;
@@ -30,14 +28,6 @@ public class RegistUser {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getAccount_id() {
-		return account_id;
-	}
-
-	public void setAccount_id(String account_id) {
-		this.account_id = account_id;
 	}
 
 	public String getRole() {

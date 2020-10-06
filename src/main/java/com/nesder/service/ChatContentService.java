@@ -58,7 +58,7 @@ public class ChatContentService {
 	public int updateChatContent(AddChatContent chatcontent1) {
 		// request data to DAO entity
 		ChatContent chatContent = new ChatContent();
-		chatContent.setId(chatcontent1.getId());
+		chatContent.setChat_content_id(chatcontent1.getId());
 		chatContent.setContent(chatcontent1.getContent());
 		chatContent.setChat_group_id(chatcontent1.getChat_Group_Id());
 		chatContent.setCreated_account(chatcontent1.getCreated_account());
