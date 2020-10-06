@@ -172,7 +172,7 @@ create trigger T_Article before update on Article for each row execute procedure
 create table Article_Mark(
 	AID int NOT NULL,--文章id
 	UID int NOT NULL,--创建者id
-  Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 	-- FOREIGN KEY(AID) references Article(Id) ON DELETE CASCADE,
 	-- FOREIGN KEY(UID) references Account(Id) ON DELETE CASCADE
 );
@@ -207,9 +207,9 @@ create trigger T2_Reply before update on Reply_2_Reply for each row execute proc
 
 --浏览记录
 create table Browse_History(
-  UID int NOT NULL primary key, --用户id
-	AID int NOT NULL primary key--文章id
-	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  	UID int NOT NULL , --用户id
+	AID int NOT NULL ,--文章id
+	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 	-- FOREIGN KEY(UID) references Account(Id) ON DELETE CASCADE,
 	-- FOREIGN KEY(AID) references Article(Id) ON DELETE CASCADE
 );
@@ -218,20 +218,20 @@ create table Browse_History(
 --聊天组
 create table Chat_Group(
 	Chat_Group_Id int DEFAULT nextval('public.Chat_Group_Id'::regclass) primary key,
-  Created_Account int NOT NULL primary key,
+  Created_Account int NOT NULL,
 	Group_Account_Type int NOT NULL,
 	GName varchar NOT NULL,
 	Introduction varchar NOT NULL,
 	AvatorUrl varchar NOT NULL,
-	Chat_Type int NOT NULL DEFAULT 0--0:私聊  1:群聊
-  Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	Chat_Type int NOT NULL DEFAULT 0,--0:私聊  1:群聊
+  	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 	-- FOREIGN KEY(Created_Account) references Account(Id) ON DELETE CASCADE
 );
 
 --单条聊天内容
 create table Chat_Content(
 	Chat_Content_Id int DEFAULT nextval('public.Chat_Content_Id'::regclass) primary key,
-  Chat_Group_Id int NOT NULL primary key,
+  	Chat_Group_Id int NOT NULL,
 	Content text NOT NULL,
 	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	Created_Account int NOT NULL
