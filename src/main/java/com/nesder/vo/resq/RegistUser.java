@@ -103,6 +103,4 @@ public class RegistUser {
 	public void setAvatarurl(String avatarurl) {
 		this.avatarurl = avatarurl;
 	}
-
-
 }
