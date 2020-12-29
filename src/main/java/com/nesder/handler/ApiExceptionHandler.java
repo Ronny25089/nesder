@@ -22,7 +22,6 @@ public class ApiExceptionHandler {
 		LOG.error("ApiExceptionHandler", exception);
 
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setStatusCode(500);
 		apiResponse.setMsg("Exception");
 		apiResponse.setData(exception.getClass());
 		return apiResponse;

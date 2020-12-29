@@ -70,6 +70,8 @@ public class AccountService implements UserDetailsService {
 	 * @return
 	 */
 	public int delete(int id) {
+		
+		
 		return accountMapper.deleteByPrimaryKey(id);
 	}
 

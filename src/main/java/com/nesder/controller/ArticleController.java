@@ -30,6 +30,7 @@ public class ArticleController {
 	
 	@PostMapping("/add")
 	public ApiResponse addArticle(@RequestBody AddArticle article1) {
+		
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(ArticleService.addAticleInfo(article1));
 		return apiResponse;

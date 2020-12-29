@@ -99,6 +99,7 @@ create table apikey(
 	Account_Id int NOT NULL,
 	ApiKey varchar NOT NULL,
   Authority_key varchar NOT NULL,
+  remarck varchar,
 	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 --ALTER TABLE Account ALTER COLUMN Id SET DEFAULT nextval('public.Account_Id'::regclass);
@@ -238,3 +239,7 @@ create table Chat_Content(
 	-- FOREIGN KEY(Created_Account) references Account(Id) ON DELETE CASCADE,
 	-- FOREIGN KEY(Chat_Group_Id) references Chat_Group(Id) ON DELETE CASCADE
 );
+
+INSERT INTO public.apikey(
+	account_id, apikey, authority_key, remarck)
+	VALUES ( 9999, 9999, '127001', '共同apikey');

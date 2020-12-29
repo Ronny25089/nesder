@@ -14,30 +14,29 @@ import com.nesder.vo.resp.ApiResponse;
 import com.nesder.vo.resq.RegistUser;
 
 @RestController
-@RequestMapping("/nesder")
+@RequestMapping("/nesder/account")
 public class AccountController {
 
 	@Autowired
 	private AccountService accountService;
 
 //	@RequestMapping(value = "/accounts", method = RequestMethod.GET)
-	@GetMapping("/account/all")
+	@GetMapping("/all")
 	public ApiResponse listUser() {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(accountService.findAll());
-		apiResponse.setStatusCode(00);;
 		apiResponse.setMsg("这是一个响应");
 		return apiResponse;
 	}
 
-	@DeleteMapping("/account/{id}")
+	@DeleteMapping("/{id}")
 	public ApiResponse delete(@PathVariable("id") Integer id) {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(accountService.delete(id));
 		return apiResponse;
 	}
 	
-	@PutMapping("/account")
+	@PutMapping("/update")
 	public ApiResponse updateModule(@RequestBody RegistUser model) {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(accountService.updateAccount(model));

@@ -48,7 +48,6 @@ public class JWTBasicAuthenticationFilter extends BasicAuthenticationFilter {
 			response.setContentType("application/json; charset=utf-8");
 			response.setStatus(HttpServletResponse.SC_FORBIDDEN);
 			ApiResponse apiResponse = new ApiResponse();
-			apiResponse.setStatusCode(500);
 			apiResponse.setMsg( "统一处理，原因：" + e.getMessage());
 			apiResponse.setData(e.getClass());
 			String reason = "统一处理，原因：" + e.getMessage();

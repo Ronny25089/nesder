@@ -1,32 +1,34 @@
 package com.nesder.vo.resp;
 
+import com.nesder.constant.CONSTANT;
+
 public class ApiResponse {
 
-	private int statusCode = 200;
+	private String statusCode = CONSTANT.SUCCESS_CODE;
 
 	private String Msg = "success";
 
 	private Object data;
-
-	/**
-	 * @return statusCode
-	 */
-	public int getStatusCode() {
-		return statusCode;
-	}
-
-	/**
-	 * @param statusCode 設定する statusCode
-	 */
-	public void setStatusCode(int statusCode) {
-		this.statusCode = statusCode;
-	}
-
+	
 	/**
 	 * @return msg
 	 */
 	public String getMsg() {
 		return Msg;
+	}
+
+	/**
+	 * @return the statusCode
+	 */
+	public String getStatusCode() {
+		return statusCode;
+	}
+
+	/**
+	 * @param statusCode the statusCode to set
+	 */
+	public void setStatusCode(String statusCode) {
+		this.statusCode = statusCode;
 	}
 
 	/**
