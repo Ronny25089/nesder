@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+  <!-- local file -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" type="image/x-icon" href="favicon_io/android-chrome-512x512.png" />
+
+  <title>NESDER</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">
+      <img src="favicon_io/android-chrome-512x512.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      NESDER
+    </a>
+    <a class="navbar-brand" href="#">首页</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ml-5 border-success active ml-5">
+          <a class="nav-link mx-3" href="#">板块A <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item border-left border-success">
+          <a class="nav-link mx-3" href="#">板块B</a>
+        </li>
+        <li class="nav-item border-left border-success">
+          <a class="nav-link mx-3" href="#">板块C</a>
+        </li>
+        <li class="nav-item border-left border-success">
+          <a class="nav-link mx-3" href="#">板块D</a>
+        </li>
+        <li class="nav-item border-left border-success">
+          <a class="nav-link mx-3" href="#">板块E</a>
+        </li>
+      </ul>
+      <form class="form-inline my-1 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="🔍" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">
+          搜索
+        </button>
+      </form>
+      <button type="button" class="btn btn-secondary ml-3 li-modal" href="page/login.html">
+        登录
+      </button>
+      <button id="regist" type="button" class="btn btn-success ml-3 li-modal" href="page/sign.html">
+        注册
+      </button>
+    </div>
+  </nav>
+
+  <div class="jumbotron  text-success">
+    <h1 class="display-4">NESDER</h1>
+    <p class="lead">自学项目---前后端分离</p>
+    <hr class="my-4">
+    <p>后端使用spring-mybatis，<br>
+      前端使用bootstrap的css样式和原生JS构造。</p>
+    <a class="btn btn-success btn-lg" href="#" role="button">Learn more</a>
+  </div>
+  <div class="container pt-3">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action border border-success mt-3 list-group-item-success">全部资讯</a>
+            <a href="#" class="list-group-item list-group-item-action border border-success mt-3">频道A</a>
+            <a href="#" class="list-group-item list-group-item-action border border-success mt-3">频道B</a>
+            <a href="#" class="list-group-item list-group-item-action border border-success mt-3">频道C</a>
+            <a href="#" class="list-group-item list-group-item-action border border-success mt-3">频道D</a>
+            <a href="#" class="list-group-item list-group-item-action border border-success mt-3">频道E</a>
+            <a href="#" class="list-group-item list-group-item-action border border-success mt-3">频道F</a>
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="card mb-5 p-3">
+            <div class="form-group mr-5">
+              <label for="exampleFormControlTextarea1">内容</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="d-flex flex-row-reverse bd-highlight">
+              <button type="button" class="btn list-group-item-success border-success wd-25">
+                发布
+              </button>
+            </div>
+          </div>
+
+          <div class="card my-3">
+            <div class="row">
+              <div class="col-1 mx-1">
+                <img src="https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375_1280.png" class="avatar-wrapper">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <small>YYYY/MM/DD hh:mm</small>
+              </div>
+            </div>
+            <div class="btn-group btn-group-sm" role="group">
+              <button type="button" class="btn btn-light text-success">
+                <i class="bi bi-chat-left-text"></i>
+                <small>XXX</small>
+              </button>
+              <button type="button" class="btn btn-light text-success border-left">
+                <i class="bi bi-heart"></i>
+                <small>XXX</small>
+              </button>
+              <button type="button" class="btn btn-light text-success border-left">
+                <i class="bi bi-star"></i>
+                <small>XXX</small>
+              </button>
+            </div>
+          </div>
+
+          <div class="card my-3">
+            <div class="row">
+              <div class="col-1 mx-1">
+                <img src="https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375_1280.png" class="avatar-wrapper">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <small>YYYY/MM/DD hh:mm</small>
+              </div>
+            </div>
+            <div class="btn-group btn-group-sm" role="group">
+              <button type="button" class="btn btn-light text-success">
+                <i class="bi bi-chat-left-text"></i>
+                <small>XXX</small>
+              </button>
+              <button type="button" class="btn btn-light text-success border-left">
+                <i class="bi bi-heart"></i>
+                <small>XXX</small>
+              </button>
+              <button type="button" class="btn btn-light text-success border-left">
+                <i class="bi bi-star"></i>
+                <small>XXX</small>
+              </button>
+            </div>
+          </div>
+
+          <div class="card my-3">
+            <div class="row">
+              <div class="col-1 mx-1">
+                <img src="https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375_1280.png" class="avatar-wrapper">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <small>YYYY/MM/DD hh:mm</small>
+              </div>
+            </div>
+            <div class="btn-group btn-group-sm" role="group">
+              <button type="button" class="btn btn-light text-success">
+                <i class="bi bi-chat-left-text"></i>
+                <small>XXX</small>
+              </button>
+              <button type="button" class="btn btn-light text-success border-left">
+                <i class="bi bi-heart"></i>
+                <small>XXX</small>
+              </button>
+              <button type="button" class="btn btn-light text-success border-left">
+                <i class="bi bi-star"></i>
+                <small>XXX</small>
+              </button>
+            </div>
+          </div>
+
+          <div class="card my-3">
+            <div class="row">
+              <div class="col-1 mx-1">
+                <img src="https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375_1280.png" class="avatar-wrapper">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <small>YYYY/MM/DD hh:mm</small>
+              </div>
+            </div>
+            <div class="btn-group btn-group-sm" role="group">
+              <button type="button" class="btn btn-light text-success">
+                <i class="bi bi-chat-left-text"></i>
+                <small>XXX</small>
+              </button>
+              <button type="button" class="btn btn-light text-success border-left">
+                <i class="bi bi-heart"></i>
+                <small>XXX</small>
+              </button>
+              <button type="button" class="btn btn-light text-success border-left">
+                <i class="bi bi-star"></i>
+                <small>XXX</small>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-light text-center text-lg-start mt-5">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: #8ad2bd">
+      © 2021 Copyright:
+      <a class="text-dark" href="https://v4.bootcss.com/">Bootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+  <!-- theModal -->
+  <div id="theModal" class="modal fade">
+    <div class="modal-dialog  w-25">
+      <div class="modal-content">
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  <!-- Moment.js -->
+  <!-- moment.min.jsの方が上 -->
+  <!-- moment-with-locales.min.jsの方が下 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js" integrity="sha256-AdQN98MVZs44Eq2yTwtoKufhnU+uZ7v2kXnD5vqzZVo=" crossorigin="anonymous"></script>
+
+  <!-- Tempus Dominus -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+
+  <!-- Font Awesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+
+  <script src="js/home.js"></script>
+</body>
+
+</html>
