@@ -1,6 +1,6 @@
 package com.nesder.vo.resp;
 
-import com.nesder.constant.CONSTANT;
+import com.nesder.utils.CONSTANT;
 
 public class ApiResponse {
 

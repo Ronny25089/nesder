@@ -1,4 +1,4 @@
-package com.nesder.constant;
+package com.nesder.utils;
 
 public class CONSTANT {
 	

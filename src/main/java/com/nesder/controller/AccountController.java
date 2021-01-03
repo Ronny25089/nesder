@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,10 @@ public class AccountController {
 		apiResponse.setMsg("这是一个响应");
 		return apiResponse;
 	}
+	@PostMapping("/add")
+	public ApiResponse addAccount(@RequestBody RegistUser accountRegistUser) {
+		return accountService.applications(accountRegistUser);
+	}	
 
 	@DeleteMapping("/{id}")
 	public ApiResponse delete(@PathVariable("id") Integer id) {
