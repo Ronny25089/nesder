@@ -34,6 +34,11 @@ public class AccountController {
 		return accountService.applications(accountRegistUser);
 	}	
 
+	@PostMapping("/sign")
+	public ApiResponse signAccount(@RequestBody RegistUser accountRegistUser) {
+		return accountService.signAccount(accountRegistUser);
+	}	
+	
 	@DeleteMapping("/{id}")
 	public ApiResponse delete(@PathVariable("id") Integer id) {
 		ApiResponse apiResponse = new ApiResponse();

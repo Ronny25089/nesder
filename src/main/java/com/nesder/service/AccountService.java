@@ -1,9 +1,7 @@
 package com.nesder.service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,20 +20,15 @@ import com.nesder.utils.PropertiesUtil;
 import com.nesder.vo.resp.ApiResponse;
 import com.nesder.vo.resq.RegistUser;
 
-import io.netty.util.internal.StringUtil;
-
 @Service
 @Transactional
 public class AccountService implements UserDetailsService {
 
 	@Autowired
 	private AccountMapper accountMapper;
-	
-	
-	@Autowired	
+
+	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-    //属性文件的路径 
-    static String profilepath="message.properties"; 
 
 	/**
 	 * get a record by id
@@ -55,7 +48,7 @@ public class AccountService implements UserDetailsService {
 	public List<Account> findAll() {
 		return accountMapper.selectByExample(null);
 	}
-	
+
 	/**
 	 * 
 	 * @param user
@@ -74,89 +67,93 @@ public class AccountService implements UserDetailsService {
 		return accountMapper.insertSelective(account);
 	}
 	
-	 /**
-	  * アカウント申込処理
-	  * @param applicationUserInfo
-	  * @return
-	  */
+	/**
+	 * 用户注册
+	 * 
+	 * @param applicationUserInfo
+	 * @return
+	 */
 	public ApiResponse applications(RegistUser applicationUserInfo) {
 		ApiResponse apiResponse = new ApiResponse();
-		if(this.userInfoCheck(applicationUserInfo)) {
-			if(this.insertAccount(applicationUserInfo)<0) {
-				apiResponse.setStatusCode(CONSTANT.SUCCESS_CODE);
-				apiResponse.setData("1");
-				apiResponse.setMsg(PropertiesUtil.getEnvConfig("dbFailed"));
+		try {
+			List<String> errMsgs = this.userInfoCheck(applicationUserInfo);
+			if (errMsgs.size() == 0) {
+				if (this.insertAccount(applicationUserInfo) > 0) {
+					apiResponse.setStatusCode(CONSTANT.SUCCESS_CODE);
+					apiResponse.setData("1");
+					apiResponse.setMsg(PropertiesUtil.getEnvConfig("ERR.002"));
 
-			}else {
+				}
+			} else {
 				apiResponse.setStatusCode(CONSTANT.INPUT_ERR_CODE);
-				apiResponse.setMsg(PropertiesUtil.getEnvConfig("dbFailed"));
+				apiResponse.setData(errMsgs);
+				apiResponse.setMsg(PropertiesUtil.getEnvConfig("ERR.003"));
+
 			}
+		} catch (Exception e) {
+			apiResponse.setStatusCode(CONSTANT.INPUT_ERR_CODE);
+			apiResponse.setMsg(PropertiesUtil.getEnvConfig("ERR.000"));
 		}
 		return apiResponse;
 	}
 
 	/**
-	 * 
+	 * 用户注册check
 	 * @param user
 	 * @return
 	 */
-	public boolean userInfoCheck(RegistUser user) {
-		try{
-			if(!(null==user)) {
-				this.checkNickName(user.getNick_name());
-				this.checkEmailFormat(user.getEmail());
-				this.checkpassword(user.getPassword());
-			}
-		}catch (Exception e){
-			System.out.println("処理失敗しました。");
+	public List<String> userInfoCheck(RegistUser user) {
+		List<String> msgList = new ArrayList<String>();
+		AccountExample accountExample = new AccountExample();
+		// 用户名check
+		if (user.getNick_name().isEmpty()) {
+			msgList.add(PropertiesUtil.getEnvConfig("ERR.004"));
 		}
-		return true;
+		accountExample.createCriteria().andNick_nameEqualTo(user.getNick_name());
+		List<Account> accountList1 = accountMapper.selectByExample(accountExample);
+		if (!accountList1.isEmpty()) {
+			msgList.add(PropertiesUtil.getEnvConfig("ERR.008"));
+		}
+		// 邮箱check
+		if (user.getEmail().isEmpty()) {
+			msgList.add(PropertiesUtil.getEnvConfig("ERR.005"));
+		}
+		accountExample.createCriteria().andEmailEqualTo(user.getEmail());
+		List<Account> accountList2 = accountMapper.selectByExample(accountExample);
+		if (!accountList2.isEmpty()) {
+			msgList.add(PropertiesUtil.getEnvConfig("ERR.007"));
+		}
+		// 密码check
+		if (user.getPassword().isEmpty()) {
+			msgList.add(PropertiesUtil.getEnvConfig("ERR.006"));
+		}
+		return msgList;
 	}
 	
 	/**
-	 * ユーザ名チェック
+	 * 登陆处理
+	 * @param user
+	 * @return
 	 */
-	private boolean checkNickName(String nickName) {
-		AccountExample accountExample=new AccountExample();
-		if(nickName != null && nickName.length() != 0){
-			accountExample.createCriteria().andNick_nameLike(nickName);
-			List<Account> accountList=accountMapper.selectByExample(accountExample);
-			if(accountList.isEmpty()) {
-				return true;
-			}
+	public ApiResponse signAccount(RegistUser user) {
+		ApiResponse apiResponse = new ApiResponse();
+		AccountExample accountExample = new AccountExample();
+		List<String> msgList = new ArrayList<String>();
+		accountExample.createCriteria().andEmailEqualTo(user.getEmail()).andPasswordEqualTo(user.getPassword());
+		List<Account> accountList = accountMapper.selectByExample(accountExample);
+		if (!accountList.isEmpty()) {
+			msgList.add(user.getEmail());
+			msgList.add(user.getPassword());
+			apiResponse.setStatusCode(CONSTANT.SUCCESS_CODE);
+			apiResponse.setData(msgList);
+		} else {
+			apiResponse.setStatusCode(CONSTANT.INPUT_ERR_CODE);
+			apiResponse.setMsg(PropertiesUtil.getEnvConfig("ERR.009"));
 		}
-		return false;
+
+		return apiResponse;
 	}
-	
-	/**
-	 * メールアドレスのフォーマットチェック
-	 */
-	private boolean checkEmailFormat(String email) {
-		AccountExample accountExample=new AccountExample();
-		if(!StringUtil.isNullOrEmpty(email)){
-			accountExample.createCriteria().andEmailEqualTo(email);
-			List<Account> accountList=accountMapper.selectByExample(accountExample);
-			if(accountList.isEmpty()) {
-				return true;
-			}else {
-				String REGEX="^\\w+((-\\w+)|(\\.\\w+))*@\\w+(\\.\\w{2,3}){1,3}$";
-			    Pattern p = Pattern.compile(REGEX);    
-			    Matcher matcher=p.matcher(email);    
-			    return matcher.matches();
-			}
-		}
-		return false;
-	}
-	/**
-	 * パスワードチェック
-	 */
-	private boolean checkpassword(String password) {
-		if(!StringUtil.isNullOrEmpty(password)){
-			return true;
-		}
-		return false;
-	}
-	
+
 	/**
 	 * delete account by id
 	 * 
@@ -164,13 +161,12 @@ public class AccountService implements UserDetailsService {
 	 * @return
 	 */
 	public int delete(int id) {
-		
-		
+
 		return accountMapper.deleteByPrimaryKey(id);
 	}
 
 	/**
-	 *  insert Account
+	 * insert Account
 	 * 
 	 * @param model
 	 * @return
@@ -211,7 +207,7 @@ public class AccountService implements UserDetailsService {
 
 		return accountMapper.insertSelective(account);
 	}
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String accountId) throws UsernameNotFoundException {
 		AccountExample example = new AccountExample();
