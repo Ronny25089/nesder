@@ -1,3 +1,4 @@
+<script src="js/router.js"></script>
 <div class="modal-header bg-success text-white">
   <h5 class="modal-title">注册</h5>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -8,25 +9,25 @@
   <form>
     <div class="form-group">
       <label for="nick_name" class="ml-2 text-success">昵称</label>
-      <input type="text" class="form-control" id="nick_name" placeholder="昵称">
+      <input type="text" class="form-control" id="nick_name" placeholder="昵称" data-bind-1="nick_name">
     </div>
     <div class="form-group">
       <label for="email" class="ml-2 text-success">E-mail</label>
-      <input type="text" class="form-control" id="email" placeholder="E-mail">
+      <input type="text" class="form-control" id="email" placeholder="E-mail" data-bind-1="email">
     </div>
     <div class="form-group">
       <label for="password" class="ml-2 text-success">密码</label>
-      <input type="password" class="form-control" id="password" placeholder="密码">
+      <input type="password" class="form-control" id="password" placeholder="密码" data-bind-1="password">
     </div>
     <div class="form-group">
       <label for="gender" class="ml-2 mr-5 text-success">性别</label>
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <label class="btn btn-outline-success active">
-          <input type="radio" name="gender" id="male" autocomplete="off" checked>
+          <input type="radio" name="gender" id="male" autocomplete="off" checked data-bind-1="male">
           <i class="bi bi-emoji-sunglasses"></i> 男
         </label>
         <label class="btn btn-outline-success">
-          <input type="radio" name="gender" id="female" autocomplete="off">
+          <input type="radio" name="gender" id="female" autocomplete="off" data-bind-1="female">
           <i class="bi bi-emoji-wink"></i> 女
         </label>
       </div>
@@ -35,11 +36,11 @@
     <div class="form-group">
       <label for="birthDay" class="ml-2 text-success">生日</label>
       <div class="input-group date" id="birthDay-datepicker" data-target-input="nearest">
-        <input type="text" id="birthDay" class="form-control datetimepicker-input" data-target="#birthDay-datepicker"
-          onkeyup="value=value.replace(/[^\0-9\/]/g,'')"
-          onpaste="value=value.replace(/[^\0-9\/]/g,'')"
-          oncontextmenu = "value=value.replace(/[^\0-9\/]/g,'')"
-          />
+        <input type="text" id="birthDay" class="form-control datetimepicker-input"
+        data-target="#birthDay-datepicker" onkeyup="value=value.replace(/[^\0-9\/]/g,'')"
+        onpaste="value=value.replace(/[^\0-9\/]/g,'')"
+        oncontextmenu="value=value.replace(/[^\0-9\/]/g,'')"
+        data-bind-1="birthDay">
         <div class="input-group-append" data-target="#birthDay-datepicker" data-toggle="datetimepicker">
           <div class="input-group-text"><i class="bi bi-calendar-date"></i></div>
         </div>
@@ -47,29 +48,24 @@
     </div>
     <div class="form-group">
       <label for="info-text" class="text-success">自我简介</label>
-      <textarea class="form-control" id="info-text"></textarea>
+      <textarea class="form-control" id="info_text" data-bind-1="info_text"></textarea>
     </div>
   </form>
 </div>
+
 <div class="modal-footer col text-center">
   <div class="container-fluid">
-  <div class="row">
-    <div class="col-6">
-      <button type="button" class="btn btn-outline-secondary mr-3 btn-block" data-dismiss="modal">
-        <i class="bi bi-file-excel-fill"></i> 关闭
-      </button>
+    <div class="row">
+      <div class="col-6">
+        <button type="button" class="btn btn-outline-secondary mr-3 btn-block" data-dismiss="modal">
+          <i class="bi bi-file-excel-fill"></i> 关闭
+        </button>
+      </div>
+      <div class="col-6">
+        <button type="button" class="btn btn-outline-success mr-3 btn-block" onclick="signIn()">
+          <i class="bi bi-check2-square"></i> 注册
+        </button>
+      </div>
     </div>
-    <div class="col-6">
-      <button type="button" class="btn btn-outline-success mr-3 btn-block">
-        <i class="bi bi-check2-square"></i> 注册
-      </button>
-    </div>
-    </div>
+  </div>
 </div>
-<script type="text/javascript">
-  $('#birthDay-datepicker').datetimepicker({
-    format: 'YYYY/MM/DD',
-    locale: 'zh-CN',
-    dayViewHeaderFormat: 'YYYY年 MMM',
-  });
-</script>
