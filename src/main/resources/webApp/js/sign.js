@@ -9,5 +9,5 @@ export default () => {
 
 // 注册事件
 export const signIn = () => {
-  console.log(window.DBind.get( "email"));
+  console.log(window.DBind.get("email"));
 };

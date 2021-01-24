@@ -1,3 +1,19 @@
+# NESDER
+这是一个WEB的自学项目，采用前后端分离的方式开发的一款社交软件。
+
+后端使用spring boot和mybatis，数据库采用PostgresSQL  
+>后端服务器使用spring快速构建一个restful Web Service  
+持久层框架mybatis快速开发通往数据库的桥梁 DAO(Data Access Objects)
+
+前端使用bootstrap的css样式和原生JS构造。  
+>考虑到当前（2021年）JS框架的发展趋势，为了今后能够平滑地学习路由和双向绑定等的特性。  
+本项目在JS的实现方面，通过原生JS实现JS最流行的路由和双向绑定功能。
+
+# 如何快速导入项目
+关于本地需要安装的软件，以及项目启动的方法，请移步→
+[※SETUP](./readme/SETUP.md)
+
+---
 # Getting Started
 
 ### Reference Documentation

@@ -1,10 +1,8 @@
 import * as Sign from '../js/sign.js';
 import * as Binder from '../js/dataBinder.js'
 
-// 将双向绑定对象，暴露给window 对象
+// 将双向绑定对象，暴露给window对象,起到全局共享的作用
 window.DBind = new Binder.DBind(1);
-// 将sign对象的signIn()函数，暴露给window 对象
-window.signIn = Sign.signIn;
 
 //　共通，点击打开modal，
 //  目标路径为href所指定路径
@@ -16,6 +14,8 @@ $('.li-modal').on('click', function(e) {
     if ("sign.html".indexOf($(this).attr('href'))) {
       //初始化
       Sign.default();
+      // 将sign对象的signIn()函数，暴露给window对象
+      window.signIn = Sign.signIn;
     }
   });
 });
