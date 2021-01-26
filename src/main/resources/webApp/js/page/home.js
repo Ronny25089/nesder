@@ -1,9 +1,9 @@
-import * as commonTools from '../js/commonTools.js';
+import * as commonTools from '../commonTools.js';
 
 //模块初始化
 export default() => {
 
-    commonTools.sendAjax('POST','/nesder/module/all','',function(response){
+    commonTools.sendAjax('GET','/nesder/module/all',{},function(response){
         console.log(response)
     },function(response){
 

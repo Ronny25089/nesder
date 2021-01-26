@@ -28,7 +28,8 @@ function onHashChange(evet) {
       routerView.innerHTML = getPageComponent('page/home.html');
       break;
   }
-  import(routerView.data.moduleJs).then(()=>{
+  // 初始化该视图
+  import(routerView.data.moduleJs).then((module)=>{
     module.default();
 });
   $(window).scrollTop(0);
