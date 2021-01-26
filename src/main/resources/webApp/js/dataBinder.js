@@ -2,20 +2,20 @@
 export function DBind(uid) {
   var binder = new DataBinder(uid),
 
-    user = {
-      // 属性设置器使用数据绑定器pubSub来发布
-      attributes: {},
-      set: function(attr_name, val) {
-        this.attributes[attr_name] = val;
-        // Use the `publish` method
-        binder.publish(uid + ":input", attr_name, val, this);
-      },
-      get: function(attr_name) {
-        return this.attributes[attr_name];
-      },
+  user = {
+    // 属性设置器使用数据绑定器pubSub来发布
+    attributes: {},
+    set: function(attr_name, val) {
+      this.attributes[attr_name] = val;
+      // Use the `publish` method
+      binder.publish(uid + ":input", attr_name, val, this);
+    },
+    get: function(attr_name) {
+      return this.attributes[attr_name];
+    },
 
-      _binder: binder
-    };
+    _binder: binder
+  };
 
   // Subscribe to the PubSub
   binder.on(uid + ":input", function(evt, attr_name, new_val, initiator) {

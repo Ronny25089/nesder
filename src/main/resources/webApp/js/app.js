@@ -1,6 +1,9 @@
-import * as Sign from '../js/sign.js';
+import * as Sign from '../js/page/sign.js';
 import * as Binder from '../js/dataBinder.js'
+import * as router from '../js/router.js'
 
+//启动路由
+router.default();
 // 将双向绑定对象，暴露给window对象,起到全局共享的作用
 window.DBind = new Binder.DBind(1);
 

@@ -1,29 +1,37 @@
-// 页面加载完不会触发 hashchange，这里主动触发一次 hashchange 事件
-window.addEventListener('DOMContentLoaded', onLoad)
-// 监听路由变化
-window.addEventListener('hashchange', onHashChange)
+/********************路由********************/
+export default() => {
+  // 页面加载完不会触发 hashchange，这里主动触发一次 hashchange 事件
+  window.addEventListener('DOMContentLoaded', onHashChange);
+  // 监听路由变化
+  window.addEventListener('hashchange', onHashChange);
 
-// 路由视图
-var routerView = null
-
-function onLoad() {
-  routerView = document.querySelector('#routeView')
-  onHashChange()
+  let routerView = document.querySelector('#routeView');
+  routerView.data = {
+    moduleJs:''
+  };
 }
 
 // 路由变化时，根据路由渲染对应 UI
-function onHashChange() {
+function onHashChange(evet) {
+  // 路由视图 
+  let routerView = document.querySelector('#routeView');
   switch (location.hash) {
     case '#/home':
-      routerView.innerHTML = getPageComponent('page/home.html')
-      return
+      routerView.innerHTML = getPageComponent('page/home.html');
+      routerView.data.moduleJs = '../js/page/home.js';
+      break;
     case '#/module_A':
-      routerView.innerHTML = getPageComponent('page/module_A.html')
-      return
+      routerView.innerHTML = getPageComponent('page/module_A.html');
+      routerView.data.moduleJs = '../js/page/module_A.js';
+      break;
     default:
-      routerView.innerHTML = getPageComponent('page/home.html')
-      return
+      routerView.innerHTML = getPageComponent('page/home.html');
+      break;
   }
+  import(routerView.data.moduleJs).then(()=>{
+    module.default();
+});
+  $(window).scrollTop(0);
 }
 
 // 获取目标页面的html内容，渲染到index.html上
@@ -39,3 +47,4 @@ function getPageComponent(pageUrl) {
   });
   return result;
 }
+/********************路由********************/
