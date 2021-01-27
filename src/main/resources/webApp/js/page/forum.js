@@ -8,21 +8,20 @@ export default () => {
     success: function (response) {
       //   此处执行请求成功后的代码
       let channelEle = document.querySelector("#channel");
+      let activeClass = `list-group-item-success`;
       response.data.forEach((element, index) => {
-        let changeEle =
-          `<a href="#" class="list-group-item 
-                                list-group-item-action 
-                                border border-success 
-                                mt-3 ` 
-                                + (index == 0 ? `list-group-item-success">` : `">`)
-                                + element.name +
-          `</a>`;
-        channelEle.innerHTML += changeEle;
+        let dom = `
+          <a href="#/channel/${element.channel_id}" 
+            class="list-group-item list-group-item-action border border-success mt-3 ${activeClass}">
+            ${element.name}
+          </a>`;
+        channelEle.innerHTML += dom;
+        activeClass = ``;
       });
     },
     fail: function (status) {
       // 此处为请求失败后的代码
       console.log(response);
-    }
+    },
   });
 };
