@@ -25,16 +25,4 @@ export default () => {
       console.log(response);
     },
   });
-  commonTools.ajax({
-    url: "/nesder/module/all",
-    type: "GET",
-    success: function (response) {
-      //   此处执行请求成功后的代码
-      console.log(response);
-    },
-    fail: function (status) {
-      // 此处为请求失败后的代码
-      console.log(response);
-    }
-  });
 };
