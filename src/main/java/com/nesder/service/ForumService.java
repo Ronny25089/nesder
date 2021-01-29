@@ -15,14 +15,14 @@ import com.nesder.vo.resq.AddForum;
 public class ForumService {
 
 	@Autowired
-	private ForumMapper moduleMapper;
+	private ForumMapper forumMapper;
 
 	/**
 	 * get all record of Forum
 	 * @return
 	 */
 	public List<Forum> findAll() {
-		return moduleMapper.selectByExample(null);
+		return forumMapper.selectByExample(null);
 	}
 	
 	/**
@@ -31,7 +31,7 @@ public class ForumService {
 	 * @return
 	 */
 	public Forum getById(int id) {
-		return moduleMapper.selectByPrimaryKey(id);
+		return forumMapper.selectByPrimaryKey(id);
 	}
 
 	/**
@@ -41,12 +41,12 @@ public class ForumService {
 	 */
 	public int addForum(AddForum modle) {
 		//request data to DAO entity
-		Forum module = new Forum();
-		module.setMname(modle.getmName());
-		module.setIntroduction(modle.getIntroduction());
-		module.setCreated_account(modle.getCreated_account());
+		Forum forum = new Forum();
+		forum.setMname(modle.getmName());
+		forum.setIntroduction(modle.getIntroduction());
+		forum.setCreated_account(modle.getCreated_account());
 		
-		return moduleMapper.insertSelective(module);
+		return forumMapper.insertSelective(forum);
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class ForumService {
 	 */
 	public int deleteForum(int id) {
 		//条件
-		return moduleMapper.deleteByPrimaryKey(id);
+		return forumMapper.deleteByPrimaryKey(id);
 	}
 	
 	/**
@@ -66,12 +66,12 @@ public class ForumService {
 	 */
 	public int updateForum(AddForum modle) {
 		//request data to DAO entity
-		Forum module = new Forum();
-		module.setForum_id(modle.getId());
-		module.setMname(modle.getmName());
-		module.setIntroduction(modle.getIntroduction());
-		module.setCreated_account(modle.getCreated_account());		
+		Forum forum = new Forum();
+		forum.setForum_id(modle.getId());
+		forum.setMname(modle.getmName());
+		forum.setIntroduction(modle.getIntroduction());
+		forum.setCreated_account(modle.getCreated_account());		
 		
-		return moduleMapper.updateByPrimaryKeySelective(module);
+		return forumMapper.updateByPrimaryKeySelective(forum);
 	}
 }

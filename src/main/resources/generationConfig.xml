@@ -44,7 +44,7 @@
 			<property name="useActualColumnNames" value="true" />
 		</table>
 
-		<table schema="public" tableName="Module">
+		<table schema="public" tableName="Forum">
 			<property name="useActualColumnNames" value="true" />
 		</table>
 

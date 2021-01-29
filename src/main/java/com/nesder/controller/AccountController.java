@@ -47,7 +47,7 @@ public class AccountController {
 	}
 	
 	@PutMapping("/update")
-	public ApiResponse updateModule(@RequestBody RegistUser model) {
+	public ApiResponse updateForum(@RequestBody RegistUser model) {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(accountService.updateAccount(model));
 		return apiResponse;

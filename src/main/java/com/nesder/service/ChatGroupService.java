@@ -18,7 +18,7 @@ public class ChatGroupService {
 	private ChatGroupMapper chatgroupMapper;
 
 	/**
-	 * get all record of Module
+	 * get all record of Forum
 	 * @return
 	 */
 	public List<ChatGroup> findAll() {

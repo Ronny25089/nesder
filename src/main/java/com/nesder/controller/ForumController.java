@@ -10,49 +10,49 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nesder.service.ModuleService;
+import com.nesder.service.ForumService;
 import com.nesder.vo.resp.ApiResponse;
-import com.nesder.vo.resq.AddModule;
+import com.nesder.vo.resq.AddForum;
 
 @RestController
 @RequestMapping("/nesder")
-public class ModuleController {
+public class ForumController {
 
 	@Autowired
-	private ModuleService moduleService;
+	private ForumService forumService;
 
-	@GetMapping("/module/all")
+	@GetMapping("/forum/all")
 	public ApiResponse listUser() {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(moduleService.findAll());
+		apiResponse.setData(forumService.findAll());
 		return apiResponse;
 	}
 	
-	@GetMapping("/module")
-	public ApiResponse getModule(@PathVariable("id") Integer id) {
+	@GetMapping("/forum")
+	public ApiResponse getForum(@PathVariable("id") Integer id) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(moduleService.getById(id));
+		apiResponse.setData(forumService.getById(id));
 		return apiResponse;
 	}
 
-	@PostMapping("/module")
-	public ApiResponse addModule(@RequestBody AddModule mode) {
+	@PostMapping("/forum")
+	public ApiResponse addForum(@RequestBody AddForum mode) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(moduleService.addModule(mode));
+		apiResponse.setData(forumService.addForum(mode));
 		return apiResponse;
 	}
 
-	@DeleteMapping("/module/{id}")
+	@DeleteMapping("/forum/{id}")
 	public ApiResponse delete(@PathVariable("id") Integer id) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(moduleService.deleteModule(id));
+		apiResponse.setData(forumService.deleteForum(id));
 		return apiResponse;
 	}
 	
-	@PutMapping("/module")
-	public ApiResponse updateModule(@RequestBody AddModule mode) {
+	@PutMapping("/forum")
+	public ApiResponse updateForum(@RequestBody AddForum mode) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(moduleService.updateModule(mode));
+		apiResponse.setData(forumService.updateForum(mode));
 		return apiResponse;
 	}
 }
