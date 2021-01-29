@@ -36,7 +36,7 @@ public class ArticleExample {
      * @mbg.generated
      */
     public ArticleExample() {
-        oredCriteria = new ArrayList<Criteria>();
+        oredCriteria = new ArrayList<>();
     }
 
     /**
@@ -159,7 +159,7 @@ public class ArticleExample {
 
         protected GeneratedCriteria() {
             super();
-            criteria = new ArrayList<Criterion>();
+            criteria = new ArrayList<>();
         }
 
         public boolean isValid() {
@@ -322,66 +322,6 @@ public class ArticleExample {
 
         public Criteria andTitleNotBetween(String value1, String value2) {
             addCriterion("title not between", value1, value2, "title");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarksIsNull() {
-            addCriterion("marks is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarksIsNotNull() {
-            addCriterion("marks is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarksEqualTo(Integer value) {
-            addCriterion("marks =", value, "marks");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarksNotEqualTo(Integer value) {
-            addCriterion("marks <>", value, "marks");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarksGreaterThan(Integer value) {
-            addCriterion("marks >", value, "marks");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarksGreaterThanOrEqualTo(Integer value) {
-            addCriterion("marks >=", value, "marks");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarksLessThan(Integer value) {
-            addCriterion("marks <", value, "marks");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarksLessThanOrEqualTo(Integer value) {
-            addCriterion("marks <=", value, "marks");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarksIn(List<Integer> values) {
-            addCriterion("marks in", values, "marks");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarksNotIn(List<Integer> values) {
-            addCriterion("marks not in", values, "marks");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarksBetween(Integer value1, Integer value2) {
-            addCriterion("marks between", value1, value2, "marks");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarksNotBetween(Integer value1, Integer value2) {
-            addCriterion("marks not between", value1, value2, "marks");
             return (Criteria) this;
         }
 
@@ -823,7 +763,6 @@ public class ArticleExample {
      * @mbg.generated do_not_delete_during_merge
      */
     public static class Criteria extends GeneratedCriteria {
-
         protected Criteria() {
             super();
         }

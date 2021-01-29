@@ -104,7 +104,6 @@ function hashGo(evet) {
   // 未匹配到路由
   if (routerList.length == 0) {
     location.hash = "404";
-    window.referrer = "";
     return;
   }
 
@@ -112,7 +111,7 @@ function hashGo(evet) {
   // 否则视为第一次访问，渲染所有匹配到的节点
   if (window.referrer !== "") {
     // 只留最后一个节点
-    routerList.slice(-1).pop();
+    routerList = routerList.slice(routerList.length -1);
   }
 
   // 渲染routerList下的所有节点
@@ -136,7 +135,10 @@ function hashGo(evet) {
     });
 
     // 初始化滚动条位置
-    $(window).scrollTop(0);
+    let containerTop = document.querySelector(".container.pt-3").offsetTop;
+    let navHeight = document.querySelector(".navbar").clientHeight;
+
+    $(window).scrollTop(containerTop - navHeight);
   }
 
   //将当前hash，保存到referrer中
@@ -191,7 +193,7 @@ function matchRouter(currentList, resultList, routerView) {
  * @param pageUrl 目标路径
  * @returns String HTML文本
  */
-function getPageComponent(pageUrl) {
+export function getPageComponent(pageUrl) {
   let result;
   $.ajax({
     url: pageUrl,

@@ -37,7 +37,7 @@ public class ForumExample {
      * @mbg.generated
      */
     public ForumExample() {
-        oredCriteria = new ArrayList<Criteria>();
+        oredCriteria = new ArrayList<>();
     }
 
     /**
@@ -160,7 +160,7 @@ public class ForumExample {
 
         protected GeneratedCriteria() {
             super();
-            criteria = new ArrayList<Criterion>();
+            criteria = new ArrayList<>();
         }
 
         public boolean isValid() {
@@ -207,7 +207,7 @@ public class ForumExample {
             if (values == null || values.size() == 0) {
                 throw new RuntimeException("Value list for " + property + " cannot be null or empty");
             }
-            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
+            List<java.sql.Date> dateList = new ArrayList<>();
             Iterator<Date> iter = values.iterator();
             while (iter.hasNext()) {
                 dateList.add(new java.sql.Date(iter.next().getTime()));
@@ -550,7 +550,6 @@ public class ForumExample {
      * @mbg.generated do_not_delete_during_merge
      */
     public static class Criteria extends GeneratedCriteria {
-
         protected Criteria() {
             super();
         }

@@ -2,6 +2,7 @@ package com.nesder.service;
 
 import java.util.List;
 
+import com.nesder.dao.entity.ChannelExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +24,17 @@ public class ChannelService {
 	 */
 	public List<Channel> findAll() {
 		return channelMapper.selectByExample(null);
+	}
+
+	/**
+	 *
+	 * @param mid
+	 * @return
+	 */
+	public List<Channel> findByForumId(Integer mid) {
+		ChannelExample example = new ChannelExample();
+		example.createCriteria().andMidEqualTo(mid);
+		return channelMapper.selectByExample(example);
 	}
 
 	/**

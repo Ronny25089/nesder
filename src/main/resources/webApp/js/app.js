@@ -29,16 +29,16 @@ $(".li-modal").on("click", function (e) {
 
 function getForum() {
   commonTools.ajax({
-    url: "/nesder/module/all",
+    url: "/nesder/forum/all",
     type: "GET",
     success: function (response) {
       //   此处执行请求成功后的代码
       let forumEle = document.querySelector("#forum");
-      response.data.forEach((element, index) => {
+      response.data.forEach((item, index) => {
         let dom =
           `<li class="nav-item border-left border-success">
-            <a class="nav-link mx-3" href="#/forum/${element.module_id}">
-              ${element.mname}
+            <a class="nav-link mx-3" href="#/forum/${item.forum_id}">
+              ${item.mname}
             </a>
           </li>`;
         forumEle.innerHTML += dom;

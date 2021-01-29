@@ -36,7 +36,7 @@ public class ArticleMarkExample {
      * @mbg.generated
      */
     public ArticleMarkExample() {
-        oredCriteria = new ArrayList<Criteria>();
+        oredCriteria = new ArrayList<>();
     }
 
     /**
@@ -159,7 +159,7 @@ public class ArticleMarkExample {
 
         protected GeneratedCriteria() {
             super();
-            criteria = new ArrayList<Criterion>();
+            criteria = new ArrayList<>();
         }
 
         public boolean isValid() {
@@ -252,6 +252,126 @@ public class ArticleMarkExample {
 
         public Criteria andAidNotBetween(Integer value1, Integer value2) {
             addCriterion("aid not between", value1, value2, "aid");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarksIsNull() {
+            addCriterion("marks is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarksIsNotNull() {
+            addCriterion("marks is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarksEqualTo(Boolean value) {
+            addCriterion("marks =", value, "marks");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarksNotEqualTo(Boolean value) {
+            addCriterion("marks <>", value, "marks");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarksGreaterThan(Boolean value) {
+            addCriterion("marks >", value, "marks");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarksGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("marks >=", value, "marks");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarksLessThan(Boolean value) {
+            addCriterion("marks <", value, "marks");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarksLessThanOrEqualTo(Boolean value) {
+            addCriterion("marks <=", value, "marks");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarksIn(List<Boolean> values) {
+            addCriterion("marks in", values, "marks");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarksNotIn(List<Boolean> values) {
+            addCriterion("marks not in", values, "marks");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarksBetween(Boolean value1, Boolean value2) {
+            addCriterion("marks between", value1, value2, "marks");
+            return (Criteria) this;
+        }
+
+        public Criteria andMarksNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("marks not between", value1, value2, "marks");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikesIsNull() {
+            addCriterion("likes is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikesIsNotNull() {
+            addCriterion("likes is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikesEqualTo(Boolean value) {
+            addCriterion("likes =", value, "likes");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikesNotEqualTo(Boolean value) {
+            addCriterion("likes <>", value, "likes");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikesGreaterThan(Boolean value) {
+            addCriterion("likes >", value, "likes");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikesGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("likes >=", value, "likes");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikesLessThan(Boolean value) {
+            addCriterion("likes <", value, "likes");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikesLessThanOrEqualTo(Boolean value) {
+            addCriterion("likes <=", value, "likes");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikesIn(List<Boolean> values) {
+            addCriterion("likes in", values, "likes");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikesNotIn(List<Boolean> values) {
+            addCriterion("likes not in", values, "likes");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikesBetween(Boolean value1, Boolean value2) {
+            addCriterion("likes between", value1, value2, "likes");
+            return (Criteria) this;
+        }
+
+        public Criteria andLikesNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("likes not between", value1, value2, "likes");
             return (Criteria) this;
         }
 
@@ -383,7 +503,6 @@ public class ArticleMarkExample {
      * @mbg.generated do_not_delete_during_merge
      */
     public static class Criteria extends GeneratedCriteria {
-
         protected Criteria() {
             super();
         }

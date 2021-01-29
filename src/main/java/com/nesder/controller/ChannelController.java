@@ -22,21 +22,28 @@ public class ChannelController {
 	private ChannelService channelService;
 
 	@GetMapping("/all")
-	public ApiResponse listUser() {
+	public ApiResponse listChannel() {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(channelService.findAll());
 		return apiResponse;
 	}
 
+	@GetMapping("/get/{id}")
+	public ApiResponse listUser(@PathVariable("id") Integer id) {
+		ApiResponse apiResponse = new ApiResponse();
+		apiResponse.setData(channelService.findByForumId(id));
+		return apiResponse;
+	}
+
 	@PostMapping("/add")
-	public ApiResponse addchannel(@RequestBody AddChannel channel1) {
+	public ApiResponse addChannel(@RequestBody AddChannel channel1) {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(channelService.addChannel(channel1));
 		return apiResponse;
 	}	
 
 	@DeleteMapping("/delete/{id}")
-	public ApiResponse delete(@PathVariable("id") Integer id) {
+	public ApiResponse deleteChannel(@PathVariable("id") Integer id) {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(channelService.deleteChannel(id));
 		return apiResponse;
