@@ -10,8 +10,9 @@ export default () => {
       let channelEle = document.querySelector("#channel");
       let activeClass = `list-group-item-success`;
       response.data.forEach((element, index) => {
+        let forum_id = document.querySelector("#routeView").param;
         let dom = `
-          <a href="#/channel/${element.channel_id}" 
+          <a href="#/forum/${forum_id}/channel/${element.channel_id}" 
             class="list-group-item list-group-item-action border border-success mt-3 ${activeClass}">
             ${element.name}
           </a>`;

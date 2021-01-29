@@ -1,6 +1,6 @@
 package com.nesder.vo.resq;
 
-public class AddModule {
+public class AddForum {
 
 	private int created_account;
 

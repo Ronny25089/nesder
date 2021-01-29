@@ -6,22 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.nesder.dao.entity.Module;
-import com.nesder.dao.repository.ModuleMapper;
-import com.nesder.vo.resq.AddModule;
+import com.nesder.dao.entity.Forum;
+import com.nesder.dao.repository.ForumMapper;
+import com.nesder.vo.resq.AddForum;
 
 @Service
 @Transactional
-public class ModuleService {
+public class ForumService {
 
 	@Autowired
-	private ModuleMapper moduleMapper;
+	private ForumMapper moduleMapper;
 
 	/**
-	 * get all record of Module
+	 * get all record of Forum
 	 * @return
 	 */
-	public List<Module> findAll() {
+	public List<Forum> findAll() {
 		return moduleMapper.selectByExample(null);
 	}
 	
@@ -30,18 +30,18 @@ public class ModuleService {
 	 * @param id
 	 * @return
 	 */
-	public Module getById(int id) {
+	public Forum getById(int id) {
 		return moduleMapper.selectByPrimaryKey(id);
 	}
 
 	/**
-	 * add a record Module
+	 * add a record Forum
 	 * @param modle
 	 * @return
 	 */
-	public int addModule(AddModule modle) {
+	public int addForum(AddForum modle) {
 		//request data to DAO entity
-		Module module = new Module();
+		Forum module = new Forum();
 		module.setMname(modle.getmName());
 		module.setIntroduction(modle.getIntroduction());
 		module.setCreated_account(modle.getCreated_account());
@@ -50,24 +50,24 @@ public class ModuleService {
 	}
 
 	/**
-	 * delete Module by id
+	 * delete Forum by id
 	 * @param id
 	 * @return
 	 */
-	public int deleteModule(int id) {
+	public int deleteForum(int id) {
 		//条件
 		return moduleMapper.deleteByPrimaryKey(id);
 	}
 	
 	/**
-	 * update Module by id
+	 * update Forum by id
 	 * @param modle
 	 * @return
 	 */
-	public int updateModule(AddModule modle) {
+	public int updateForum(AddForum modle) {
 		//request data to DAO entity
-		Module module = new Module();
-		module.setModule_id(modle.getId());
+		Forum module = new Forum();
+		module.setForum_id(modle.getId());
 		module.setMname(modle.getmName());
 		module.setIntroduction(modle.getIntroduction());
 		module.setCreated_account(modle.getCreated_account());		
