@@ -33,7 +33,7 @@ public class ChannelService {
 	 */
 	public List<Channel> findByForumId(Integer mid) {
 		ChannelExample example = new ChannelExample();
-		example.createCriteria().andMidEqualTo(mid);
+		example.createCriteria().andFidEqualTo(mid);
 		return channelMapper.selectByExample(example);
 	}
 
@@ -46,7 +46,7 @@ public class ChannelService {
 		// request data to DAO entity
 		Channel channel = new Channel();
 		channel.setName(channel1.getName());
-		channel.setMid(channel1.getMid());
+		channel.setFid(channel1.getFid());
 		channel.setIntroduction(channel1.getIntroduction());
 		channel.setCreated_account(channel1.getCreated_account());
 

@@ -42,7 +42,7 @@ public class NesderApplication {
 
 	@Bean(name = "dataSource")
 	public DataSource dataSource() {
-		DataSource ds = dataBaseConfig.createDataSource();
-		return ds;
+		DataSource dataSource = dataBaseConfig.createDataSource();
+		return dataSource;
 	}
 }

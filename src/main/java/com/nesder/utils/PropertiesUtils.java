@@ -8,14 +8,14 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @PropertySource(value = {"classpath:message_zh.properties"})
-public class PropertiesUtil implements EnvironmentAware {
+public class PropertiesUtils implements EnvironmentAware {
 
     @Autowired
     private static Environment environment;
 
     @Override
     public void setEnvironment(Environment environment) {
-    	PropertiesUtil.environment = environment;
+    	PropertiesUtils.environment = environment;
     }
     
     public static String getEnvConfig(String code){

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.nesder.utils.PropertiesUtil;
+import com.nesder.utils.PropertiesUtils;
 import com.nesder.vo.resp.ApiResponse;
 
 @RestControllerAdvice
@@ -23,7 +23,7 @@ public class ApiExceptionHandler {
 		LOG.error("ApiExceptionHandler", exception);
 
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setMsg(PropertiesUtil.getEnvConfig("dbFailed"));
+		apiResponse.setMsg(PropertiesUtils.getEnvConfig("dbFailed"));
 		apiResponse.setData(exception.getClass());
 		return apiResponse;
 	}

@@ -3,12 +3,12 @@ package com.nesder.model;
 import java.util.Date;
 
 public class DetailsModel {
-    private Integer article_id;
+    private Integer post_id;
     private Integer channel_id;
     private String title;
     private String content;
-    private Date create_date;
-    private Date modify_date;
+    private String create_date;
+    private String modify_date;
     private Boolean enable_edit;
     private Integer created_account;
     private String created_account_nick_name;
@@ -18,12 +18,12 @@ public class DetailsModel {
     private Integer likesCount;
     private Integer replayCount;
 
-    public Integer getArticle_id() {
-        return article_id;
+    public Integer getPost_id() {
+        return post_id;
     }
 
-    public void setArticle_id(Integer article_id) {
-        this.article_id = article_id;
+    public void setPost_id(Integer post_id) {
+        this.post_id = post_id;
     }
 
     public Integer getChannel_id() {
@@ -50,19 +50,19 @@ public class DetailsModel {
         this.content = content;
     }
 
-    public Date getCreate_date() {
+    public String getCreate_date() {
         return create_date;
     }
 
-    public void setCreate_date(Date create_date) {
+    public void setCreate_date(String create_date) {
         this.create_date = create_date;
     }
 
-    public Date getModify_date() {
+    public String getModify_date() {
         return modify_date;
     }
 
-    public void setModify_date(Date modify_date) {
+    public void setModify_date(String modify_date) {
         this.modify_date = modify_date;
     }
 

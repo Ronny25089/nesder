@@ -31,7 +31,7 @@ public class Reply2ReplyService {
 	 * @param reply2reply1
 	 * @return
 	 */
-	public List<Reply2Reply> findAid(AddReply2Reply reply2reply1) {
+	public List<Reply2Reply> findPid(AddReply2Reply reply2reply1) {
 		Reply2ReplyExample example = new Reply2ReplyExample();
 		example.createCriteria().andUidEqualTo(reply2reply1.getUid());
 		return reply2replymapper.selectByExample(example);
@@ -44,7 +44,7 @@ public class Reply2ReplyService {
 	 */
 	public List<Reply2Reply> findUid(AddReply2Reply reply2reply1) {
 		Reply2ReplyExample example = new Reply2ReplyExample();
-		example.createCriteria().andAidEqualTo(reply2reply1.getAid());
+		example.createCriteria().andPidEqualTo(reply2reply1.getPid());
 		return reply2replymapper.selectByExample(example);
 	}
 	
@@ -55,7 +55,7 @@ public class Reply2ReplyService {
 	 */
 	public List<Reply2Reply> findRid(AddReply2Reply reply2reply1) {
 		Reply2ReplyExample example = new Reply2ReplyExample();
-		example.createCriteria().andAidEqualTo(reply2reply1.getAid());
+		example.createCriteria().andPidEqualTo(reply2reply1.getPid());
 		example.createCriteria().andUidEqualTo(reply2reply1.getUid());
 		return reply2replymapper.selectByExample(example);
 	}
@@ -70,7 +70,7 @@ public class Reply2ReplyService {
 		// request data to DAO entity
 		Reply2Reply reply2Reply = new Reply2Reply();
 		reply2Reply.setContent(reply2reply1.getContent());
-		reply2Reply.setAid(reply2reply1.getAid());
+		reply2Reply.setPid(reply2reply1.getPid());
 		reply2Reply.setUid(reply2reply1.getUid());
 		reply2Reply.setRid(reply2reply1.getRid());
 		
@@ -87,7 +87,7 @@ public class Reply2ReplyService {
 	public int deleteReply2Reply(Integer aid,Integer uid,Integer rid) {
 		Reply2ReplyExample example = new Reply2ReplyExample();
 		//条件
-		example.createCriteria().andAidEqualTo(aid).andUidEqualTo(uid).andRidEqualTo(rid);
+		example.createCriteria().andPidEqualTo(aid).andUidEqualTo(uid).andRidEqualTo(rid);
 		return reply2replymapper.deleteByExample(example);
 	}
 }

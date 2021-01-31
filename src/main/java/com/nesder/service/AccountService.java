@@ -16,7 +16,7 @@ import com.nesder.dao.entity.AccountExample;
 import com.nesder.dao.repository.AccountMapper;
 import com.nesder.model.UserContext;
 import com.nesder.utils.CONSTANT;
-import com.nesder.utils.PropertiesUtil;
+import com.nesder.utils.PropertiesUtils;
 import com.nesder.vo.resp.ApiResponse;
 import com.nesder.vo.resq.RegistUser;
 
@@ -81,18 +81,18 @@ public class AccountService implements UserDetailsService {
 				if (this.insertAccount(applicationUserInfo) > 0) {
 					apiResponse.setStatusCode(CONSTANT.SUCCESS_CODE);
 					apiResponse.setData("1");
-					apiResponse.setMsg(PropertiesUtil.getEnvConfig("ERR.002"));
+					apiResponse.setMsg(PropertiesUtils.getEnvConfig("ERR.002"));
 
 				}
 			} else {
 				apiResponse.setStatusCode(CONSTANT.INPUT_ERR_CODE);
 				apiResponse.setData(errMsgs);
-				apiResponse.setMsg(PropertiesUtil.getEnvConfig("ERR.003"));
+				apiResponse.setMsg(PropertiesUtils.getEnvConfig("ERR.003"));
 
 			}
 		} catch (Exception e) {
 			apiResponse.setStatusCode(CONSTANT.INPUT_ERR_CODE);
-			apiResponse.setMsg(PropertiesUtil.getEnvConfig("ERR.000"));
+			apiResponse.setMsg(PropertiesUtils.getEnvConfig("ERR.000"));
 		}
 		return apiResponse;
 	}
@@ -107,25 +107,25 @@ public class AccountService implements UserDetailsService {
 		AccountExample accountExample = new AccountExample();
 		// 用户名check
 		if (user.getNick_name().isEmpty()) {
-			msgList.add(PropertiesUtil.getEnvConfig("ERR.004"));
+			msgList.add(PropertiesUtils.getEnvConfig("ERR.004"));
 		}
 		accountExample.createCriteria().andNick_nameEqualTo(user.getNick_name());
 		List<Account> accountList1 = accountMapper.selectByExample(accountExample);
 		if (!accountList1.isEmpty()) {
-			msgList.add(PropertiesUtil.getEnvConfig("ERR.008"));
+			msgList.add(PropertiesUtils.getEnvConfig("ERR.008"));
 		}
 		// 邮箱check
 		if (user.getEmail().isEmpty()) {
-			msgList.add(PropertiesUtil.getEnvConfig("ERR.005"));
+			msgList.add(PropertiesUtils.getEnvConfig("ERR.005"));
 		}
 		accountExample.createCriteria().andEmailEqualTo(user.getEmail());
 		List<Account> accountList2 = accountMapper.selectByExample(accountExample);
 		if (!accountList2.isEmpty()) {
-			msgList.add(PropertiesUtil.getEnvConfig("ERR.007"));
+			msgList.add(PropertiesUtils.getEnvConfig("ERR.007"));
 		}
 		// 密码check
 		if (user.getPassword().isEmpty()) {
-			msgList.add(PropertiesUtil.getEnvConfig("ERR.006"));
+			msgList.add(PropertiesUtils.getEnvConfig("ERR.006"));
 		}
 		return msgList;
 	}
@@ -148,7 +148,7 @@ public class AccountService implements UserDetailsService {
 			apiResponse.setData(msgList);
 		} else {
 			apiResponse.setStatusCode(CONSTANT.INPUT_ERR_CODE);
-			apiResponse.setMsg(PropertiesUtil.getEnvConfig("ERR.009"));
+			apiResponse.setMsg(PropertiesUtils.getEnvConfig("ERR.009"));
 		}
 
 		return apiResponse;

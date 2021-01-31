@@ -30,7 +30,7 @@ public class Reply2ReplyController {
 	@PostMapping("/findaid")
 	public ApiResponse findAidInfo(@RequestBody AddReply2Reply reply2eeply1) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(Reply2ReplyService.findAid(reply2eeply1));
+		apiResponse.setData(Reply2ReplyService.findPid(reply2eeply1));
 		return apiResponse;
 	}	
 	

@@ -6,22 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.nesder.dao.entity.Article;
-import com.nesder.dao.repository.ArticleMapper;
-import com.nesder.vo.resq.AddArticle;
+import com.nesder.dao.entity.Post;
+import com.nesder.dao.repository.PostMapper;
+import com.nesder.vo.resq.AddPost;
 
 @Service
 @Transactional
-public class ArticleService {
+public class PostService {
 
 	@Autowired
-	private ArticleMapper articleMapper;
+	private PostMapper articleMapper;
 
 	/**
 	 * 
 	 * @return
 	 */
-	public List<Article> findAll() {
+	public List<Post> findAll() {
 		return articleMapper.selectByExample(null);
 	}
 		
@@ -30,9 +30,9 @@ public class ArticleService {
 	 * @param article1
 	 * @return
 	 */
-	public int addAticleInfo(AddArticle article1) {
+	public int addAticleInfo(AddPost article1) {
 		// request data to DAO entity
-		Article article = new Article();
+		Post article = new Post();
 		article.setTitle(article1.getTitle());
 		article.setContent(article1.getContent());
 		article.setChannel_id(article1.getChannel_id());
@@ -46,10 +46,10 @@ public class ArticleService {
 	 * @param article1
 	 * @return
 	 */
-	public int updateAticleInfo(AddArticle article1) {
+	public int updateAticleInfo(AddPost article1) {
 		//条件
-		Article article = new Article();
-		article.setArticle_id(article1.getId());
+		Post article = new Post();
+		article.setPost_id(article1.getId());
 		article.setTitle(article1.getTitle());
 		article.setContent(article1.getContent());
 		article.setChannel_id(article1.getChannel_id());
@@ -63,7 +63,7 @@ public class ArticleService {
 	 * @param id
 	 * @return
 	 */
-	public int deleteArticle(int id) {
+	public int deletePost(int id) {
 		return articleMapper.deleteByPrimaryKey(id);
 	}
 }

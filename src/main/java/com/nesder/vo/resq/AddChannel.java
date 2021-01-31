@@ -8,7 +8,7 @@ public class AddChannel {
 
 	private String introduction;
 
-	private int mid;
+	private int fid;
 
 	private int created_account;
 
@@ -36,12 +36,12 @@ public class AddChannel {
 		this.introduction = introduction;
 	}
 
-	public int getMid() {
-		return mid;
+	public int getFid() {
+		return fid;
 	}
 
-	public void setMid(int mid) {
-		this.mid = mid;
+	public void setFid(int fid) {
+		this.fid = fid;
 	}
 
 	public int getCreated_account() {
@@ -51,5 +51,4 @@ public class AddChannel {
 	public void setCreated_account(int created_account) {
 		this.created_account = created_account;
 	}
-
 }

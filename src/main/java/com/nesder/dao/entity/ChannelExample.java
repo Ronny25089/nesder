@@ -542,63 +542,63 @@ public class ChannelExample {
             return (Criteria) this;
         }
 
-        public Criteria andMidIsNull() {
-            addCriterion("mid is null");
+        public Criteria andFidIsNull() {
+            addCriterion("fid is null");
             return (Criteria) this;
         }
 
-        public Criteria andMidIsNotNull() {
-            addCriterion("mid is not null");
+        public Criteria andFidIsNotNull() {
+            addCriterion("fid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMidEqualTo(Integer value) {
-            addCriterion("mid =", value, "mid");
+        public Criteria andFidEqualTo(Integer value) {
+            addCriterion("fid =", value, "fid");
             return (Criteria) this;
         }
 
-        public Criteria andMidNotEqualTo(Integer value) {
-            addCriterion("mid <>", value, "mid");
+        public Criteria andFidNotEqualTo(Integer value) {
+            addCriterion("fid <>", value, "fid");
             return (Criteria) this;
         }
 
-        public Criteria andMidGreaterThan(Integer value) {
-            addCriterion("mid >", value, "mid");
+        public Criteria andFidGreaterThan(Integer value) {
+            addCriterion("fid >", value, "fid");
             return (Criteria) this;
         }
 
-        public Criteria andMidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("mid >=", value, "mid");
+        public Criteria andFidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("fid >=", value, "fid");
             return (Criteria) this;
         }
 
-        public Criteria andMidLessThan(Integer value) {
-            addCriterion("mid <", value, "mid");
+        public Criteria andFidLessThan(Integer value) {
+            addCriterion("fid <", value, "fid");
             return (Criteria) this;
         }
 
-        public Criteria andMidLessThanOrEqualTo(Integer value) {
-            addCriterion("mid <=", value, "mid");
+        public Criteria andFidLessThanOrEqualTo(Integer value) {
+            addCriterion("fid <=", value, "fid");
             return (Criteria) this;
         }
 
-        public Criteria andMidIn(List<Integer> values) {
-            addCriterion("mid in", values, "mid");
+        public Criteria andFidIn(List<Integer> values) {
+            addCriterion("fid in", values, "fid");
             return (Criteria) this;
         }
 
-        public Criteria andMidNotIn(List<Integer> values) {
-            addCriterion("mid not in", values, "mid");
+        public Criteria andFidNotIn(List<Integer> values) {
+            addCriterion("fid not in", values, "fid");
             return (Criteria) this;
         }
 
-        public Criteria andMidBetween(Integer value1, Integer value2) {
-            addCriterion("mid between", value1, value2, "mid");
+        public Criteria andFidBetween(Integer value1, Integer value2) {
+            addCriterion("fid between", value1, value2, "fid");
             return (Criteria) this;
         }
 
-        public Criteria andMidNotBetween(Integer value1, Integer value2) {
-            addCriterion("mid not between", value1, value2, "mid");
+        public Criteria andFidNotBetween(Integer value1, Integer value2) {
+            addCriterion("fid not between", value1, value2, "fid");
             return (Criteria) this;
         }
     }

@@ -1,6 +1,6 @@
 package com.nesder.vo.resq;
 
-public class AddArticleMark {
+public class AddPostMark {
 
 	private Integer aid;
 	

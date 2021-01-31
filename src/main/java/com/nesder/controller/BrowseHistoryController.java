@@ -28,9 +28,9 @@ public class BrowseHistoryController {
 	}
 	
 	@PostMapping("/findaid")
-	public ApiResponse findAidInfo(@RequestBody AddBrowseHistory browsehistory1) {
+	public ApiResponse findPidInfo(@RequestBody AddBrowseHistory browsehistory1) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(BrowseHistoryService.findAid(browsehistory1));
+		apiResponse.setData(BrowseHistoryService.findPid(browsehistory1));
 		return apiResponse;
 	}	
 	

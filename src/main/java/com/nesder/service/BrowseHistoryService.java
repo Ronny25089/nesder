@@ -31,7 +31,7 @@ public class BrowseHistoryService {
 	 * @param browsehistory1
 	 * @return
 	 */
-	public List<BrowseHistory> findAid(AddBrowseHistory browsehistory1) {
+	public List<BrowseHistory> findPid(AddBrowseHistory browsehistory1) {
 		BrowseHistoryExample example = new BrowseHistoryExample();
 		example.createCriteria().andUidEqualTo(browsehistory1.getUid());
 		return browsehistorymapper.selectByExample(example);
@@ -44,7 +44,7 @@ public class BrowseHistoryService {
 	 */
 	public List<BrowseHistory> findUid(AddBrowseHistory browsehistory1) {
 		BrowseHistoryExample example = new BrowseHistoryExample();
-		example.createCriteria().andAidEqualTo(browsehistory1.getAid());
+		example.createCriteria().andPidEqualTo(browsehistory1.getPid());
 		return browsehistorymapper.selectByExample(example);
 	}
 	
@@ -56,7 +56,7 @@ public class BrowseHistoryService {
 	public int addBrowseHistoryInfo(AddBrowseHistory browsehistory1) {
 		// request data to DAO entity
 		BrowseHistory browseHistory = new BrowseHistory();
-		browseHistory.setAid(browsehistory1.getAid());
+		browseHistory.setPid(browsehistory1.getPid());
 		browseHistory.setUid(browsehistory1.getUid());
 		
 		return browsehistorymapper.insertSelective(browseHistory);
@@ -71,7 +71,7 @@ public class BrowseHistoryService {
 	public int deleteReply(Integer aid,Integer uid) {
 		BrowseHistoryExample example = new BrowseHistoryExample();
 		//条件
-		example.createCriteria().andAidEqualTo(aid).andUidEqualTo(uid);
+		example.createCriteria().andPidEqualTo(aid).andUidEqualTo(uid);
 		return browsehistorymapper.deleteByExample(example);
 	}
 }

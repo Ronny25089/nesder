@@ -2,16 +2,16 @@ package com.nesder.vo.resq;
 
 public class AddBrowseHistory {
 		
-	private Integer aid;
+	private Integer pid;
 	
 	private Integer uid;
 
-	public Integer getAid() {
-		return aid;
+	public Integer getPid() {
+		return pid;
 	}
 
-	public void setAid(Integer aid) {
-		this.aid = aid;
+	public void setPid(Integer pid) {
+		this.pid = pid;
 	}
 
 	public Integer getUid() {
@@ -21,6 +21,4 @@ public class AddBrowseHistory {
 	public void setUid(Integer uid) {
 		this.uid = uid;
 	}
-
-	
 }

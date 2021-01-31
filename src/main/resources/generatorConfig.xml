@@ -56,11 +56,11 @@
 			<property name="useActualColumnNames" value="true" />
 		</table>
 
-		<table schema="public" tableName="Article">
+		<table schema="public" tableName="Post">
 			<property name="useActualColumnNames" value="true" />
 		</table>
 
-		<table schema="public" tableName="Article_Mark">
+		<table schema="public" tableName="Post_Mark">
 			<property name="useActualColumnNames" value="true" />
 		</table>
 

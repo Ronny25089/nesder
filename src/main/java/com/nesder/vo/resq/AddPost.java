@@ -1,6 +1,6 @@
 package com.nesder.vo.resq;
 
-public class AddArticle {
+public class AddPost {
 
 	private Integer id;
 	

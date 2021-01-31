@@ -255,63 +255,63 @@ public class BrowseHistoryExample {
             return (Criteria) this;
         }
 
-        public Criteria andAidIsNull() {
-            addCriterion("aid is null");
+        public Criteria andPidIsNull() {
+            addCriterion("pid is null");
             return (Criteria) this;
         }
 
-        public Criteria andAidIsNotNull() {
-            addCriterion("aid is not null");
+        public Criteria andPidIsNotNull() {
+            addCriterion("pid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAidEqualTo(Integer value) {
-            addCriterion("aid =", value, "aid");
+        public Criteria andPidEqualTo(Integer value) {
+            addCriterion("pid =", value, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andAidNotEqualTo(Integer value) {
-            addCriterion("aid <>", value, "aid");
+        public Criteria andPidNotEqualTo(Integer value) {
+            addCriterion("pid <>", value, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andAidGreaterThan(Integer value) {
-            addCriterion("aid >", value, "aid");
+        public Criteria andPidGreaterThan(Integer value) {
+            addCriterion("pid >", value, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andAidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("aid >=", value, "aid");
+        public Criteria andPidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("pid >=", value, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andAidLessThan(Integer value) {
-            addCriterion("aid <", value, "aid");
+        public Criteria andPidLessThan(Integer value) {
+            addCriterion("pid <", value, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andAidLessThanOrEqualTo(Integer value) {
-            addCriterion("aid <=", value, "aid");
+        public Criteria andPidLessThanOrEqualTo(Integer value) {
+            addCriterion("pid <=", value, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andAidIn(List<Integer> values) {
-            addCriterion("aid in", values, "aid");
+        public Criteria andPidIn(List<Integer> values) {
+            addCriterion("pid in", values, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andAidNotIn(List<Integer> values) {
-            addCriterion("aid not in", values, "aid");
+        public Criteria andPidNotIn(List<Integer> values) {
+            addCriterion("pid not in", values, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andAidBetween(Integer value1, Integer value2) {
-            addCriterion("aid between", value1, value2, "aid");
+        public Criteria andPidBetween(Integer value1, Integer value2) {
+            addCriterion("pid between", value1, value2, "pid");
             return (Criteria) this;
         }
 
-        public Criteria andAidNotBetween(Integer value1, Integer value2) {
-            addCriterion("aid not between", value1, value2, "aid");
+        public Criteria andPidNotBetween(Integer value1, Integer value2) {
+            addCriterion("pid not between", value1, value2, "pid");
             return (Criteria) this;
         }
 

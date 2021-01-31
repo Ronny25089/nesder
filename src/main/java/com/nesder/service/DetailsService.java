@@ -3,6 +3,7 @@ package com.nesder.service;
 import com.nesder.dao.entity.*;
 import com.nesder.dao.repository.*;
 import com.nesder.model.DetailsModel;
+import com.nesder.utils.toolUtils;
 import com.nesder.vo.resq.AddChannel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,10 +17,10 @@ import java.util.List;
 public class DetailsService {
 
 	@Autowired
-	private ArticleMapper articleMapper;
+	private PostMapper articleMapper;
 
 	@Autowired
-	private ArticleMarkMapper articleMarkMapper;
+	private PostMarkMapper articleMarkMapper;
 
 	@Autowired
 	private ReplyMapper replyMapper;
@@ -36,34 +37,34 @@ public class DetailsService {
 		List<DetailsModel> result = new ArrayList<DetailsModel>();
 
 		// 取得所有的内容
-		ArticleExample example = new ArticleExample();
+		PostExample example = new PostExample();
 		if (cid != 1001) {
 			example.createCriteria().andChannel_idEqualTo(cid);
 		}
-		List<Article> postList = articleMapper.selectByExample(example);
-		for (Article post : postList) {
+		List<Post> postList = articleMapper.selectByExample(example);
+		for (Post post : postList) {
 
 			try {
-				int postId = post.getArticle_id();
+				int postId = post.getPost_id();
 				DetailsModel detailModel = new DetailsModel();
 
 				// 取得收藏数
-				ArticleMarkExample articleMarkExample1 = new ArticleMarkExample();
-				articleMarkExample1.createCriteria().andAidEqualTo(postId);
+				PostMarkExample articleMarkExample1 = new PostMarkExample();
+				articleMarkExample1.createCriteria().andPidEqualTo(postId);
 				articleMarkExample1.createCriteria().andMarksEqualTo(true);
 				// 收藏数
 				int marksCount = articleMarkMapper.selectByExample(articleMarkExample1).size();
 
 				// 取得点赞数
-				ArticleMarkExample articleMarkExample2 = new ArticleMarkExample();
-				articleMarkExample2.createCriteria().andAidEqualTo(postId);
+				PostMarkExample articleMarkExample2 = new PostMarkExample();
+				articleMarkExample2.createCriteria().andPidEqualTo(postId);
 				articleMarkExample2.createCriteria().andLikesEqualTo(true);
 				// 收藏数
 				int likesCount = articleMarkMapper.selectByExample(articleMarkExample2).size();
 
 				// 取得评论数
 				ReplyExample replyExample = new ReplyExample();
-				replyExample.createCriteria().andAidEqualTo(postId);
+				replyExample.createCriteria().andPidEqualTo(postId);
 				int replyCount = replyMapper.selectByExample(replyExample).size();
 
 				// 取得作者信息
@@ -71,12 +72,12 @@ public class DetailsService {
 				accountExample.createCriteria().andAccount_idEqualTo(post.getCreated_account());
 				Account account = accountMapper.selectByExample(accountExample).get(0);
 
-				detailModel.setArticle_id(postId);
+				detailModel.setPost_id(postId);
 				detailModel.setChannel_id(post.getChannel_id());
 				detailModel.setTitle(post.getTitle());
 				detailModel.setContent(post.getContent());
-				detailModel.setCreate_date(post.getCreate_date());
-				detailModel.setModify_date(post.getModify_date());
+				detailModel.setCreate_date(toolUtils.dateFormat(post.getCreate_date()));
+				detailModel.setModify_date(toolUtils.dateFormat(post.getModify_date()));
 				detailModel.setEnable_edit(post.getEnable_edit());
 				detailModel.setCreated_account(post.getCreated_account());
 				detailModel.setCreated_account_nick_name(account.getNick_name());

@@ -31,7 +31,7 @@ public class ReplyService {
 	 * @param reply1
 	 * @return
 	 */
-	public List<Reply> findAid(AddReply reply1) {
+	public List<Reply> findPid(AddReply reply1) {
 		ReplyExample example = new ReplyExample();
 		example.createCriteria().andUidEqualTo(reply1.getUid());
 		return replymapper.selectByExample(example);
@@ -44,7 +44,7 @@ public class ReplyService {
 	 */
 	public List<Reply> findUid(AddReply reply1) {
 		ReplyExample example = new ReplyExample();
-		example.createCriteria().andAidEqualTo(reply1.getAid());
+		example.createCriteria().andPidEqualTo(reply1.getPid());
 		return replymapper.selectByExample(example);
 	}
 	
@@ -57,7 +57,7 @@ public class ReplyService {
 		// request data to DAO entity
 		Reply reply = new Reply();
 		reply.setContent(reply1.getContent());
-		reply.setAid(reply1.getAid());
+		reply.setPid(reply1.getPid());
 		reply.setUid(reply1.getUid());
 		
 		return replymapper.insertSelective(reply);
@@ -72,7 +72,7 @@ public class ReplyService {
 	public int deleteReply(Integer aid,Integer uid) {
 		ReplyExample example = new ReplyExample();
 		//条件
-		example.createCriteria().andAidEqualTo(aid).andUidEqualTo(uid);
+		example.createCriteria().andPidEqualTo(aid).andUidEqualTo(uid);
 		return replymapper.deleteByExample(example);
 	}
 }

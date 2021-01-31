@@ -11,6 +11,7 @@ export function getAllPost(channelId) {
     url: `/nesder/details/get/${channelId}`,
     type: "GET",
     success: function (response) {
+      console.log(response);
       //   此处执行请求成功后的代码
       let channelEle = document.querySelector("#details");
       response.data.forEach((item, index) => {

@@ -5,8 +5,7 @@ import * as channel from "../page/channel.js";
 //模块初始化
 export default () => {
   getAllChannel();
-  document.querySelector("#routeView-sub").innerHTML = router.getPageComponent("page/channel.html");
-  channel.getAllPost(1001);
+  router.render("#routeView-sub", "channel");
 };
 
 function getAllChannel() {
@@ -18,6 +17,9 @@ function getAllChannel() {
       let channelEle = document.querySelector("#channel");
       let activeClass = `list-group-item-success`;
       response.data.forEach((item, index) => {
+        if (index == 0 ) {
+          document.querySelector("#routeView-sub").param = item.channel_id;
+        }
         let forum_id = document.querySelector("#routeView").param;
         let dom = `
           <a href="#/home/channel/${item.channel_id}" 

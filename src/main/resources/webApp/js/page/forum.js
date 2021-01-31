@@ -5,9 +5,7 @@ import * as channel from "../page/channel.js";
 //模块初始化
 export default () => {
   getChannel();
-  document.querySelector("#routeView-sub").innerHTML = router.getPageComponent("page/channel.html");
-  let channel_id = document.querySelector("#routeView-sub").param;
-  channel.getAllPost(channel_id);
+  router.render("#routeView-sub", "channel");
 };
 
 function getChannel() {

@@ -10,43 +10,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nesder.service.ArticleService;
+import com.nesder.service.PostService;
 import com.nesder.vo.resp.ApiResponse;
-import com.nesder.vo.resq.AddArticle;
+import com.nesder.vo.resq.AddPost;
 
 @RestController
 @RequestMapping("/nesder/article")
-public class ArticleController {
+public class PostController {
 
 	@Autowired
-	private ArticleService ArticleService;
+	private PostService PostService;
 
 	@GetMapping("/all")
-	public ApiResponse listArticle() {
+	public ApiResponse listPost() {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(ArticleService.findAll());
+		apiResponse.setData(PostService.findAll());
 		return apiResponse;
 	}
 	
 	@PostMapping("/add")
-	public ApiResponse addArticle(@RequestBody AddArticle article1) {
+	public ApiResponse addPost(@RequestBody AddPost article1) {
 		
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(ArticleService.addAticleInfo(article1));
+		apiResponse.setData(PostService.addAticleInfo(article1));
 		return apiResponse;
 	}	
 
 	@PutMapping("/update")
-	public ApiResponse updateAticleInfo(@RequestBody AddArticle article1) {
+	public ApiResponse updateAticleInfo(@RequestBody AddPost article1) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(ArticleService.updateAticleInfo(article1));
+		apiResponse.setData(PostService.updateAticleInfo(article1));
 		return apiResponse;
 	}
 	
 	@DeleteMapping("/delete/{id}")
 	public ApiResponse delete(@PathVariable("id" ) Integer id) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(ArticleService.deleteArticle(id));
+		apiResponse.setData(PostService.deletePost(id));
 		return apiResponse;
 	}
 }
