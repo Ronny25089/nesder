@@ -10,7 +10,11 @@ export default () => {
   window.referrer = "";
 };
 
-//路由导航
+/**
+ * 路由导航
+ * 第一级路由加载到「#routeView」
+ * 第二级路由加载到「#routeView-sub」，以此类推
+ */
 const Routers = [
   {
     //主页
@@ -153,6 +157,7 @@ function initRender(routerView, router) {
   // 初始化该视图的JS模块
   import(router.moduleJs).then((module) => {
     module.default();
+    window.module = module;
   });
 }
 

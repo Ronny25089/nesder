@@ -2,17 +2,16 @@ import * as commonTools from "../commonTools.js";
 
 //模块初始化
 export default () => {
-  let channel_id = document.querySelector("#routeView-sub").param;
-  getAllPost(channel_id);
+  getAllPost();
 };
 
-export function getAllPost(channelId) {
+function getAllPost() {
+  let channel_id = document.querySelector("#routeView-sub").param;
   commonTools.ajax({
-    url: `/nesder/details/get/${channelId}`,
+    url: `/nesder/details/get/${channel_id}`,
     type: "GET",
     success: function (response) {
-      console.log(response);
-      //   此处执行请求成功后的代码
+      // 此处执行请求成功后的代码
       let channelEle = document.querySelector("#details");
       response.data.forEach((item, index) => {
         let dom = `
