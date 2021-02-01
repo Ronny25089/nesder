@@ -9,6 +9,7 @@ body {
     width: 10em !important;
 }
 
+/* 内容最小高度设置 */
 #routeView {
     min-height: 85vh;
     display: flex;
@@ -17,22 +18,24 @@ body {
 
 /********************avatar********************/
 
-.avatar-wrapper {
+/* 头像的基本设置 */
+.avatar-small {
     height: 50px;
     width: 50px;
-    margin: 10px;
     border-radius: 50%;
     overflow: hidden;
     transition: all .3s ease;
 }
 
-.avatar-wrapper:hover {
+/* 鼠标在头像区域停留，放大 */
+.avatar-small:hover {
     transform: scale(1.15);
     cursor: pointer;
 }
 
 /********************avatar********************/
 
+/* 频道激活 */
 .list-group-item.active {
     z-index: 2;
     color: #155724;

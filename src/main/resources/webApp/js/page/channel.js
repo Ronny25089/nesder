@@ -18,7 +18,7 @@ function getAllPost() {
           <div class="card my-3">
             <div class="row">
               <div class="col-1 mx-1">
-                <img src="${item.created_account_avatarurl}" class="avatar-wrapper">
+                <img src="${item.created_account_avatarurl}" class="avatar-small">
               </div>
               <div class="col-10 card-body">
                 <h5 class="card-title">${item.created_account_nick_name}</h5>
