@@ -4,31 +4,27 @@ import * as channel from "../page/channel.js";
 
 //模块初始化
 export default () => {
-  getChannel();
-  // 初始化channel区域
-  router.render("#routeView-sub", "channel");
+  // 获得当前频道ID
+  let forum_id = document.querySelector("#routeView").param;
+  getChannel(forum_id);
 };
 
-function getChannel() {
-  let forum_id = document.querySelector("#routeView").param;
+
+export function getChannel(forum_id) {
   commonTools.ajax({
     url: `/nesder/channel/get/${forum_id}`,
     type: "GET",
     success: function (response) {
       //   此处执行请求成功后的代码
       let channelEle = document.querySelector("#channel");
-      let activeClass = `active`;
+      document.querySelector("#routeView-sub").param = response.data[0].channel_id;
       response.data.forEach((item, index) => {
-        if (index == 0 ) {
-          document.querySelector("#routeView-sub").param = item.channel_id;
-        }
         let dom = `
-          <a href="#/forum/${forum_id}/channel/${item.channel_id}" 
-            class="list-group-item list-group-item-action border border-success mt-3 ${activeClass}">
+          <a href="#/${forum_id ? `home`:`forum/${forum_id}`}/channel/${item.channel_id}" 
+            class="list-group-item list-group-item-action border border-success mt-3 ${index == 0 ? 'active' : ''}">
             ${item.name}
           </a>`;
         channelEle.innerHTML += dom;
-        activeClass = ``;
       });
 
       $('.list-group-item').click(function(e) {
@@ -41,4 +37,7 @@ function getChannel() {
       console.log(response);
     },
   });
+
+  // 初始化channel区域
+  router.render("#routeView-sub", "channel");
 }

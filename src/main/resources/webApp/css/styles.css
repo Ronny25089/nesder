@@ -1,44 +1,123 @@
 body {
-    font-family: source-sans-pro, sans-serif;
-    font-size: 15px;
-    padding-top: 56px !important;
-    /*padding-bottom: 40px;*/
+  font-family: source-sans-pro, sans-serif;
+  font-size: 15px;
+  padding-top: 56px !important;
+  /* background-color: #eef0f1; */
 }
 
 .width-10 {
-    width: 10em !important;
+  width: 10em !important;
 }
 
 /* 内容最小高度设置 */
 #routeView {
-    min-height: 85vh;
-    display: flex;
-    flex-direction: column;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /********************avatar********************/
 
-/* 头像的基本设置 */
+/* 最小的头像的基本设置 */
 .avatar-small {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    transition: all .3s ease;
+  margin-top: 50px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 1px 1px 10px -5px black;
+  transition: all 0.3s ease;
+}
+
+/* 普通头像的基本设置 */
+.avatar-wrapper {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 1px 1px 10px -5px black;
+  transition: all 0.3s ease;
+}
+
+/* 上传头像的基本设置 */
+.avatar-upload {
+  position: absolute;
+  top: 3px;
+  margin: 5px auto 2px 130px;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 3px 3px 18px -5px black;
+  transition: all 0.3s ease;
 }
 
 /* 鼠标在头像区域停留，放大 */
-.avatar-small:hover {
-    transform: scale(1.15);
-    cursor: pointer;
+.avatar-small:hover, .avatar-wrapper:hover, .avatar-upload:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.avatar-upload:hover .profile-pic {
+  opacity: 0.4;
+}
+
+.avatar-upload .profile-pic {
+  height: 100%;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.avatar-upload .profile-pic:after {
+  content: "\f486";
+  left: 0;
+  position: absolute;
+  font-size: 70px;
+  background: #ecf0f1;
+  color: #52775b;
+  font-family: bootstrap-icons !important;
+  line-height: 1;
+  vertical-align: text-bottom;
+  -webkit-font-smoothing: antialiased;
+}
+
+.avatar-upload .upload-button .bi-arrow-up-circle-fill {
+  position: absolute;
+  font-size: 70px;
+  top: -29px;
+  left: 0px;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: #52775b;
+}
+
+.avatar-upload .upload-button:hover .bi-arrow-up-circle-fill {
+  opacity: 0.6;
 }
 
 /********************avatar********************/
 
 /* 频道激活 */
 .list-group-item.active {
-    z-index: 2;
-    color: #155724;
-    background-color: #c3e6cb;
-    border-color: #155724;
+  z-index: 2;
+  color: #155724;
+  background-color: #c3e6cb;
+  border-color: #155724;
+}
+
+.post-item {
+  box-shadow: 2px 2px 7px -5px black;
+}
+
+.reply-container {
+  margin: 10px auto 5px auto;
+  width: 100vh;
+  box-shadow: 0 1px 3px #b1b4b1;
+}
+
+.reply {
+  width: 95vh;
+  margin: 0px auto 0px auto;
+  border-bottom: 1px solid #c6c7c6;
 }

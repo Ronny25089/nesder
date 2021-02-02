@@ -21,7 +21,7 @@ public class ChannelController {
 	@Autowired
 	private ChannelService channelService;
 
-	@GetMapping("/all")
+	@GetMapping("/get/all")
 	public ApiResponse listChannel() {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(channelService.findAll());

@@ -42,16 +42,16 @@
     postgres=# \i C:XXX/workspace/nesder/doc/ddl/setup.sql(本地目录)
     ```
 1. 安装Node.js[※NodeJS安装方法参考](https://www.runoob.com/nodejs/nodejs-install-setup.html)    
-  并执行一下命令，安装http-server
-[about http-server](https://www.npmjs.com/package/http-server)  
+  并执行一下命令，安装live-server
+[about live-server](https://www.npmjs.com/package/live-server)  
     **Mac:**
     ```
-    $ sudo npm install -g http-server
+    $ sudo npm install -g live-server
     ```
     **Winows:**  
     如果失败，请使用管理员权限安装
     ```
-    > npm install -g http-server
+    > npm install -g live-server
     ```  
 1. 安装Chrome插件Postman API接口测试工具或其他API测试工具[※插件地址](https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo?hl=zh-CN)
 
@@ -91,9 +91,9 @@
 **Mac:**
 ```
 $ cd /Users/XXXX/workspace/nesder/src/main/resources/webApp
-$ sudo http-server -p 8080
+$ sudo live-server -p 8080(如果失败，就去掉“-p 8080”)
 Password:
-Starting up http-server, serving ./
+Starting up live-server, serving ./
 Available on:
   http://127.0.0.1:8080
   http://192.168.2.104:8080
@@ -102,9 +102,9 @@ Hit CTRL-C to stop the server
 **Winows:**
 ```
 > cd C://XXXX/workspace/nesder/src/main/resources/webApp
-> http-server -p 8080
+> live-server -p 8080(如果失败，就去掉“-p 8080”)
 Password:
-Starting up http-server, serving ./
+Starting up live-server, serving ./
 Available on:
   http://127.0.0.1:8080
   http://192.168.2.104:8080

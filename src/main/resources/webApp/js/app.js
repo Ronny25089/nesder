@@ -4,6 +4,7 @@ import * as commonTools from "../js/commonTools.js";
 
 getForum();
 //启动路由
+window.router = router;
 router.default();
 // 将双向绑定对象，暴露给window对象,起到全局共享的作用
 window.DBind = new Binder.DBind(1);

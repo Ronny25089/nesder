@@ -6,6 +6,7 @@ export default () => {
 };
 
 function getAllPost() {
+  let forum_id = document.querySelector("#routeView").param;
   let channel_id = document.querySelector("#routeView-sub").param;
   commonTools.ajax({
     url: `/nesder/details/get/${channel_id}`,
@@ -15,10 +16,11 @@ function getAllPost() {
       let channelEle = document.querySelector("#details");
       response.data.forEach((item, index) => {
         let dom = `
-          <div class="card my-3">
+          <div role="button" class="card my-3 post-item" 
+          onclick="router.goto('#/${forum_id=='all' ? `home`:`forum/${forum_id}`}/details/${item.post_id}')">
             <div class="row">
-              <div class="col-1 mx-1">
-                <img src="${item.created_account_avatarurl}" class="avatar-small">
+              <div class="col-1">
+                <img src="${item.created_account_avatarurl}" class="avatar-wrapper ml-2 mt-2">
               </div>
               <div class="col-10 card-body">
                 <h5 class="card-title">${item.created_account_nick_name}</h5>
