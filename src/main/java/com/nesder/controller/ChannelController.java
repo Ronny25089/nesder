@@ -21,14 +21,14 @@ public class ChannelController {
 	@Autowired
 	private ChannelService channelService;
 
-	@GetMapping("/get/all")
+	@GetMapping("/get/home")
 	public ApiResponse listChannel() {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(channelService.findAll());
 		return apiResponse;
 	}
 
-	@GetMapping("/get/{id}")
+	@GetMapping("/get/forum/{id}")
 	public ApiResponse listUser(@PathVariable("id") Integer id) {
 		ApiResponse apiResponse = new ApiResponse();
 		apiResponse.setData(channelService.findByForumId(id));

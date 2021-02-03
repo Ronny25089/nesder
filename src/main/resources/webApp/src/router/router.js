@@ -1,3 +1,5 @@
+import * as commonTools from "/src/utils/commonTools.js";
+
 /********************路由********************/
 export default () => {
   // 页面初始化时，不会出发hashchange事件
@@ -19,83 +21,83 @@ const Routers = [
   {
     //主页
     path: "home",
-    component: "page/home.html",
-    moduleJs: "../js/page/home.js",
+    component: "src/page/home/home.html",
+    moduleJs: "/src/page/home/home.js",
   },
   {
     // 板块
     path: "forum",
-    component: "page/forum.html",
-    moduleJs: "../js/page/forum.js",
+    component: "src/page/forum/forum.html",
+    moduleJs: "/src/page/forum/forum.js",
     children: [
       {
         //频道
         path: "channel",
-        component: "page/channel.html",
-        moduleJs: "../js/page/channel.js",
+        component: "src/page/forum/channel/channel.html",
+        moduleJs: "/src/page/forum/channel/channel.js",
       },
       {
         //详细内容
         path: "details",
-        component: "page/details.html",
-        moduleJs: "../js/page/details.js",
+        component: "src/page/forum/details/details.html",
+        moduleJs: "/src/page/forum/details/details.js",
       },
     ],
   },
   {
     //个人中心
     path: "personal",
-    component: "page/personal.html",
-    moduleJs: "../js/page/personal.js",
+    component: "src/page/personal/personal.html",
+    moduleJs: "/src/page/personal/personal.js",
     children: [
       {
         //动态
         path: "news",
-        component: "page/news.html",
-        moduleJs: "../js/page/news.js",
+        component: "src/page/news/news.html",
+        moduleJs: "/src/page/news/news.js",
       },
       {
         //回复
         path: "answers",
-        component: "page/answers.html",
-        moduleJs: "../js/page/answers.js",
+        component: "src/page/answers/answers.html",
+        moduleJs: "/src/page/answers/answers.js",
       },
       {
         //收藏
         path: "collections",
-        component: "page/collections.html",
-        moduleJs: "../js/page/collections.js",
+        component: "src/page/collections/collections.html",
+        moduleJs: "/src/page/collections/collections.js",
       },
       {
         //文章
         path: "posts",
-        component: "page/posts.html",
-        moduleJs: "../js/page/posts.js",
+        component: "src/page/posts/posts.html",
+        moduleJs: "/src/page/posts/posts.js",
       },
       {
         //浏览记录
         path: "browseRecords",
-        component: "page/browseRecords.html",
-        moduleJs: "../js/page/browseRecords.js",
+        component: "src/page/browseRecords/browseRecords.html",
+        moduleJs: "/src/page/browseRecords/browseRecords.js",
       },
       {
         //关系圈
         path: "following",
-        component: "page/following.html",
-        moduleJs: "../js/page/following.js",
+        component: "src/page/following/following.html",
+        moduleJs: "/src/page/following/following.js",
       },
     ],
   },
   {
     //404
     path: "404",
-    component: "page/404.html",
-    moduleJs: "../js/page/notFound.js",
+    component: "src/page/404/notFound.html",
+    moduleJs: "/src/page/404/notFound.js",
   },
 ];
 
 // 当路由发生变化时，根据路由渲染对应区域的UI
-function hashGo(evet) {
+const hashGo = (evet) => {
   // 当空路径的时候默认指向home
   if (location.hash == "") {
     location.hash = "home";
@@ -109,13 +111,6 @@ function hashGo(evet) {
   if (routerList.length == 0) {
     location.hash = "404";
     return;
-  }
-
-  // 当referrer存在时只渲染最后一个节点的视图
-  // 否则视为第一次访问，渲染所有匹配到的节点
-  if (window.referrer !== "") {
-    // 只留最后一个节点
-    routerList = routerList.slice(routerList.length -1);
   }
 
   // 渲染routerList下的所有节点
@@ -133,33 +128,6 @@ function hashGo(evet) {
   window.referrer = location.hash;
 }
 
-/**
- * 初始化全面渲染视图
- * @param routerView 目标路由视图区域
- * @param component 目标组件
- * @param moduleJs 目标JS模块
- */
-function initRender(routerView, router) {
-  // 获得目标视图
-  let routerTag = document.querySelector(routerView);
-
-  // 渲染视图
-  routerTag.innerHTML = getPageComponent(router.component);
-
-  try {
-    // 提取参数(「路由名/XXXX/」通过动态正则表达式(/{路由名}}\/(\w*)/)，获得XXXX)
-    // 存入视图中
-    routerTag.param = location.hash.match(`${router.path}\\/(\\d*)`)[1];
-  } catch (e) {
-    //无视匹配不到参数的错误，不作处理，即不存储该值
-  }
-
-  // 初始化该视图的JS模块
-  import(router.moduleJs).then((module) => {
-    module.default();
-    window.module = module;
-  });
-}
 
 /**
  * 递归查找所有节点
@@ -168,7 +136,7 @@ function initRender(routerView, router) {
  * @param routerView 每个节点对应的路由视图id
  * @returns List<router> 返回该hash值所能匹配到的所有路由节点
  */
-function matchRouter(currentList, resultList, routerView) {
+const matchRouter = (currentList, resultList, routerView) => {
   // 初次清空
   resultList = resultList === undefined ? [] : resultList;
   // 初次为「routeView」
@@ -195,9 +163,15 @@ function matchRouter(currentList, resultList, routerView) {
     routerView += "-sub";
     // 递归再查找
     return matchRouter(childrenList, resultList, routerView);
-  } else {
-    return resultList;
   }
+  
+  // 当referrer存在时只渲染最后一个节点的视图
+  // 否则视为第一次访问，渲染所有匹配到的节点
+  if (window.referrer !== "") {
+    // 只留最后一个节点
+    resultList = resultList.slice(resultList.length -1);
+  }
+  return resultList;
 }
 
 /**
@@ -205,13 +179,14 @@ function matchRouter(currentList, resultList, routerView) {
  * @param pageUrl 目标路径
  * @returns String HTML文本
  */
-function getPageComponent(pageUrl) {
+const getPageComponent = pageUrl => {
   let result;
-  $.ajax({
+  commonTools.ajax({
     url: pageUrl,
+    type:'GET',
     dataType: "text",
     async: false, //关闭异步处理，获得response：data，返回给外部
-    success: function (data) {
+    success: data => {
       result = data;
     },
   });
@@ -219,12 +194,45 @@ function getPageComponent(pageUrl) {
 }
 
 /**
+ * 初始化渲染视图
+ * @param routerView 目标路由视图区域
+ * @param router 目标路由对象
+ * @param setValueFlg 
+ */
+const initRender = (routerView, router, setValueFlg) => {
+  // 获得目标视图
+  let routerTag = document.querySelector(routerView);
+
+  // 渲染视图
+  routerTag.innerHTML = getPageComponent(router.component);
+
+  try {
+    if (!setValueFlg) {
+      // 提取参数(「路由名/XXXX/」通过动态正则表达式(/{路由名}}\/(\w*)/)，获得XXXX)
+      // 存入session
+      let value = location.hash.match(`${router.path}\\/(\\d*)`)[1];
+      sessionStorage.setItem(router.path, value);
+    }
+  } catch (e) {
+    //匹配不到参数的错误
+    let key = router.path.match('home') ? 'forum' : router.path;
+    sessionStorage.setItem(key, '');
+  }
+
+  // 初始化该视图的JS模块
+  import(router.moduleJs).then((module) => {
+    module.default();
+    window.module = module;
+  });
+}
+
+/**
  * 提供给外部使用的视图初始化方法
  * @param routerView 目标路由视图区域
- * @param component 目标路径
- * @param moduleJs 递归查找用list
+ * @param path 目标路径
+ * @param resultList 递归查找用list
  */
-export function render(routerView, path, resultList) {
+export const render = (routerView, path, resultList) => {
   // 初次为Routers路由导航
   resultList = resultList === undefined ? Routers : resultList;
 
@@ -236,7 +244,7 @@ export function render(routerView, path, resultList) {
     // 匹配路由
     if (path.match(router.path)) {
       //初始化全面渲染视图
-      initRender(routerView, router);
+      initRender(routerView, router, true);
       return;
 
     // 不匹配，且有子节点的保留起来
@@ -249,13 +257,18 @@ export function render(routerView, path, resultList) {
   if (childrenList.length > 0) {
     render(routerView, path, childrenList);
   }
+  return;
 }
+
+export const getCurrentPage = () => {
+  return location.hash;
+} 
 
 /**
  * 跳转路由
  * @param path 目标路由
  */
-export function goto(path) {
+export const goto = (path) => {
   location.hash = path;
 }
 /********************路由********************/

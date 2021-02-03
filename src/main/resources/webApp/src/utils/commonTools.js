@@ -1,7 +1,7 @@
 //工具类
 
 // 原生JS封装Ajax请求
-export function ajax(options) {
+export const ajax = (options) => {
   /**
    * 传入方式默认为对象
    * */
@@ -39,25 +39,28 @@ export function ajax(options) {
      */
     xhr = new ActiveXObject("Microsoft.XMLHTTP");
   }
-  xhr.onreadystatechange = function () {
+  xhr.onreadystatechange = () => {
     if (xhr.readyState == 4) {
       var status = xhr.status;
       if (status >= 200 && status < 300) {
-        options.success && options.success(JSON.parse(xhr.responseText));
+        if (options.dataType=="json") {
+          options.success && options.success(JSON.parse(xhr.responseText));  
+        } else {
+          options.success && options.success(xhr.responseText);
+        }
       } else {
         options.fail && options.fail(status);
       }
     }
   };
-  let url = "http://" + location.hostname + options.url; //请求地址
   if (options.type == "GET") {
-    xhr.open("GET", url + "?" + params, options.async);
+    xhr.open("GET", options.url + "?" + params, options.async);
     xhr.send(null);
   } else if (options.type == "POST") {
     /**
      *打开请求
      * */
-    xhr.open("POST", url, options.async);
+    xhr.open("POST", options.url, options.async);
     /**
      * POST请求设置请求头
      * */
@@ -73,7 +76,7 @@ export function ajax(options) {
  * @param data
  * @returns {string}
  */
-function getParams(data) {
+const getParams = (data) => {
   let arr = [];
   for (let param in data) {
     arr.push(encodeURIComponent(param) + "=" + encodeURIComponent(data[param]));

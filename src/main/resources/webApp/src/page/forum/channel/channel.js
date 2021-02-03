@@ -1,23 +1,27 @@
-import * as commonTools from "../commonTools.js";
+import * as commonTools from "/src/utils/commonTools.js";
 
 //模块初始化
 export default () => {
-  getAllPost();
+  if (!location.hash.match('details')) {
+    // 初始化channel区域
+    getAllPost();
+  }
 };
 
-function getAllPost() {
-  let forum_id = document.querySelector("#routeView").param;
-  let channel_id = document.querySelector("#routeView-sub").param;
+const getAllPost =() => {
+  let forum_id = sessionStorage.getItem('forum');
+  let channel_id = sessionStorage.getItem('channel');
   commonTools.ajax({
-    url: `/nesder/details/get/${channel_id}`,
+    url: `${location.protocol}//${location.hostname}/nesder/details/get/${channel_id}`,
     type: "GET",
-    success: function (response) {
+    success: response => {
       // 此处执行请求成功后的代码
       let channelEle = document.querySelector("#details");
+      
       response.data.forEach((item, index) => {
         let dom = `
           <div role="button" class="card my-3 post-item" 
-          onclick="router.goto('#/${forum_id=='all' ? `home`:`forum/${forum_id}`}/details/${item.post_id}')">
+          onclick="router.goto('#/${forum_id == '' ? `home`:`forum/${forum_id}`}/details/${item.post_id}')">
             <div class="row">
               <div class="col-1">
                 <img src="${item.created_account_avatarurl}" class="avatar-wrapper ml-2 mt-2">
@@ -48,9 +52,9 @@ function getAllPost() {
         channelEle.innerHTML += dom;
       });
     },
-    fail: function (status) {
+    fail: status => {
       // 此处为请求失败后的代码
-      console.log(response);
+      console.log(status);
     },
   });
 }

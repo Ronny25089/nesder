@@ -1,4 +1,4 @@
-import * as commonTools from "../commonTools.js";
+import * as commonTools from "/src/utils/commonTools.js";
 
 //模块初始化
 export default () => {

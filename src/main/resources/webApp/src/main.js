@@ -1,6 +1,6 @@
-import * as Binder from "../js/dataBinder.js";
-import * as router from "../js/router.js";
-import * as commonTools from "../js/commonTools.js";
+import * as Binder from "/src/utils/dataBinder.js";
+import * as router from "/src/router/router.js";
+import * as commonTools from "/src/utils/commonTools.js";
 
 getForum();
 //启动路由
@@ -11,19 +11,18 @@ window.DBind = new Binder.DBind(1);
 
 //　共通，点击打开modal，
 //  目标路径为href所指定路径
-$(".li-modal").on("click", function (e) {
+$(".li-modal").on("click", (e) => {
   e.preventDefault();
 
-  let href = $(this).attr("href");
-  let moduleJs = href.replace("html", "js");
+  let href = $(e.target).attr("href");
 
   $("#theModal")
     .modal("show")
     .find(".modal-content")
-    .load(href, function (e) {
+    .load(href, (e) => {
 
         //初始化
-        import(`../js/${moduleJs}`).then((module) => {
+        import(href.replace("html", "js")).then((module) => {
           module.default();
           // 将sign对象的signIn()函数，暴露给window对象
           window.modal = module;
@@ -33,9 +32,9 @@ $(".li-modal").on("click", function (e) {
 
 function getForum() {
   commonTools.ajax({
-    url: "/nesder/forum/all",
+    url: `${location.protocol}//${location.hostname}/nesder/forum/all`,
     type: "GET",
-    success: function (response) {
+    success: response => {
       //   此处执行请求成功后的代码
       let forumEle = document.querySelector("#forum");
       response.data.forEach((item, index) => {
@@ -48,9 +47,9 @@ function getForum() {
         forumEle.innerHTML += dom;
       });
     },
-    fail: function (status) {
+    fail: status => {
       // 此处为请求失败后的代码
-      console.log(response);
+      console.log(status);
     },
   });
 }
