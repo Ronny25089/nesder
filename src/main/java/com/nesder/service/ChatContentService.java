@@ -35,7 +35,7 @@ public class ChatContentService {
 		ChatContent chatContent = new ChatContent();
 		chatContent.setContent(chatcontent1.getContent());
 		chatContent.setChat_group_id(chatcontent1.getChat_Group_Id());
-		chatContent.setCreated_account(chatcontent1.getCreated_account());
+		chatContent.setAccount_id(chatcontent1.getCreated_account());
 		
 		return chatcontentMapper.insertSelective(chatContent);
 	}
@@ -61,7 +61,7 @@ public class ChatContentService {
 		chatContent.setChat_content_id(chatcontent1.getId());
 		chatContent.setContent(chatcontent1.getContent());
 		chatContent.setChat_group_id(chatcontent1.getChat_Group_Id());
-		chatContent.setCreated_account(chatcontent1.getCreated_account());
+		chatContent.setAccount_id(chatcontent1.getCreated_account());
 
 		return chatcontentMapper.updateByPrimaryKeySelective(chatContent);
 	}

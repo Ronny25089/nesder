@@ -24,7 +24,7 @@ public class DetailsController {
     }
 
     @GetMapping("/getPostDetails/{id}")
-    public ApiResponse getPostDetailsByPostlId(@PathVariable("id") Integer id) {
+    public ApiResponse getPostDetailsByPostlId(@PathVariable("id") Integer id) throws Exception {
         ApiResponse apiResponse = new ApiResponse();
         apiResponse.setData(detailsService.findDetailsByPostId(id));
         return apiResponse;

@@ -15,7 +15,7 @@ import com.nesder.vo.resp.ApiResponse;
 import com.nesder.vo.resq.AddPost;
 
 @RestController
-@RequestMapping("/nesder/article")
+@RequestMapping("/nesder/post")
 public class PostController {
 
 	@Autowired
@@ -29,17 +29,17 @@ public class PostController {
 	}
 	
 	@PostMapping("/add")
-	public ApiResponse addPost(@RequestBody AddPost article1) {
+	public ApiResponse addPost(@RequestBody AddPost post1) {
 		
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(PostService.addAticleInfo(article1));
+		apiResponse.setData(PostService.addAticleInfo(post1));
 		return apiResponse;
 	}	
 
 	@PutMapping("/update")
-	public ApiResponse updateAticleInfo(@RequestBody AddPost article1) {
+	public ApiResponse updateAticleInfo(@RequestBody AddPost post1) {
 		ApiResponse apiResponse = new ApiResponse();
-		apiResponse.setData(PostService.updateAticleInfo(article1));
+		apiResponse.setData(PostService.updateAticleInfo(post1));
 		return apiResponse;
 	}
 	

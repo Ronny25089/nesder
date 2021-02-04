@@ -16,51 +16,51 @@ import com.nesder.vo.resq.AddPostMark;
 public class PostMarkService {
 
 	@Autowired
-	private PostMarkMapper articleMarkMapper;
+	private PostMarkMapper postMarkMapper;
 
 	/**
 	 * 
 	 * @return
 	 */
 	public List<PostMark> findAll() {
-		return articleMarkMapper.selectByExample(null);
+		return postMarkMapper.selectByExample(null);
 	}
 	
 	/**
 	 * 	
-	 * @param articleMark1
+	 * @param postMark1
 	 * @return
 	 */
-	public List<PostMark> findAid(AddPostMark articleMark1) {
+	public List<PostMark> findAid(AddPostMark postMark1) {
 		PostMarkExample example = new PostMarkExample();
-		example.createCriteria().andUidEqualTo(articleMark1.getUid());
-		return articleMarkMapper.selectByExample(example);
+		example.createCriteria().andAccount_idEqualTo(postMark1.getUid());
+		return postMarkMapper.selectByExample(example);
 	}
 	
 	/**
 	 * 
-	 * @param articleMark1
+	 * @param postMark1
 	 * @return
 	 */
-	public List<PostMark> findUid(AddPostMark articleMark1) {
+	public List<PostMark> findUid(AddPostMark postMark1) {
 		PostMarkExample example = new PostMarkExample();
-		example.createCriteria().andPidEqualTo(articleMark1.getAid());
-		return articleMarkMapper.selectByExample(example);
+		example.createCriteria().andPost_idEqualTo(postMark1.getAid());
+		return postMarkMapper.selectByExample(example);
 	}
 	
 	
 	/**
 	 * 
-	 * @param articleMark1
+	 * @param postMark1
 	 * @return
 	 */
-	public int addAticleMarkInfo(AddPostMark articleMark1) {
+	public int addAticleMarkInfo(AddPostMark postMark1) {
 		// request data to DAO entity
-		PostMark articleMark = new PostMark();
-		articleMark.setPid(articleMark1.getAid());
-		articleMark.setUid(articleMark1.getUid());
+		PostMark postMark = new PostMark();
+		postMark.setPost_id(postMark1.getAid());
+		postMark.setAccount_id(postMark1.getUid());
 		
-		return articleMarkMapper.insertSelective(articleMark);
+		return postMarkMapper.insertSelective(postMark);
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class PostMarkService {
 	public int deletePostMark(Integer aid,Integer uid) {
 		PostMarkExample example = new PostMarkExample();
 		//条件
-		example.createCriteria().andPidEqualTo(aid).andUidEqualTo(uid);
-		return articleMarkMapper.deleteByExample(example);
+		example.createCriteria().andPost_idEqualTo(aid).andAccount_idEqualTo(uid);
+		return postMarkMapper.deleteByExample(example);
 	}
 }

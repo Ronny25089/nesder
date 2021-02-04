@@ -43,7 +43,7 @@ function getForum() {
         let dom =
           `<li class="nav-item border-left border-success">
             <a class="nav-link mx-3" href="#/forum/${item.forum_id}">
-              ${item.mname}
+              ${item.forum_name}
             </a>
           </li>`;
         forumEle.innerHTML += dom;

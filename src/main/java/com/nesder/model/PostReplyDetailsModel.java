@@ -3,7 +3,7 @@ package com.nesder.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostDetailsModel {
+public class PostReplyDetailsModel {
     private DetailsModel detailsModel = new DetailsModel();
     private List<ReplyDetailsModel> ReplyDetailsModelList = new ArrayList<ReplyDetailsModel>();
 

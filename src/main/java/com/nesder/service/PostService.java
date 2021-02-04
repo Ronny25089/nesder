@@ -15,47 +15,47 @@ import com.nesder.vo.resq.AddPost;
 public class PostService {
 
 	@Autowired
-	private PostMapper articleMapper;
+	private PostMapper postMapper;
 
 	/**
 	 * 
 	 * @return
 	 */
 	public List<Post> findAll() {
-		return articleMapper.selectByExample(null);
+		return postMapper.selectByExample(null);
 	}
 		
 	/**
 	 * 
-	 * @param article1
+	 * @param post1
 	 * @return
 	 */
-	public int addAticleInfo(AddPost article1) {
+	public int addAticleInfo(AddPost post1) {
 		// request data to DAO entity
-		Post article = new Post();
-		article.setTitle(article1.getTitle());
-		article.setContent(article1.getContent());
-		article.setChannel_id(article1.getChannel_id());
-		article.setCreated_account(article1.getCreated_account());
+		Post post = new Post();
+		post.setTitle(post1.getTitle());
+		post.setContent(post1.getContent());
+		post.setChannel_id(post1.getChannel_id());
+		post.setAccount_id(post1.getCreated_account());
 		
-		return articleMapper.insertSelective(article);
+		return postMapper.insertSelective(post);
 	}
 	
 	/**
 	 * 
-	 * @param article1
+	 * @param post1
 	 * @return
 	 */
-	public int updateAticleInfo(AddPost article1) {
+	public int updateAticleInfo(AddPost post1) {
 		//条件
-		Post article = new Post();
-		article.setPost_id(article1.getId());
-		article.setTitle(article1.getTitle());
-		article.setContent(article1.getContent());
-		article.setChannel_id(article1.getChannel_id());
-		article.setCreated_account(article1.getCreated_account());
+		Post post = new Post();
+		post.setPost_id(post1.getId());
+		post.setTitle(post1.getTitle());
+		post.setContent(post1.getContent());
+		post.setChannel_id(post1.getChannel_id());
+		post.setAccount_id(post1.getCreated_account());
 
-		return articleMapper.updateByPrimaryKeySelective(article);
+		return postMapper.updateByPrimaryKeySelective(post);
 	}
 	
 	/**
@@ -64,6 +64,6 @@ public class PostService {
 	 * @return
 	 */
 	public int deletePost(int id) {
-		return articleMapper.deleteByPrimaryKey(id);
+		return postMapper.deleteByPrimaryKey(id);
 	}
 }

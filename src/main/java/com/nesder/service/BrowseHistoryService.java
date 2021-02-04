@@ -33,7 +33,7 @@ public class BrowseHistoryService {
 	 */
 	public List<BrowseHistory> findPid(AddBrowseHistory browsehistory1) {
 		BrowseHistoryExample example = new BrowseHistoryExample();
-		example.createCriteria().andUidEqualTo(browsehistory1.getUid());
+		example.createCriteria().andAccount_idEqualTo(browsehistory1.getUid());
 		return browsehistorymapper.selectByExample(example);
 	}
 	
@@ -44,7 +44,7 @@ public class BrowseHistoryService {
 	 */
 	public List<BrowseHistory> findUid(AddBrowseHistory browsehistory1) {
 		BrowseHistoryExample example = new BrowseHistoryExample();
-		example.createCriteria().andPidEqualTo(browsehistory1.getPid());
+		example.createCriteria().andPost_idEqualTo(browsehistory1.getPid());
 		return browsehistorymapper.selectByExample(example);
 	}
 	
@@ -56,8 +56,8 @@ public class BrowseHistoryService {
 	public int addBrowseHistoryInfo(AddBrowseHistory browsehistory1) {
 		// request data to DAO entity
 		BrowseHistory browseHistory = new BrowseHistory();
-		browseHistory.setPid(browsehistory1.getPid());
-		browseHistory.setUid(browsehistory1.getUid());
+		browseHistory.setPost_id(browsehistory1.getPid());
+		browseHistory.setAccount_id(browsehistory1.getUid());
 		
 		return browsehistorymapper.insertSelective(browseHistory);
 	}
@@ -71,7 +71,7 @@ public class BrowseHistoryService {
 	public int deleteReply(Integer aid,Integer uid) {
 		BrowseHistoryExample example = new BrowseHistoryExample();
 		//条件
-		example.createCriteria().andPidEqualTo(aid).andUidEqualTo(uid);
+		example.createCriteria().andPost_idEqualTo(aid).andAccount_idEqualTo(uid);
 		return browsehistorymapper.deleteByExample(example);
 	}
 }

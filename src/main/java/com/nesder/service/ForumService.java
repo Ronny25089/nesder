@@ -42,9 +42,9 @@ public class ForumService {
 	public int addForum(AddForum modle) {
 		//request data to DAO entity
 		Forum forum = new Forum();
-		forum.setMname(modle.getmName());
+		forum.setForum_name(modle.getmName());
 		forum.setIntroduction(modle.getIntroduction());
-		forum.setCreated_account(modle.getCreated_account());
+		forum.setAccount_id(modle.getCreated_account());
 		
 		return forumMapper.insertSelective(forum);
 	}
@@ -68,9 +68,9 @@ public class ForumService {
 		//request data to DAO entity
 		Forum forum = new Forum();
 		forum.setForum_id(modle.getId());
-		forum.setMname(modle.getmName());
+		forum.setForum_name(modle.getmName());
 		forum.setIntroduction(modle.getIntroduction());
-		forum.setCreated_account(modle.getCreated_account());		
+		forum.setAccount_id(modle.getCreated_account());
 		
 		return forumMapper.updateByPrimaryKeySelective(forum);
 	}

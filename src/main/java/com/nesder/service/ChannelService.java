@@ -45,10 +45,10 @@ public class ChannelService {
 	public int addChannel(AddChannel channel1) {
 		// request data to DAO entity
 		Channel channel = new Channel();
-		channel.setName(channel1.getName());
+		channel.setChannel_name(channel1.getName());
 		channel.setFid(channel1.getFid());
 		channel.setIntroduction(channel1.getIntroduction());
-		channel.setCreated_account(channel1.getCreated_account());
+		channel.setAccount_id(channel1.getCreated_account());
 
 		return channelMapper.insertSelective(channel);
 	}
@@ -72,9 +72,9 @@ public class ChannelService {
 		// 条件
 		Channel channel = new Channel();
 		channel.setChannel_id(channel1.getId());
-		channel.setName(channel1.getName());
+		channel.setChannel_name(channel1.getName());
 		channel.setIntroduction(channel1.getIntroduction());
-		channel.setCreated_account(channel1.getCreated_account());
+		channel.setAccount_id(channel1.getCreated_account());
 
 		return channelMapper.updateByPrimaryKeySelective(channel);
 	}

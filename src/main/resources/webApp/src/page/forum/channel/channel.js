@@ -14,7 +14,7 @@ const getAllPost =() => {
     type: "GET",
     success: response => {
       // 此处执行请求成功后的代码
-      let channelEle = document.querySelector("#details");
+      let container = document.querySelector("#details");
       
       response.data.forEach((item, index) => {
         let dom = `
@@ -24,7 +24,7 @@ const getAllPost =() => {
                 <img src="${HOST}/${item.created_account_avatarurl}" class="avatar-wrapper ml-2 mt-2">
               </div>
               <div role="button" class="col-10 card-body"
-              onclick="router.goto('#/${forum_id == '' ? `home`:`forum/${forum_id}`}/details/${item.post_id}')">
+              onclick="router.goto('#/${forum_id == '' ? `home`:`forum/${forum_id}`}/post/${item.post_id}')">
                 <h5 class="card-title">${item.created_account_nick_name}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">${item.title}</h6>
                 <hr>
@@ -47,7 +47,7 @@ const getAllPost =() => {
               </button>
             </div>
           </div>`;
-        channelEle.innerHTML += dom;
+        container.innerHTML += dom;
       });
     },
     fail: status => {

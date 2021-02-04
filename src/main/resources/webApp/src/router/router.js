@@ -37,10 +37,10 @@ const Routers = [
         moduleJs: "/src/page/forum/channel/channel.js",
       },
       {
-        //详细内容
-        path: "details",
-        component: "src/page/forum/details/details.html",
-        moduleJs: "/src/page/forum/details/details.js",
+        //文章详细
+        path: "post",
+        component: "src/page/forum/post/post.html",
+        moduleJs: "/src/page/forum/post/post.js",
       },
     ],
   },

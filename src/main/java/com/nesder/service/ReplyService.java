@@ -33,32 +33,32 @@ public class ReplyService {
 	 */
 	public List<Reply> findPid(AddReply reply1) {
 		ReplyExample example = new ReplyExample();
-		example.createCriteria().andUidEqualTo(reply1.getUid());
+		example.createCriteria().andAccount_idEqualTo(reply1.getUid());
 		return replymapper.selectByExample(example);
 	}
 	
 	/**
 	 * 
-	 * @param articleMark1
+	 * @param reply1
 	 * @return
 	 */
 	public List<Reply> findUid(AddReply reply1) {
 		ReplyExample example = new ReplyExample();
-		example.createCriteria().andPidEqualTo(reply1.getPid());
+		example.createCriteria().andPost_idEqualTo(reply1.getPid());
 		return replymapper.selectByExample(example);
 	}
 	
 	/**
 	 * 
-	 * @param article1
+	 * @param reply1
 	 * @return
 	 */
 	public int addReplyInfo(AddReply reply1) {
 		// request data to DAO entity
 		Reply reply = new Reply();
 		reply.setContent(reply1.getContent());
-		reply.setPid(reply1.getPid());
-		reply.setUid(reply1.getUid());
+		reply.setPost_id(reply1.getPid());
+		reply.setAccount_id(reply1.getUid());
 		
 		return replymapper.insertSelective(reply);
 	}
@@ -72,7 +72,7 @@ public class ReplyService {
 	public int deleteReply(Integer aid,Integer uid) {
 		ReplyExample example = new ReplyExample();
 		//条件
-		example.createCriteria().andPidEqualTo(aid).andUidEqualTo(uid);
+		example.createCriteria().andPost_idEqualTo(aid).andAccount_idEqualTo(uid);
 		return replymapper.deleteByExample(example);
 	}
 }

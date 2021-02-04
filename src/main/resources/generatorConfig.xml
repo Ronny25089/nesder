@@ -40,6 +40,10 @@
 			targetProject="src/main/java">
 		</javaClientGenerator>
 
+		<table schema="public" tableName="Apikey">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+
 		<table schema="public" tableName="Account">
 			<property name="useActualColumnNames" value="true" />
 		</table>
@@ -64,11 +68,15 @@
 			<property name="useActualColumnNames" value="true" />
 		</table>
 
+		<table schema="public" tableName="Post_MediaFIles">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+
 		<table schema="public" tableName="Reply">
 			<property name="useActualColumnNames" value="true" />
 		</table>
 
-		<table schema="public" tableName="Reply_2_Reply">
+		<table schema="public" tableName="Reply_like">
 			<property name="useActualColumnNames" value="true" />
 		</table>
 
@@ -77,6 +85,10 @@
 		</table>
 
 		<table schema="public" tableName="Chat_Group">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+
+		<table schema="public" tableName="User_Chat_Group">
 			<property name="useActualColumnNames" value="true" />
 		</table>
 
