@@ -3,6 +3,7 @@ package com.nesder.service;
 import com.nesder.dao.entity.*;
 import com.nesder.dao.repository.*;
 import com.nesder.model.DetailsModel;
+import com.nesder.model.PostDetailsModel;
 import com.nesder.utils.toolUtils;
 import com.nesder.vo.resq.AddChannel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,6 +93,15 @@ public class DetailsService {
 				continue;
 			}
 		}
+		return result;
+	}
+
+	public List<PostDetailsModel> findDetailsByPostId(Integer cid) {
+		List<PostDetailsModel> result = new ArrayList<PostDetailsModel>();
+
+		// 取得所有的内容
+		PostExample example = new PostExample();
+
 		return result;
 	}
 }

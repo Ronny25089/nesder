@@ -1,11 +1,11 @@
-import * as commonTools from "/src/utils/commonTools.js";
+import * as tools from "/src/utils/tools.js";
 
 //模块初始化
 export default () => {
 };
 
 // function getPostDetail() {
-//   commonTools.ajax({
+//   tools.ajax({
 //     let post_id = document.querySelector("#routeView-sub").param;
 //     url: `/nesder/details/${post_id}`,
 //     type: "GET",

@@ -121,14 +121,14 @@ create table public.Account(
 	BirthDay Date NOT NULL,
 	Introduction varchar,
 	login_Auth int NOT NULL DEFAULT 0,--登陆权限 0:一般用户 -1:禁言用户
-	AvatarUrl varchar NOT NULL
+	AvatarUrl varchar NOT NULL DEFAULT 'avatar/default.png'
 );
 --ALTER TABLE Account ALTER COLUMN Id SET DEFAULT nextval('public.Account_Id'::regclass);
 
 --板块
 create table public.Forum(
 	Forum_Id int DEFAULT nextval('public.Forum_Id'::regclass) primary key,
-	MName varchar NOT NULL UNIQUE,
+	Forum_Name varchar NOT NULL UNIQUE,
 	Create_Date Date NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	Introduction varchar,
 	Created_Account int NOT NULL--创建者Id
@@ -138,7 +138,7 @@ create table public.Forum(
 --频道
 create table public.Channel(
 	Channel_Id int DEFAULT nextval('public.Channel_Id'::regclass) primary key,
-	Name varchar NOT NULL UNIQUE,
+	Channel_Name varchar NOT NULL UNIQUE,
 	Create_Date Date NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	Introduction varchar,
 	Created_Account int,
@@ -164,7 +164,7 @@ create table public.Post(
 	Browse int DEFAULT 0,
 	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	Modify_Date TIMESTAMP,
-	enable_Edit bool DEFAULT TRUE,
+	Enable_Edit bool DEFAULT TRUE,
 	Channel_Id int NOT NULL,--发表的频道id
 	Created_Account int NOT NULL--发表者id
 	-- FOREIGN KEY(Created_Account) references Account(Id) ON DELETE CASCADE,
@@ -172,13 +172,21 @@ create table public.Post(
 );
 create trigger T_Post before update on Post for each row execute procedure public.upd_timestamp();
 
---关注文章
-create table public.Post_Mark(
-	PID int NOT NULL,--文章id
-	Marks bool DEFAULT FALSE,
-	Likes bool DEFAULT FALSE,
-	UID int NOT NULL,--创建者id
-    Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+--文章中的媒体文件
+create table public.Post_MediaFIles(
+	PID int NOT NULL primary key,--文章id
+	Image_1 varchar,
+	Image_2 varchar,
+	Image_3 varchar,
+	Image_4 varchar,
+	Image_5 varchar,
+	Image_6 varchar,
+	Image_7 varchar,
+	Image_8 varchar,
+	Image_9 varchar,
+	Video varchar,
+	Created_Account int NOT NULL,--创建者id
+	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 	-- FOREIGN KEY(PID) references Post(Id) ON DELETE CASCADE,
 	-- FOREIGN KEY(UID) references Account(Id) ON DELETE CASCADE
 );
@@ -189,32 +197,19 @@ create table public.Reply(
 	Content text NOT NULL,
 	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	Modify_Date TIMESTAMP,
-	PID int NOT NULL,-- 目标文章id
-	UID int NOT NULL--用户id
+	Enable_Edit bool DEFAULT TRUE,
+	RID int,-- 回复目标的用户id（回复其他用户评论的时候，加入对象用户id）
+	PID int NOT NULL,-- 目标的文章id
+	Created_Account int NOT NULL -- 发表评论的用户id
 	-- FOREIGN KEY(UID) references Account(Id) ON DELETE CASCADE,
 	-- FOREIGN KEY(PID) references Post(Id) ON DELETE CASCADE
 );
 create trigger T_Reply before update on Reply for each row execute procedure public.upd_timestamp();
 
---回复评论
-create table public.Reply_2_Reply(
-	Reply_2_Reply_Id int DEFAULT nextval('public.Reply_2_Reply_Id'::regclass) primary key,
-	Content text NOT NULL,
-	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	Modify_Date TIMESTAMP,
-	RID int NOT NULL,-- 回复目标的用户id
-	UID int NOT NULL,-- 发表回复的用户id
-	PID int NOT NULL -- 回复文章id
-	-- FOREIGN KEY(UID) references Account(Id) ON DELETE CASCADE,
-	-- FOREIGN KEY(RID) references Reply(Id) ON DELETE CASCADE,
-	-- FOREIGN KEY(PID) references Post(Id) ON DELETE CASCADE
-);
-create trigger T2_Reply before update on Reply_2_Reply for each row execute procedure public.upd_timestamp();
-
 --浏览记录
 create table public.Browse_History(
-	UID int NOT NULL , --用户id
-	PID int NOT NULL ,--文章id
+	UID int NOT NULL primary key, --用户id
+	PID int NOT NULL primary key,--文章id
 	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 	-- FOREIGN KEY(UID) references Account(Id) ON DELETE CASCADE,
 	-- FOREIGN KEY(PID) references Post(Id) ON DELETE CASCADE
@@ -230,14 +225,23 @@ create table public.Chat_Group(
 	Introduction varchar NOT NULL,
 	AvatorUrl varchar NOT NULL,
 	Chat_Type int NOT NULL DEFAULT 0,--0:私聊	1:群聊
-    Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+	-- FOREIGN KEY(Created_Account) references Account(Id) ON DELETE CASCADE
+);
+
+--用户加入的聊天组
+create table public.Chat_Group(
+	Chat_Group_Id int NOT NULL primary key,
+	Created_Account int NOT NULL,
+	Account_ID int Not NUll
+	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 	-- FOREIGN KEY(Created_Account) references Account(Id) ON DELETE CASCADE
 );
 
 --单条聊天内容
 create table public.Chat_Content(
 	Chat_Content_Id int DEFAULT nextval('public.Chat_Content_Id'::regclass) primary key,
-    Chat_Group_Id int NOT NULL,
+	Chat_Group_Id int NOT NULL,
 	Content text NOT NULL,
 	Create_Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	Created_Account int NOT NULL

@@ -1,5 +1,5 @@
 import * as router from "/src/router/router.js";
-import * as commonTools from "/src/utils/commonTools.js";
+import * as tools from "/src/utils/tools.js";
 import * as channel from "/src/page/forum/channel/channel.js";
 
 //模块初始化
@@ -11,8 +11,8 @@ export default () => {
 
 //请求后台，取得相对应的频道列表
 export const getChannel = (forum_path) => {
-  commonTools.ajax({
-    url: `${location.protocol}//${location.hostname}/nesder/channel/get/${forum_path}`,
+  tools.ajax({
+    url: `${HOST}/nesder/channel/get/${forum_path}`,
     type: "GET",
     success: response => {
       //频道的初始值为 第一个角标的id
@@ -40,6 +40,9 @@ export const getChannel = (forum_path) => {
     },
   });
 
-  // 初始化channel区域  
-  router.render("#routeView-sub", "channel");
+if (!location.hash.match('details')) {
+    // 初始化channel区域  
+    router.render("#routeView-sub", "channel");
+  }
+  
 }

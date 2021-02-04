@@ -69,16 +69,13 @@ body {
 }
 
 .avatar-upload .profile-pic:after {
-  content: "\f486";
+  content: '';
+  background: transparent url('/img/default.png') no-repeat;
+  background-size: 70px 70px;
+  width: 70px;
+  height: 70px;
   left: 0;
   position: absolute;
-  font-size: 70px;
-  background: #ecf0f1;
-  color: #52775b;
-  font-family: bootstrap-icons !important;
-  line-height: 1;
-  vertical-align: text-bottom;
-  -webkit-font-smoothing: antialiased;
 }
 
 .avatar-upload .upload-button .bi-arrow-up-circle-fill {
@@ -119,5 +116,5 @@ body {
 .reply {
   width: 95vh;
   margin: 0px auto 0px auto;
-  border-bottom: 1px solid #c6c7c6;
+  border-bottom: 1px solid #dde2dd;
 }

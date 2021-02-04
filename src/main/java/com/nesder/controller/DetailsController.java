@@ -22,4 +22,11 @@ public class DetailsController {
         apiResponse.setData(detailsService.findByChannelId(id));
         return apiResponse;
     }
+
+    @GetMapping("/getPostDetails/{id}")
+    public ApiResponse getPostDetailsByPostlId(@PathVariable("id") Integer id) {
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setData(detailsService.findDetailsByPostId(id));
+        return apiResponse;
+    }
 }

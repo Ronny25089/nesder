@@ -35,18 +35,14 @@
                         <small class="float-right">${item.create_date}</small>
                         <h10 class="card-title">${item.created_account_nick_name}</h10>
                         <p class="card-text">${item.content}</p>
-                        <span role="button" class="bi bi bi-heart-fill text-muted" onclick="">${item.likesCount}</span>
-                    </div>
-                </div>
-                <div class="row reply">
-                    <div class="col-1 mx-1">
-                        <img src="" class="avatar-small ml-2 mt-2">
-                    </div>
-                    <div class="col-10 card-body">
-                        <small class="float-right">${item.create_date}</small>
-                        <h10 class="card-title">${item.created_account_nick_name}</h10>
-                        <p class="card-text">${item.content}</p>
-                        <span role="button" class="bi bi bi-heart-fill text-muted" onclick="">${item.likesCount}</span>
+                        <div class="d-flex flex-row-reverse bd-highlight">
+                          <span role="button" class="bi bi bi bi-chat-right-text ml-5" onclick="">
+                            <small> 回复</small>
+                          </span>
+                          <span role="button" class="bi bi bi-heart-fill text-muted" onclick="">
+                            <small> 50</small>
+                          </span>
+                        </div>
                     </div>
                 </div>
             </div>

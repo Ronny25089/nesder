@@ -1,6 +1,8 @@
 import * as Binder from "/src/utils/dataBinder.js";
 import * as router from "/src/router/router.js";
-import * as commonTools from "/src/utils/commonTools.js";
+import * as tools from "/src/utils/tools.js";
+
+window.HOST = `${location.protocol}//${location.hostname}`;
 
 getForum();
 //启动路由
@@ -31,8 +33,8 @@ $(".li-modal").on("click", (e) => {
 });
 
 function getForum() {
-  commonTools.ajax({
-    url: `${location.protocol}//${location.hostname}/nesder/forum/all`,
+  tools.ajax({
+    url: `${HOST}/nesder/forum/all`,
     type: "GET",
     success: response => {
       //   此处执行请求成功后的代码

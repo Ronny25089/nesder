@@ -1,4 +1,4 @@
-import * as commonTools from "/src/utils/commonTools.js";
+import * as tools from "/src/utils/tools.js";
 
 /********************路由********************/
 export default () => {
@@ -128,7 +128,6 @@ const hashGo = (evet) => {
   window.referrer = location.hash;
 }
 
-
 /**
  * 递归查找所有节点
  * @param currentList 当前操作List/上回
@@ -181,7 +180,7 @@ const matchRouter = (currentList, resultList, routerView) => {
  */
 const getPageComponent = pageUrl => {
   let result;
-  commonTools.ajax({
+  tools.ajax({
     url: pageUrl,
     type:'GET',
     dataType: "text",

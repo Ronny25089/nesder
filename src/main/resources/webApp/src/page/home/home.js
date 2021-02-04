@@ -1,4 +1,4 @@
-import * as forum from "../forum/forum.js";
+import * as forum from "/src/page/forum/forum.js";
 
 //模块初始化
 export default () => {

@@ -1,18 +1,16 @@
-import * as commonTools from "/src/utils/commonTools.js";
+import * as tools from "/src/utils/tools.js";
 
 //模块初始化
 export default () => {
-  if (!location.hash.match('details')) {
-    // 初始化channel区域
-    getAllPost();
-  }
+  // 初始化channel区域
+  getAllPost();
 };
 
 const getAllPost =() => {
   let forum_id = sessionStorage.getItem('forum');
   let channel_id = sessionStorage.getItem('channel');
-  commonTools.ajax({
-    url: `${location.protocol}//${location.hostname}/nesder/details/get/${channel_id}`,
+  tools.ajax({
+    url: `${HOST}/nesder/details/get/${channel_id}`,
     type: "GET",
     success: response => {
       // 此处执行请求成功后的代码
@@ -20,13 +18,13 @@ const getAllPost =() => {
       
       response.data.forEach((item, index) => {
         let dom = `
-          <div role="button" class="card my-3 post-item" 
-          onclick="router.goto('#/${forum_id == '' ? `home`:`forum/${forum_id}`}/details/${item.post_id}')">
+          <div class="card my-3 post-item">
             <div class="row">
               <div class="col-1">
-                <img src="${item.created_account_avatarurl}" class="avatar-wrapper ml-2 mt-2">
+                <img src="${HOST}/${item.created_account_avatarurl}" class="avatar-wrapper ml-2 mt-2">
               </div>
-              <div class="col-10 card-body">
+              <div role="button" class="col-10 card-body"
+              onclick="router.goto('#/${forum_id == '' ? `home`:`forum/${forum_id}`}/details/${item.post_id}')">
                 <h5 class="card-title">${item.created_account_nick_name}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">${item.title}</h6>
                 <hr>
