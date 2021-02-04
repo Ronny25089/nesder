@@ -255,193 +255,133 @@ public class ChatGroupExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountIsNull() {
-            addCriterion("created_account is null");
+        public Criteria andAccount_idIsNull() {
+            addCriterion("account_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountIsNotNull() {
-            addCriterion("created_account is not null");
+        public Criteria andAccount_idIsNotNull() {
+            addCriterion("account_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountEqualTo(Integer value) {
-            addCriterion("created_account =", value, "created_account");
+        public Criteria andAccount_idEqualTo(Integer value) {
+            addCriterion("account_id =", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountNotEqualTo(Integer value) {
-            addCriterion("created_account <>", value, "created_account");
+        public Criteria andAccount_idNotEqualTo(Integer value) {
+            addCriterion("account_id <>", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountGreaterThan(Integer value) {
-            addCriterion("created_account >", value, "created_account");
+        public Criteria andAccount_idGreaterThan(Integer value) {
+            addCriterion("account_id >", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("created_account >=", value, "created_account");
+        public Criteria andAccount_idGreaterThanOrEqualTo(Integer value) {
+            addCriterion("account_id >=", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountLessThan(Integer value) {
-            addCriterion("created_account <", value, "created_account");
+        public Criteria andAccount_idLessThan(Integer value) {
+            addCriterion("account_id <", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountLessThanOrEqualTo(Integer value) {
-            addCriterion("created_account <=", value, "created_account");
+        public Criteria andAccount_idLessThanOrEqualTo(Integer value) {
+            addCriterion("account_id <=", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountIn(List<Integer> values) {
-            addCriterion("created_account in", values, "created_account");
+        public Criteria andAccount_idIn(List<Integer> values) {
+            addCriterion("account_id in", values, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountNotIn(List<Integer> values) {
-            addCriterion("created_account not in", values, "created_account");
+        public Criteria andAccount_idNotIn(List<Integer> values) {
+            addCriterion("account_id not in", values, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountBetween(Integer value1, Integer value2) {
-            addCriterion("created_account between", value1, value2, "created_account");
+        public Criteria andAccount_idBetween(Integer value1, Integer value2) {
+            addCriterion("account_id between", value1, value2, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountNotBetween(Integer value1, Integer value2) {
-            addCriterion("created_account not between", value1, value2, "created_account");
+        public Criteria andAccount_idNotBetween(Integer value1, Integer value2) {
+            addCriterion("account_id not between", value1, value2, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_account_typeIsNull() {
-            addCriterion("group_account_type is null");
+        public Criteria andChat_group_nameIsNull() {
+            addCriterion("chat_group_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_account_typeIsNotNull() {
-            addCriterion("group_account_type is not null");
+        public Criteria andChat_group_nameIsNotNull() {
+            addCriterion("chat_group_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_account_typeEqualTo(Integer value) {
-            addCriterion("group_account_type =", value, "group_account_type");
+        public Criteria andChat_group_nameEqualTo(String value) {
+            addCriterion("chat_group_name =", value, "chat_group_name");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_account_typeNotEqualTo(Integer value) {
-            addCriterion("group_account_type <>", value, "group_account_type");
+        public Criteria andChat_group_nameNotEqualTo(String value) {
+            addCriterion("chat_group_name <>", value, "chat_group_name");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_account_typeGreaterThan(Integer value) {
-            addCriterion("group_account_type >", value, "group_account_type");
+        public Criteria andChat_group_nameGreaterThan(String value) {
+            addCriterion("chat_group_name >", value, "chat_group_name");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_account_typeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("group_account_type >=", value, "group_account_type");
+        public Criteria andChat_group_nameGreaterThanOrEqualTo(String value) {
+            addCriterion("chat_group_name >=", value, "chat_group_name");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_account_typeLessThan(Integer value) {
-            addCriterion("group_account_type <", value, "group_account_type");
+        public Criteria andChat_group_nameLessThan(String value) {
+            addCriterion("chat_group_name <", value, "chat_group_name");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_account_typeLessThanOrEqualTo(Integer value) {
-            addCriterion("group_account_type <=", value, "group_account_type");
+        public Criteria andChat_group_nameLessThanOrEqualTo(String value) {
+            addCriterion("chat_group_name <=", value, "chat_group_name");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_account_typeIn(List<Integer> values) {
-            addCriterion("group_account_type in", values, "group_account_type");
+        public Criteria andChat_group_nameLike(String value) {
+            addCriterion("chat_group_name like", value, "chat_group_name");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_account_typeNotIn(List<Integer> values) {
-            addCriterion("group_account_type not in", values, "group_account_type");
+        public Criteria andChat_group_nameNotLike(String value) {
+            addCriterion("chat_group_name not like", value, "chat_group_name");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_account_typeBetween(Integer value1, Integer value2) {
-            addCriterion("group_account_type between", value1, value2, "group_account_type");
+        public Criteria andChat_group_nameIn(List<String> values) {
+            addCriterion("chat_group_name in", values, "chat_group_name");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_account_typeNotBetween(Integer value1, Integer value2) {
-            addCriterion("group_account_type not between", value1, value2, "group_account_type");
+        public Criteria andChat_group_nameNotIn(List<String> values) {
+            addCriterion("chat_group_name not in", values, "chat_group_name");
             return (Criteria) this;
         }
 
-        public Criteria andGnameIsNull() {
-            addCriterion("gname is null");
+        public Criteria andChat_group_nameBetween(String value1, String value2) {
+            addCriterion("chat_group_name between", value1, value2, "chat_group_name");
             return (Criteria) this;
         }
 
-        public Criteria andGnameIsNotNull() {
-            addCriterion("gname is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andGnameEqualTo(String value) {
-            addCriterion("gname =", value, "gname");
-            return (Criteria) this;
-        }
-
-        public Criteria andGnameNotEqualTo(String value) {
-            addCriterion("gname <>", value, "gname");
-            return (Criteria) this;
-        }
-
-        public Criteria andGnameGreaterThan(String value) {
-            addCriterion("gname >", value, "gname");
-            return (Criteria) this;
-        }
-
-        public Criteria andGnameGreaterThanOrEqualTo(String value) {
-            addCriterion("gname >=", value, "gname");
-            return (Criteria) this;
-        }
-
-        public Criteria andGnameLessThan(String value) {
-            addCriterion("gname <", value, "gname");
-            return (Criteria) this;
-        }
-
-        public Criteria andGnameLessThanOrEqualTo(String value) {
-            addCriterion("gname <=", value, "gname");
-            return (Criteria) this;
-        }
-
-        public Criteria andGnameLike(String value) {
-            addCriterion("gname like", value, "gname");
-            return (Criteria) this;
-        }
-
-        public Criteria andGnameNotLike(String value) {
-            addCriterion("gname not like", value, "gname");
-            return (Criteria) this;
-        }
-
-        public Criteria andGnameIn(List<String> values) {
-            addCriterion("gname in", values, "gname");
-            return (Criteria) this;
-        }
-
-        public Criteria andGnameNotIn(List<String> values) {
-            addCriterion("gname not in", values, "gname");
-            return (Criteria) this;
-        }
-
-        public Criteria andGnameBetween(String value1, String value2) {
-            addCriterion("gname between", value1, value2, "gname");
-            return (Criteria) this;
-        }
-
-        public Criteria andGnameNotBetween(String value1, String value2) {
-            addCriterion("gname not between", value1, value2, "gname");
+        public Criteria andChat_group_nameNotBetween(String value1, String value2) {
+            addCriterion("chat_group_name not between", value1, value2, "chat_group_name");
             return (Criteria) this;
         }
 
@@ -642,6 +582,66 @@ public class ChatGroupExample {
 
         public Criteria andChat_typeNotBetween(Integer value1, Integer value2) {
             addCriterion("chat_type not between", value1, value2, "chat_type");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreate_account_idIsNull() {
+            addCriterion("create_account_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreate_account_idIsNotNull() {
+            addCriterion("create_account_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreate_account_idEqualTo(Integer value) {
+            addCriterion("create_account_id =", value, "create_account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreate_account_idNotEqualTo(Integer value) {
+            addCriterion("create_account_id <>", value, "create_account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreate_account_idGreaterThan(Integer value) {
+            addCriterion("create_account_id >", value, "create_account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreate_account_idGreaterThanOrEqualTo(Integer value) {
+            addCriterion("create_account_id >=", value, "create_account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreate_account_idLessThan(Integer value) {
+            addCriterion("create_account_id <", value, "create_account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreate_account_idLessThanOrEqualTo(Integer value) {
+            addCriterion("create_account_id <=", value, "create_account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreate_account_idIn(List<Integer> values) {
+            addCriterion("create_account_id in", values, "create_account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreate_account_idNotIn(List<Integer> values) {
+            addCriterion("create_account_id not in", values, "create_account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreate_account_idBetween(Integer value1, Integer value2) {
+            addCriterion("create_account_id between", value1, value2, "create_account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreate_account_idNotBetween(Integer value1, Integer value2) {
+            addCriterion("create_account_id not between", value1, value2, "create_account_id");
             return (Criteria) this;
         }
 

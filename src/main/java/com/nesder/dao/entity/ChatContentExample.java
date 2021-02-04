@@ -385,6 +385,206 @@ public class ChatContentExample {
             return (Criteria) this;
         }
 
+        public Criteria andImageIsNull() {
+            addCriterion("image is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andImageIsNotNull() {
+            addCriterion("image is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andImageEqualTo(String value) {
+            addCriterion("image =", value, "image");
+            return (Criteria) this;
+        }
+
+        public Criteria andImageNotEqualTo(String value) {
+            addCriterion("image <>", value, "image");
+            return (Criteria) this;
+        }
+
+        public Criteria andImageGreaterThan(String value) {
+            addCriterion("image >", value, "image");
+            return (Criteria) this;
+        }
+
+        public Criteria andImageGreaterThanOrEqualTo(String value) {
+            addCriterion("image >=", value, "image");
+            return (Criteria) this;
+        }
+
+        public Criteria andImageLessThan(String value) {
+            addCriterion("image <", value, "image");
+            return (Criteria) this;
+        }
+
+        public Criteria andImageLessThanOrEqualTo(String value) {
+            addCriterion("image <=", value, "image");
+            return (Criteria) this;
+        }
+
+        public Criteria andImageLike(String value) {
+            addCriterion("image like", value, "image");
+            return (Criteria) this;
+        }
+
+        public Criteria andImageNotLike(String value) {
+            addCriterion("image not like", value, "image");
+            return (Criteria) this;
+        }
+
+        public Criteria andImageIn(List<String> values) {
+            addCriterion("image in", values, "image");
+            return (Criteria) this;
+        }
+
+        public Criteria andImageNotIn(List<String> values) {
+            addCriterion("image not in", values, "image");
+            return (Criteria) this;
+        }
+
+        public Criteria andImageBetween(String value1, String value2) {
+            addCriterion("image between", value1, value2, "image");
+            return (Criteria) this;
+        }
+
+        public Criteria andImageNotBetween(String value1, String value2) {
+            addCriterion("image not between", value1, value2, "image");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoIsNull() {
+            addCriterion("video is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoIsNotNull() {
+            addCriterion("video is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoEqualTo(String value) {
+            addCriterion("video =", value, "video");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoNotEqualTo(String value) {
+            addCriterion("video <>", value, "video");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoGreaterThan(String value) {
+            addCriterion("video >", value, "video");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoGreaterThanOrEqualTo(String value) {
+            addCriterion("video >=", value, "video");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoLessThan(String value) {
+            addCriterion("video <", value, "video");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoLessThanOrEqualTo(String value) {
+            addCriterion("video <=", value, "video");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoLike(String value) {
+            addCriterion("video like", value, "video");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoNotLike(String value) {
+            addCriterion("video not like", value, "video");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoIn(List<String> values) {
+            addCriterion("video in", values, "video");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoNotIn(List<String> values) {
+            addCriterion("video not in", values, "video");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoBetween(String value1, String value2) {
+            addCriterion("video between", value1, value2, "video");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoNotBetween(String value1, String value2) {
+            addCriterion("video not between", value1, value2, "video");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idIsNull() {
+            addCriterion("account_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idIsNotNull() {
+            addCriterion("account_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idEqualTo(Integer value) {
+            addCriterion("account_id =", value, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idNotEqualTo(Integer value) {
+            addCriterion("account_id <>", value, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idGreaterThan(Integer value) {
+            addCriterion("account_id >", value, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idGreaterThanOrEqualTo(Integer value) {
+            addCriterion("account_id >=", value, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idLessThan(Integer value) {
+            addCriterion("account_id <", value, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idLessThanOrEqualTo(Integer value) {
+            addCriterion("account_id <=", value, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idIn(List<Integer> values) {
+            addCriterion("account_id in", values, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idNotIn(List<Integer> values) {
+            addCriterion("account_id not in", values, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idBetween(Integer value1, Integer value2) {
+            addCriterion("account_id between", value1, value2, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idNotBetween(Integer value1, Integer value2) {
+            addCriterion("account_id not between", value1, value2, "account_id");
+            return (Criteria) this;
+        }
+
         public Criteria andCreate_dateIsNull() {
             addCriterion("create_date is null");
             return (Criteria) this;
@@ -442,66 +642,6 @@ public class ChatContentExample {
 
         public Criteria andCreate_dateNotBetween(Date value1, Date value2) {
             addCriterion("create_date not between", value1, value2, "create_date");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreated_accountIsNull() {
-            addCriterion("created_account is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreated_accountIsNotNull() {
-            addCriterion("created_account is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreated_accountEqualTo(Integer value) {
-            addCriterion("created_account =", value, "created_account");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreated_accountNotEqualTo(Integer value) {
-            addCriterion("created_account <>", value, "created_account");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreated_accountGreaterThan(Integer value) {
-            addCriterion("created_account >", value, "created_account");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreated_accountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("created_account >=", value, "created_account");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreated_accountLessThan(Integer value) {
-            addCriterion("created_account <", value, "created_account");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreated_accountLessThanOrEqualTo(Integer value) {
-            addCriterion("created_account <=", value, "created_account");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreated_accountIn(List<Integer> values) {
-            addCriterion("created_account in", values, "created_account");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreated_accountNotIn(List<Integer> values) {
-            addCriterion("created_account not in", values, "created_account");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreated_accountBetween(Integer value1, Integer value2) {
-            addCriterion("created_account between", value1, value2, "created_account");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreated_accountNotBetween(Integer value1, Integer value2) {
-            addCriterion("created_account not between", value1, value2, "created_account");
             return (Criteria) this;
         }
     }

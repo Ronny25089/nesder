@@ -282,73 +282,73 @@ public class ForumExample {
             return (Criteria) this;
         }
 
-        public Criteria andMnameIsNull() {
-            addCriterion("mname is null");
+        public Criteria andForum_nameIsNull() {
+            addCriterion("forum_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andMnameIsNotNull() {
-            addCriterion("mname is not null");
+        public Criteria andForum_nameIsNotNull() {
+            addCriterion("forum_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMnameEqualTo(String value) {
-            addCriterion("mname =", value, "mname");
+        public Criteria andForum_nameEqualTo(String value) {
+            addCriterion("forum_name =", value, "forum_name");
             return (Criteria) this;
         }
 
-        public Criteria andMnameNotEqualTo(String value) {
-            addCriterion("mname <>", value, "mname");
+        public Criteria andForum_nameNotEqualTo(String value) {
+            addCriterion("forum_name <>", value, "forum_name");
             return (Criteria) this;
         }
 
-        public Criteria andMnameGreaterThan(String value) {
-            addCriterion("mname >", value, "mname");
+        public Criteria andForum_nameGreaterThan(String value) {
+            addCriterion("forum_name >", value, "forum_name");
             return (Criteria) this;
         }
 
-        public Criteria andMnameGreaterThanOrEqualTo(String value) {
-            addCriterion("mname >=", value, "mname");
+        public Criteria andForum_nameGreaterThanOrEqualTo(String value) {
+            addCriterion("forum_name >=", value, "forum_name");
             return (Criteria) this;
         }
 
-        public Criteria andMnameLessThan(String value) {
-            addCriterion("mname <", value, "mname");
+        public Criteria andForum_nameLessThan(String value) {
+            addCriterion("forum_name <", value, "forum_name");
             return (Criteria) this;
         }
 
-        public Criteria andMnameLessThanOrEqualTo(String value) {
-            addCriterion("mname <=", value, "mname");
+        public Criteria andForum_nameLessThanOrEqualTo(String value) {
+            addCriterion("forum_name <=", value, "forum_name");
             return (Criteria) this;
         }
 
-        public Criteria andMnameLike(String value) {
-            addCriterion("mname like", value, "mname");
+        public Criteria andForum_nameLike(String value) {
+            addCriterion("forum_name like", value, "forum_name");
             return (Criteria) this;
         }
 
-        public Criteria andMnameNotLike(String value) {
-            addCriterion("mname not like", value, "mname");
+        public Criteria andForum_nameNotLike(String value) {
+            addCriterion("forum_name not like", value, "forum_name");
             return (Criteria) this;
         }
 
-        public Criteria andMnameIn(List<String> values) {
-            addCriterion("mname in", values, "mname");
+        public Criteria andForum_nameIn(List<String> values) {
+            addCriterion("forum_name in", values, "forum_name");
             return (Criteria) this;
         }
 
-        public Criteria andMnameNotIn(List<String> values) {
-            addCriterion("mname not in", values, "mname");
+        public Criteria andForum_nameNotIn(List<String> values) {
+            addCriterion("forum_name not in", values, "forum_name");
             return (Criteria) this;
         }
 
-        public Criteria andMnameBetween(String value1, String value2) {
-            addCriterion("mname between", value1, value2, "mname");
+        public Criteria andForum_nameBetween(String value1, String value2) {
+            addCriterion("forum_name between", value1, value2, "forum_name");
             return (Criteria) this;
         }
 
-        public Criteria andMnameNotBetween(String value1, String value2) {
-            addCriterion("mname not between", value1, value2, "mname");
+        public Criteria andForum_nameNotBetween(String value1, String value2) {
+            addCriterion("forum_name not between", value1, value2, "forum_name");
             return (Criteria) this;
         }
 
@@ -482,63 +482,63 @@ public class ForumExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountIsNull() {
-            addCriterion("created_account is null");
+        public Criteria andAccount_idIsNull() {
+            addCriterion("account_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountIsNotNull() {
-            addCriterion("created_account is not null");
+        public Criteria andAccount_idIsNotNull() {
+            addCriterion("account_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountEqualTo(Integer value) {
-            addCriterion("created_account =", value, "created_account");
+        public Criteria andAccount_idEqualTo(Integer value) {
+            addCriterion("account_id =", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountNotEqualTo(Integer value) {
-            addCriterion("created_account <>", value, "created_account");
+        public Criteria andAccount_idNotEqualTo(Integer value) {
+            addCriterion("account_id <>", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountGreaterThan(Integer value) {
-            addCriterion("created_account >", value, "created_account");
+        public Criteria andAccount_idGreaterThan(Integer value) {
+            addCriterion("account_id >", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("created_account >=", value, "created_account");
+        public Criteria andAccount_idGreaterThanOrEqualTo(Integer value) {
+            addCriterion("account_id >=", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountLessThan(Integer value) {
-            addCriterion("created_account <", value, "created_account");
+        public Criteria andAccount_idLessThan(Integer value) {
+            addCriterion("account_id <", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountLessThanOrEqualTo(Integer value) {
-            addCriterion("created_account <=", value, "created_account");
+        public Criteria andAccount_idLessThanOrEqualTo(Integer value) {
+            addCriterion("account_id <=", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountIn(List<Integer> values) {
-            addCriterion("created_account in", values, "created_account");
+        public Criteria andAccount_idIn(List<Integer> values) {
+            addCriterion("account_id in", values, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountNotIn(List<Integer> values) {
-            addCriterion("created_account not in", values, "created_account");
+        public Criteria andAccount_idNotIn(List<Integer> values) {
+            addCriterion("account_id not in", values, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountBetween(Integer value1, Integer value2) {
-            addCriterion("created_account between", value1, value2, "created_account");
+        public Criteria andAccount_idBetween(Integer value1, Integer value2) {
+            addCriterion("account_id between", value1, value2, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountNotBetween(Integer value1, Integer value2) {
-            addCriterion("created_account not between", value1, value2, "created_account");
+        public Criteria andAccount_idNotBetween(Integer value1, Integer value2) {
+            addCriterion("account_id not between", value1, value2, "account_id");
             return (Criteria) this;
         }
     }

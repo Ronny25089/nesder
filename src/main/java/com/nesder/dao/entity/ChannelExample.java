@@ -282,73 +282,73 @@ public class ChannelExample {
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNull() {
-            addCriterion("name is null");
+        public Criteria andChannel_nameIsNull() {
+            addCriterion("channel_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNotNull() {
-            addCriterion("name is not null");
+        public Criteria andChannel_nameIsNotNull() {
+            addCriterion("channel_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andNameEqualTo(String value) {
-            addCriterion("name =", value, "name");
+        public Criteria andChannel_nameEqualTo(String value) {
+            addCriterion("channel_name =", value, "channel_name");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotEqualTo(String value) {
-            addCriterion("name <>", value, "name");
+        public Criteria andChannel_nameNotEqualTo(String value) {
+            addCriterion("channel_name <>", value, "channel_name");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThan(String value) {
-            addCriterion("name >", value, "name");
+        public Criteria andChannel_nameGreaterThan(String value) {
+            addCriterion("channel_name >", value, "channel_name");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThanOrEqualTo(String value) {
-            addCriterion("name >=", value, "name");
+        public Criteria andChannel_nameGreaterThanOrEqualTo(String value) {
+            addCriterion("channel_name >=", value, "channel_name");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThan(String value) {
-            addCriterion("name <", value, "name");
+        public Criteria andChannel_nameLessThan(String value) {
+            addCriterion("channel_name <", value, "channel_name");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThanOrEqualTo(String value) {
-            addCriterion("name <=", value, "name");
+        public Criteria andChannel_nameLessThanOrEqualTo(String value) {
+            addCriterion("channel_name <=", value, "channel_name");
             return (Criteria) this;
         }
 
-        public Criteria andNameLike(String value) {
-            addCriterion("name like", value, "name");
+        public Criteria andChannel_nameLike(String value) {
+            addCriterion("channel_name like", value, "channel_name");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotLike(String value) {
-            addCriterion("name not like", value, "name");
+        public Criteria andChannel_nameNotLike(String value) {
+            addCriterion("channel_name not like", value, "channel_name");
             return (Criteria) this;
         }
 
-        public Criteria andNameIn(List<String> values) {
-            addCriterion("name in", values, "name");
+        public Criteria andChannel_nameIn(List<String> values) {
+            addCriterion("channel_name in", values, "channel_name");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotIn(List<String> values) {
-            addCriterion("name not in", values, "name");
+        public Criteria andChannel_nameNotIn(List<String> values) {
+            addCriterion("channel_name not in", values, "channel_name");
             return (Criteria) this;
         }
 
-        public Criteria andNameBetween(String value1, String value2) {
-            addCriterion("name between", value1, value2, "name");
+        public Criteria andChannel_nameBetween(String value1, String value2) {
+            addCriterion("channel_name between", value1, value2, "channel_name");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotBetween(String value1, String value2) {
-            addCriterion("name not between", value1, value2, "name");
+        public Criteria andChannel_nameNotBetween(String value1, String value2) {
+            addCriterion("channel_name not between", value1, value2, "channel_name");
             return (Criteria) this;
         }
 
@@ -482,63 +482,63 @@ public class ChannelExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountIsNull() {
-            addCriterion("created_account is null");
+        public Criteria andAccount_idIsNull() {
+            addCriterion("account_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountIsNotNull() {
-            addCriterion("created_account is not null");
+        public Criteria andAccount_idIsNotNull() {
+            addCriterion("account_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountEqualTo(Integer value) {
-            addCriterion("created_account =", value, "created_account");
+        public Criteria andAccount_idEqualTo(Integer value) {
+            addCriterion("account_id =", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountNotEqualTo(Integer value) {
-            addCriterion("created_account <>", value, "created_account");
+        public Criteria andAccount_idNotEqualTo(Integer value) {
+            addCriterion("account_id <>", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountGreaterThan(Integer value) {
-            addCriterion("created_account >", value, "created_account");
+        public Criteria andAccount_idGreaterThan(Integer value) {
+            addCriterion("account_id >", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("created_account >=", value, "created_account");
+        public Criteria andAccount_idGreaterThanOrEqualTo(Integer value) {
+            addCriterion("account_id >=", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountLessThan(Integer value) {
-            addCriterion("created_account <", value, "created_account");
+        public Criteria andAccount_idLessThan(Integer value) {
+            addCriterion("account_id <", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountLessThanOrEqualTo(Integer value) {
-            addCriterion("created_account <=", value, "created_account");
+        public Criteria andAccount_idLessThanOrEqualTo(Integer value) {
+            addCriterion("account_id <=", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountIn(List<Integer> values) {
-            addCriterion("created_account in", values, "created_account");
+        public Criteria andAccount_idIn(List<Integer> values) {
+            addCriterion("account_id in", values, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountNotIn(List<Integer> values) {
-            addCriterion("created_account not in", values, "created_account");
+        public Criteria andAccount_idNotIn(List<Integer> values) {
+            addCriterion("account_id not in", values, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountBetween(Integer value1, Integer value2) {
-            addCriterion("created_account between", value1, value2, "created_account");
+        public Criteria andAccount_idBetween(Integer value1, Integer value2) {
+            addCriterion("account_id between", value1, value2, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountNotBetween(Integer value1, Integer value2) {
-            addCriterion("created_account not between", value1, value2, "created_account");
+        public Criteria andAccount_idNotBetween(Integer value1, Integer value2) {
+            addCriterion("account_id not between", value1, value2, "account_id");
             return (Criteria) this;
         }
 

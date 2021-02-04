@@ -695,63 +695,63 @@ public class PostExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountIsNull() {
-            addCriterion("created_account is null");
+        public Criteria andAccount_idIsNull() {
+            addCriterion("account_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountIsNotNull() {
-            addCriterion("created_account is not null");
+        public Criteria andAccount_idIsNotNull() {
+            addCriterion("account_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountEqualTo(Integer value) {
-            addCriterion("created_account =", value, "created_account");
+        public Criteria andAccount_idEqualTo(Integer value) {
+            addCriterion("account_id =", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountNotEqualTo(Integer value) {
-            addCriterion("created_account <>", value, "created_account");
+        public Criteria andAccount_idNotEqualTo(Integer value) {
+            addCriterion("account_id <>", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountGreaterThan(Integer value) {
-            addCriterion("created_account >", value, "created_account");
+        public Criteria andAccount_idGreaterThan(Integer value) {
+            addCriterion("account_id >", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("created_account >=", value, "created_account");
+        public Criteria andAccount_idGreaterThanOrEqualTo(Integer value) {
+            addCriterion("account_id >=", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountLessThan(Integer value) {
-            addCriterion("created_account <", value, "created_account");
+        public Criteria andAccount_idLessThan(Integer value) {
+            addCriterion("account_id <", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountLessThanOrEqualTo(Integer value) {
-            addCriterion("created_account <=", value, "created_account");
+        public Criteria andAccount_idLessThanOrEqualTo(Integer value) {
+            addCriterion("account_id <=", value, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountIn(List<Integer> values) {
-            addCriterion("created_account in", values, "created_account");
+        public Criteria andAccount_idIn(List<Integer> values) {
+            addCriterion("account_id in", values, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountNotIn(List<Integer> values) {
-            addCriterion("created_account not in", values, "created_account");
+        public Criteria andAccount_idNotIn(List<Integer> values) {
+            addCriterion("account_id not in", values, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountBetween(Integer value1, Integer value2) {
-            addCriterion("created_account between", value1, value2, "created_account");
+        public Criteria andAccount_idBetween(Integer value1, Integer value2) {
+            addCriterion("account_id between", value1, value2, "account_id");
             return (Criteria) this;
         }
 
-        public Criteria andCreated_accountNotBetween(Integer value1, Integer value2) {
-            addCriterion("created_account not between", value1, value2, "created_account");
+        public Criteria andAccount_idNotBetween(Integer value1, Integer value2) {
+            addCriterion("account_id not between", value1, value2, "account_id");
             return (Criteria) this;
         }
     }

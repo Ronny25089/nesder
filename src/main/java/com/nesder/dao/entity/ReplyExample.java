@@ -445,123 +445,303 @@ public class ReplyExample {
             return (Criteria) this;
         }
 
-        public Criteria andPidIsNull() {
-            addCriterion("pid is null");
+        public Criteria andEnable_editIsNull() {
+            addCriterion("enable_edit is null");
             return (Criteria) this;
         }
 
-        public Criteria andPidIsNotNull() {
-            addCriterion("pid is not null");
+        public Criteria andEnable_editIsNotNull() {
+            addCriterion("enable_edit is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPidEqualTo(Integer value) {
-            addCriterion("pid =", value, "pid");
+        public Criteria andEnable_editEqualTo(Boolean value) {
+            addCriterion("enable_edit =", value, "enable_edit");
             return (Criteria) this;
         }
 
-        public Criteria andPidNotEqualTo(Integer value) {
-            addCriterion("pid <>", value, "pid");
+        public Criteria andEnable_editNotEqualTo(Boolean value) {
+            addCriterion("enable_edit <>", value, "enable_edit");
             return (Criteria) this;
         }
 
-        public Criteria andPidGreaterThan(Integer value) {
-            addCriterion("pid >", value, "pid");
+        public Criteria andEnable_editGreaterThan(Boolean value) {
+            addCriterion("enable_edit >", value, "enable_edit");
             return (Criteria) this;
         }
 
-        public Criteria andPidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("pid >=", value, "pid");
+        public Criteria andEnable_editGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("enable_edit >=", value, "enable_edit");
             return (Criteria) this;
         }
 
-        public Criteria andPidLessThan(Integer value) {
-            addCriterion("pid <", value, "pid");
+        public Criteria andEnable_editLessThan(Boolean value) {
+            addCriterion("enable_edit <", value, "enable_edit");
             return (Criteria) this;
         }
 
-        public Criteria andPidLessThanOrEqualTo(Integer value) {
-            addCriterion("pid <=", value, "pid");
+        public Criteria andEnable_editLessThanOrEqualTo(Boolean value) {
+            addCriterion("enable_edit <=", value, "enable_edit");
             return (Criteria) this;
         }
 
-        public Criteria andPidIn(List<Integer> values) {
-            addCriterion("pid in", values, "pid");
+        public Criteria andEnable_editIn(List<Boolean> values) {
+            addCriterion("enable_edit in", values, "enable_edit");
             return (Criteria) this;
         }
 
-        public Criteria andPidNotIn(List<Integer> values) {
-            addCriterion("pid not in", values, "pid");
+        public Criteria andEnable_editNotIn(List<Boolean> values) {
+            addCriterion("enable_edit not in", values, "enable_edit");
             return (Criteria) this;
         }
 
-        public Criteria andPidBetween(Integer value1, Integer value2) {
-            addCriterion("pid between", value1, value2, "pid");
+        public Criteria andEnable_editBetween(Boolean value1, Boolean value2) {
+            addCriterion("enable_edit between", value1, value2, "enable_edit");
             return (Criteria) this;
         }
 
-        public Criteria andPidNotBetween(Integer value1, Integer value2) {
-            addCriterion("pid not between", value1, value2, "pid");
+        public Criteria andEnable_editNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("enable_edit not between", value1, value2, "enable_edit");
             return (Criteria) this;
         }
 
-        public Criteria andUidIsNull() {
-            addCriterion("uid is null");
+        public Criteria andReply_to_account_idIsNull() {
+            addCriterion("reply_to_account_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andUidIsNotNull() {
-            addCriterion("uid is not null");
+        public Criteria andReply_to_account_idIsNotNull() {
+            addCriterion("reply_to_account_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUidEqualTo(Integer value) {
-            addCriterion("uid =", value, "uid");
+        public Criteria andReply_to_account_idEqualTo(Integer value) {
+            addCriterion("reply_to_account_id =", value, "reply_to_account_id");
             return (Criteria) this;
         }
 
-        public Criteria andUidNotEqualTo(Integer value) {
-            addCriterion("uid <>", value, "uid");
+        public Criteria andReply_to_account_idNotEqualTo(Integer value) {
+            addCriterion("reply_to_account_id <>", value, "reply_to_account_id");
             return (Criteria) this;
         }
 
-        public Criteria andUidGreaterThan(Integer value) {
-            addCriterion("uid >", value, "uid");
+        public Criteria andReply_to_account_idGreaterThan(Integer value) {
+            addCriterion("reply_to_account_id >", value, "reply_to_account_id");
             return (Criteria) this;
         }
 
-        public Criteria andUidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("uid >=", value, "uid");
+        public Criteria andReply_to_account_idGreaterThanOrEqualTo(Integer value) {
+            addCriterion("reply_to_account_id >=", value, "reply_to_account_id");
             return (Criteria) this;
         }
 
-        public Criteria andUidLessThan(Integer value) {
-            addCriterion("uid <", value, "uid");
+        public Criteria andReply_to_account_idLessThan(Integer value) {
+            addCriterion("reply_to_account_id <", value, "reply_to_account_id");
             return (Criteria) this;
         }
 
-        public Criteria andUidLessThanOrEqualTo(Integer value) {
-            addCriterion("uid <=", value, "uid");
+        public Criteria andReply_to_account_idLessThanOrEqualTo(Integer value) {
+            addCriterion("reply_to_account_id <=", value, "reply_to_account_id");
             return (Criteria) this;
         }
 
-        public Criteria andUidIn(List<Integer> values) {
-            addCriterion("uid in", values, "uid");
+        public Criteria andReply_to_account_idIn(List<Integer> values) {
+            addCriterion("reply_to_account_id in", values, "reply_to_account_id");
             return (Criteria) this;
         }
 
-        public Criteria andUidNotIn(List<Integer> values) {
-            addCriterion("uid not in", values, "uid");
+        public Criteria andReply_to_account_idNotIn(List<Integer> values) {
+            addCriterion("reply_to_account_id not in", values, "reply_to_account_id");
             return (Criteria) this;
         }
 
-        public Criteria andUidBetween(Integer value1, Integer value2) {
-            addCriterion("uid between", value1, value2, "uid");
+        public Criteria andReply_to_account_idBetween(Integer value1, Integer value2) {
+            addCriterion("reply_to_account_id between", value1, value2, "reply_to_account_id");
             return (Criteria) this;
         }
 
-        public Criteria andUidNotBetween(Integer value1, Integer value2) {
-            addCriterion("uid not between", value1, value2, "uid");
+        public Criteria andReply_to_account_idNotBetween(Integer value1, Integer value2) {
+            addCriterion("reply_to_account_id not between", value1, value2, "reply_to_account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andReply_to_reply_idIsNull() {
+            addCriterion("reply_to_reply_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReply_to_reply_idIsNotNull() {
+            addCriterion("reply_to_reply_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReply_to_reply_idEqualTo(Integer value) {
+            addCriterion("reply_to_reply_id =", value, "reply_to_reply_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andReply_to_reply_idNotEqualTo(Integer value) {
+            addCriterion("reply_to_reply_id <>", value, "reply_to_reply_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andReply_to_reply_idGreaterThan(Integer value) {
+            addCriterion("reply_to_reply_id >", value, "reply_to_reply_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andReply_to_reply_idGreaterThanOrEqualTo(Integer value) {
+            addCriterion("reply_to_reply_id >=", value, "reply_to_reply_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andReply_to_reply_idLessThan(Integer value) {
+            addCriterion("reply_to_reply_id <", value, "reply_to_reply_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andReply_to_reply_idLessThanOrEqualTo(Integer value) {
+            addCriterion("reply_to_reply_id <=", value, "reply_to_reply_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andReply_to_reply_idIn(List<Integer> values) {
+            addCriterion("reply_to_reply_id in", values, "reply_to_reply_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andReply_to_reply_idNotIn(List<Integer> values) {
+            addCriterion("reply_to_reply_id not in", values, "reply_to_reply_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andReply_to_reply_idBetween(Integer value1, Integer value2) {
+            addCriterion("reply_to_reply_id between", value1, value2, "reply_to_reply_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andReply_to_reply_idNotBetween(Integer value1, Integer value2) {
+            addCriterion("reply_to_reply_id not between", value1, value2, "reply_to_reply_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andPost_idIsNull() {
+            addCriterion("post_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPost_idIsNotNull() {
+            addCriterion("post_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPost_idEqualTo(Integer value) {
+            addCriterion("post_id =", value, "post_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andPost_idNotEqualTo(Integer value) {
+            addCriterion("post_id <>", value, "post_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andPost_idGreaterThan(Integer value) {
+            addCriterion("post_id >", value, "post_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andPost_idGreaterThanOrEqualTo(Integer value) {
+            addCriterion("post_id >=", value, "post_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andPost_idLessThan(Integer value) {
+            addCriterion("post_id <", value, "post_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andPost_idLessThanOrEqualTo(Integer value) {
+            addCriterion("post_id <=", value, "post_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andPost_idIn(List<Integer> values) {
+            addCriterion("post_id in", values, "post_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andPost_idNotIn(List<Integer> values) {
+            addCriterion("post_id not in", values, "post_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andPost_idBetween(Integer value1, Integer value2) {
+            addCriterion("post_id between", value1, value2, "post_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andPost_idNotBetween(Integer value1, Integer value2) {
+            addCriterion("post_id not between", value1, value2, "post_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idIsNull() {
+            addCriterion("account_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idIsNotNull() {
+            addCriterion("account_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idEqualTo(Integer value) {
+            addCriterion("account_id =", value, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idNotEqualTo(Integer value) {
+            addCriterion("account_id <>", value, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idGreaterThan(Integer value) {
+            addCriterion("account_id >", value, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idGreaterThanOrEqualTo(Integer value) {
+            addCriterion("account_id >=", value, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idLessThan(Integer value) {
+            addCriterion("account_id <", value, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idLessThanOrEqualTo(Integer value) {
+            addCriterion("account_id <=", value, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idIn(List<Integer> values) {
+            addCriterion("account_id in", values, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idNotIn(List<Integer> values) {
+            addCriterion("account_id not in", values, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idBetween(Integer value1, Integer value2) {
+            addCriterion("account_id between", value1, value2, "account_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccount_idNotBetween(Integer value1, Integer value2) {
+            addCriterion("account_id not between", value1, value2, "account_id");
             return (Criteria) this;
         }
     }
