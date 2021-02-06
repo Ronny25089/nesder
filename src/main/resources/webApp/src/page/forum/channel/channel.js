@@ -33,15 +33,15 @@ const getAllPost =() => {
               </div>
             </div>
             <div class="btn-group btn-group-sm" role="group">
-              <button type="button" class="btn btn-light text-success">
+              <button type="button" class="btn btn-light text-d-blue">
                 <i class="bi bi-chat-left-text"></i>
                 <small>${item.replayCount}</small>
               </button>
-              <button type="button" class="btn btn-light text-success border-left">
+              <button type="button" class="btn btn-light text-d-blue border-left">
                 <i class="bi bi-heart"></i>
                 <small>${item.likesCount}</small>
               </button>
-              <button type="button" class="btn btn-light text-success border-left">
+              <button type="button" class="btn btn-light text-d-blue border-left">
                 <i class="bi bi-star"></i>
                 <small>${item.marksCount}</small>
               </button>

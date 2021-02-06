@@ -41,8 +41,8 @@ function getForum() {
       let forumEle = document.querySelector("#forum");
       response.data.forEach((item, index) => {
         let dom =
-          `<li class="nav-item border-left border-success">
-            <a class="nav-link mx-3" href="#/forum/${item.forum_id}">
+          `<li class="nav-item border-left border-light">
+            <a class="nav-link text-light mx-3" href="#/forum/${item.forum_id}">
               ${item.forum_name}
             </a>
           </li>`;

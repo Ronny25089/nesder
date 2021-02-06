@@ -31,15 +31,15 @@ function getPostDetail() {
               </div>
             </div>
             <div class="btn-group btn-group-sm" role="group">
-              <button type="button" class="btn btn-light text-success">
+              <button type="button" class="btn btn-light text-d-blue">
                 <i class="bi bi-chat-left-text"></i>
                 <small>${detailsModel.replayCount}</small>
               </button>
-              <button type="button" class="btn btn-light text-success border-left">
+              <button type="button" class="btn btn-light text-d-blue border-left">
                 <i class="bi bi-heart"></i>
                 <small>${detailsModel.likesCount}</small>
               </button>
-              <button type="button" class="btn btn-light text-success border-left">
+              <button type="button" class="btn btn-light text-d-blue border-left">
                 <i class="bi bi-star"></i>
                 <small>${detailsModel.marksCount}</small>
               </button>
@@ -51,7 +51,7 @@ function getPostDetail() {
                     <textarea class="form-control" id="reply" placeholder="写下你的评论..."></textarea>
                   </div>
                   <div class="col-2 bd-highlight">
-                    <button type="button" class="btn custom-select-sm list-group-item-success border-success" onclick="module.post()">
+                    <button type="button" class="btn custom-select-sm bg-n-blue text-light" onclick="module.post()">
                       <i class="bi bi-stickies"></i>
                       回复
                     </button>

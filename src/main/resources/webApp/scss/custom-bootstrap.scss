@@ -1,0 +1,26 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+$colors:(
+  "n-red":#f85f73,
+  "l-yellow":#f9f7f7,
+  "n-yellow": #fbe8d3,
+  "l-blue": #dbe2ef,
+  "d-blue": #03506f,
+  "b-blue": #719fb0,
+  "n-blue": #1687a7,
+  "dark": #283c63
+);
+
+$theme-colors: (
+  "n-red":#f85f73,
+  "l-yellow":#f9f7f7,
+  "n-yellow": #fbe8d3,
+  "l-blue": #dbe2ef,
+  "d-blue": #03506f,
+  "b-blue": #719fb0,
+  "n-blue": #1687a7,
+  "dark": #405a8d
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";

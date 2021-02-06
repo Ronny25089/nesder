@@ -1,5 +1,5 @@
 <!-- 用户注册内容 -->
-<div class="modal-header bg-success text-white">
+<div class="modal-header bg-n-blue text-white">
   <h4 class="modal-title">注册</h4>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
@@ -9,7 +9,7 @@
   <!-- 用户注册输入栏 -->
   <form>
     <div class="form-group">
-      <label for="avatar" class="ml-2 mb-4 text-success">头像：</label>
+      <label for="avatar" class="ml-2 mb-4 text-d-blue">头像：</label>
       <div class="avatar-upload">
         <img id="avatar" class="profile-pic" src="" />
         <div class="upload-button">
@@ -20,7 +20,7 @@
     </div>
 
     <div class="form-group">
-      <label for="nick_name" class="ml-2 text-success">昵称：</label>
+      <label for="nick_name" class="ml-2 text-d-blue">昵称：</label>
       <input type="text"
         class="form-control"
         id="nick_name"
@@ -28,7 +28,7 @@
         data-bind-1="nick_name"/>
     </div>
     <div class="form-group">
-      <label for="email" class="ml-2 text-success">E-mail：</label>
+      <label for="email" class="ml-2 text-d-blue">E-mail：</label>
       <input type="text"
         class="form-control"
         id="email"
@@ -36,7 +36,7 @@
         data-bind-1="email"/>
     </div>
     <div class="form-group">
-      <label for="password" class="ml-2 text-success">密码：</label>
+      <label for="password" class="ml-2 text-d-blue">密码：</label>
       <input type="password"
         class="form-control"
         id="password"
@@ -44,9 +44,9 @@
         data-bind-1="password"/>
     </div>
     <div class="form-group">
-      <label for="gender" class="ml-2 mr-5 text-success">性别：</label>
+      <label for="gender" class="ml-2 mr-5 text-d-blue">性别：</label>
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-outline-success active">
+        <label class="btn btn-outline-d-blue active">
           <input type="radio"
             name="gender"
             id="male"
@@ -55,7 +55,7 @@
             data-bind-1="male"/>
           <i class="bi bi-emoji-sunglasses"></i> 男
           </label>
-        <label class="btn btn-outline-success">
+        <label class="btn btn-outline-d-blue">
           <input type="radio"
             name="gender"
             id="female"
@@ -67,7 +67,7 @@
     </div>
 
     <div class="form-group">
-      <label for="birthDay" class="ml-2 text-success">生日：</label>
+      <label for="birthDay" class="ml-2 text-d-blue">生日：</label>
       <div class="input-group date"
         id="birthDay-datepicker"
         data-target-input="nearest">
@@ -89,7 +89,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="info-text" class="text-success">自我简介：</label>
+      <label for="info-text" class="text-d-blue">自我简介：</label>
       <textarea
         class="form-control"
         id="info_text"
@@ -111,7 +111,7 @@
       </div>
       <div class="col-6">
         <button type="button"
-          class="btn btn-outline-success mr-3 btn-block"
+          class="btn btn-outline-d-blue mr-3 btn-block"
           onclick="modal.sign()">
           <i class="bi bi-check2-square"></i> 注册
         </button>

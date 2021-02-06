@@ -23,7 +23,7 @@ export const getChannel = (forum_path) => {
       response.data.forEach((item, index) => {
         let dom = `
           <a href="#/${forum_path}/channel/${item.channel_id}" 
-            class="list-group-item list-group-item-action border border-success mb-2 ${index == 0 ? 'active' : ''}">
+            class="list-group-item list-group-item-action border border-d-blue mb-2 ${index == 0 ? 'active' : ''}">
             ${item.channel_name}
           </a>`;
         channelEle.innerHTML += dom;

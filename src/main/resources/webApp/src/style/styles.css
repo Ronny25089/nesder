@@ -2,7 +2,6 @@ body {
   font-family: source-sans-pro, sans-serif;
   font-size: 15px;
   padding-top: 56px !important;
-  background-color: #fcf8ec;
 }
 
 .width-10 {
@@ -14,6 +13,12 @@ body {
   min-height: calc(100vh - 158px);
   display: flex;
   flex-direction: column;
+}
+
+.nav-item > a:hover {
+  color: #000 !important;
+  background: #fff;
+  border-radius: 5%;
 }
 
 /********************avatar********************/
@@ -97,9 +102,8 @@ body {
 /* 频道激活 */
 .list-group-item.active {
   z-index: 2;
-  color: #155724;
-  background-color: #c3e6cb;
-  border-color: #155724;
+  background-color: #719fb0;
+  border-color: #537791;
 }
 
 .post-item {
