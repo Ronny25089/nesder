@@ -2,7 +2,7 @@ body {
   font-family: source-sans-pro, sans-serif;
   font-size: 15px;
   padding-top: 56px !important;
-  /* background-color: #eef0f1; */
+  background-color: #fcf8ec;
 }
 
 .width-10 {
@@ -10,8 +10,8 @@ body {
 }
 
 /* 内容最小高度设置 */
-#routeView {
-  min-height: 85vh;
+.container {
+  min-height: calc(100vh - 158px);
   display: flex;
   flex-direction: column;
 }
@@ -20,9 +20,8 @@ body {
 
 /* 最小的头像的基本设置 */
 .avatar-small {
-  margin-top: 50px;
-  height: 30px;
-  width: 30px;
+  height: 38px;
+  width: 38px;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 1px 1px 10px -5px black;
@@ -116,5 +115,15 @@ body {
 .reply {
   width: 95vh;
   margin: 0px auto 0px auto;
-  border-bottom: 1px solid #dde2dd;
+  border-top: 1px solid #dde2dd;
 }
+
+.replyInput {
+  background-color: #fafafb;
+}
+
+#channel {
+  position: sticky;
+  top: 70px;  
+}
+

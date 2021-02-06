@@ -115,6 +115,7 @@ const hashGo = (evet) => {
 
   // 渲染routerList下的所有节点
   for (const router of routerList) {
+    console.log(router);
     //初始化全面渲染视图
     initRender(router.routerView, router);
   }
@@ -199,6 +200,7 @@ const getPageComponent = pageUrl => {
  * @param setValueFlg 
  */
 const initRender = (routerView, router, setValueFlg) => {
+  console.log(router.path);
   // 获得目标视图
   let routerTag = document.querySelector(routerView);
 
@@ -221,6 +223,8 @@ const initRender = (routerView, router, setValueFlg) => {
   // 初始化该视图的JS模块
   import(router.moduleJs).then((module) => {
     module.default();
+    
+    console.log(module);
     window.module = module;
   });
 }

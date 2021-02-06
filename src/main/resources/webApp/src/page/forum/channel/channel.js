@@ -18,10 +18,10 @@ const getAllPost =() => {
       
       response.data.forEach((item, index) => {
         let dom = `
-          <div class="card my-3 post-item">
+          <div class="card mb-3 post-item">
             <div class="row">
               <div class="col-1">
-                <img src="${HOST}/${item.created_account_avatarurl}" class="avatar-wrapper ml-2 mt-2">
+                <img src="${HOST}/${item.created_account_avatarurl}" class="avatar-wrapper ml-3 mt-4">
               </div>
               <div role="button" class="col-10 card-body"
               onclick="router.goto('#/${forum_id == '' ? `home`:`forum/${forum_id}`}/post/${item.post_id}')">

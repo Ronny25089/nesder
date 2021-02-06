@@ -11,40 +11,16 @@ function getPostDetail() {
     url: `${HOST}/nesder/details/getPostDetails/${post_id}`,
     type: "GET",
     success: function (response) {
-      console.log(response);
       let container = document.querySelector("#details");
       let detailsModel = response.data.detailsModel;
       let replyDetailsModelList = response.data.replyDetailsModelList;
-      let replyDom = "";
       //   此处执行请求成功后的代码
-      replyDetailsModelList.forEach(item => {
-        replyDom += `
-          <div class="row reply">
-              <div class="col-1 mx-1">
-                  <img src="${HOST}/${item.created_account_avatarurl}" class="avatar-small ml-2 mt-2">
-              </div>
-              <div class="col-10 card-body">
-                  <small class="float-right">${item.create_date}</small>
-                  <h10 class="card-title">${item.created_account_nick_name}</h10>
-                  <p class="card-text">${item.content}</p>
-                  <div class="d-flex flex-row-reverse bd-highlight">
-                    <span role="button" class="bi bi bi bi-chat-right-text ml-5" onclick="">
-                      <small> 回复</small>
-                    </span>
-                    <span role="button" class="bi bi bi-heart-fill text-muted" onclick="">
-                      <small> </small>
-                    </span>
-                  </div>
-              </div>
-          </div>`;
-      });
-      console.log(replyDom);
 
-      let postDom = `
-      <div class="card my-3 post-item">
+      let dom = `
+      <div class="card mb-3 post-item">
             <div class="row">
               <div class="col-1">
-                <img src="${HOST}/${detailsModel.created_account_avatarurl}" class="avatar-wrapper ml-2 mt-2">
+                <img src="${HOST}/${detailsModel.created_account_avatarurl}" class="avatar-wrapper ml-3 mt-4">
               </div>
               <div class="col-10 card-body">
                 <h5 class="card-title">${detailsModel.created_account_nick_name}</h5>
@@ -69,16 +45,61 @@ function getPostDetail() {
               </button>
             </div>
             <div class="reply-container">
-            ${replyDom}
+              <div class="card p-3 replyInput">
+                <div class="row d-flex align-items-center">
+                  <div class="col-10 mr-auto bd-highlight">
+                    <textarea class="form-control" id="reply" placeholder="写下你的评论..."></textarea>
+                  </div>
+                  <div class="col-2 bd-highlight">
+                    <button type="button" class="btn custom-select-sm list-group-item-success border-success" onclick="module.post()">
+                      <i class="bi bi-stickies"></i>
+                      回复
+                    </button>
+                  </div>
+                </div>
+              </div>`;
+            if (replyDetailsModelList.length > 0) {
+              dom += `
+              <div class="mt-5">`;
+              replyDetailsModelList.forEach(item => {
+                dom += `
+                  <div class="reply">
+                    <div class="row">
+                      <div class="col-1">
+                          <img src="${HOST}/${item.created_account_avatarurl}" class="avatar-small ml-2 mt-4">
+                      </div>
+                      <div class="col-10 card-body">
+                          <strong class="card-title">${item.created_account_nick_name}</strong>
+                          <p class="card-text mt-2">${item.content}</p>
+                          <div class="d-flex bd-highlight ">
+                            <small class="mr-auto bd-highlight">${item.create_date}</small>
+                            <span role="button" class="bd-highlight bi bi-heart-fill text-muted" onclick="">
+                              <small> </small>
+                            </span>
+                            <span role="button" class="d-highlight bi bi-chat-right-text ml-5" onclick="module.openReplyInput(this)">
+                              <small> 回复</small>
+                            </span>
+                          </div>
+                      </div>
+                    </div>
+                  </div>`;
+                });
+                dom += `
+                </div>`;
+            }
+            dom += `
             </div>
         </div>`;
         
-
-        container.innerHTML += postDom;
+        container.innerHTML += dom;
     },
     fail: function (status) {
       // 此处为请求失败后的代码
       console.log(status);
     },
   });
+}
+
+export function openReplyInput(e) {
+  console.log(e);
 }
