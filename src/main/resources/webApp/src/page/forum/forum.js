@@ -40,7 +40,7 @@ export const getChannel = (forum_path) => {
     },
   });
 
-if (!location.hash.match('post')) {
+  if (!location.hash.match('post')) {
     // 初始化channel区域  
     router.render("#routeView-sub", "channel");
   }

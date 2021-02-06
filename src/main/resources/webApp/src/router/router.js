@@ -115,7 +115,6 @@ const hashGo = (evet) => {
 
   // 渲染routerList下的所有节点
   for (const router of routerList) {
-    console.log(router);
     //初始化全面渲染视图
     initRender(router.routerView, router);
   }
@@ -175,32 +174,12 @@ const matchRouter = (currentList, resultList, routerView) => {
 }
 
 /**
- * 获取目标页面的html内容
- * @param pageUrl 目标路径
- * @returns String HTML文本
- */
-const getPageComponent = pageUrl => {
-  let result;
-  tools.ajax({
-    url: pageUrl,
-    type:'GET',
-    dataType: "text",
-    async: false, //关闭异步处理，获得response：data，返回给外部
-    success: data => {
-      result = data;
-    },
-  });
-  return result;
-}
-
-/**
  * 初始化渲染视图
  * @param routerView 目标路由视图区域
  * @param router 目标路由对象
  * @param setValueFlg 
  */
 const initRender = (routerView, router, setValueFlg) => {
-  console.log(router.path);
   // 获得目标视图
   let routerTag = document.querySelector(routerView);
 
@@ -222,11 +201,45 @@ const initRender = (routerView, router, setValueFlg) => {
 
   // 初始化该视图的JS模块
   import(router.moduleJs).then((module) => {
-    module.default();
+    //执行 初始化视图的逻辑代码
+    module.default(module);
+
+    //获得该模块里 所有的导出函数
+    for (var functionName in module) {
+      if (functionName === 'default') continue;
+
+      //将default 之外的函数方法设为全局函数
+      //通过函数名获得该函数实体
+      let method = Object.getOwnPropertyDescriptor(module,functionName).value
+      
+      //在window对象上定义一个新属性，
+      //属性名为该函数名，将值设为该函数实体
+      //目的是为了，能在画面被渲染后，在各个module里写的function也能被调用到
+      Object.defineProperty(window, functionName, {
+        value: method
+      });
+    }
     
-    console.log(module);
-    window.module = module;
   });
+}
+
+/**
+ * 获取目标页面的html内容
+ * @param pageUrl 目标路径
+ * @returns String HTML文本
+ */
+const getPageComponent = pageUrl => {
+  let result;
+  tools.ajax({
+    url: pageUrl,
+    type:'GET',
+    dataType: "text",
+    async: false, //关闭异步处理，获得response：data，返回给外部
+    success: data => {
+      result = data;
+    },
+  });
+  return result;
 }
 
 /**

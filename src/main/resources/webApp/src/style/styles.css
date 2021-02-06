@@ -114,20 +114,18 @@ body {
   margin: 10px auto 5px auto;
   width: 100vh;
   box-shadow: 0 1px 3px #b1b4b1;
+  background-color: #fafafb;
 }
 
 .reply {
-  width: 95vh;
+  width: 85vh;
   margin: 0px auto 0px auto;
   border-top: 1px solid #dde2dd;
 }
 
-.replyInput {
-  background-color: #fafafb;
-}
-
-#channel {
+.sticky-on-top {
   position: sticky;
-  top: 70px;  
+  top: 70px;
+  z-index: 2;
 }
 

@@ -8,6 +8,7 @@ export default () => {
 
 const getAllPost =() => {
   let forum_id = sessionStorage.getItem('forum');
+  console.log(forum_id);
   let channel_id = sessionStorage.getItem('channel');
   tools.ajax({
     url: `${HOST}/nesder/details/get/${channel_id}`,
@@ -15,6 +16,24 @@ const getAllPost =() => {
     success: response => {
       // 此处执行请求成功后的代码
       let container = document.querySelector("#details");
+      // 当频道为【全部的时候】，不显示发布栏
+      if (channel_id != 1001) {
+        container.innerHTML += `
+          <!-- 发布栏 -->
+          <div class="card mb-5 p-3">
+            <div class="form-group mr-5">
+              <label for="exampleFormControlTextarea1">内容</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="d-flex flex-row-reverse ">
+              <button type="button" class="btn mx-1 custom-select-sm bg-n-blue text-light width-10" onclick="module.post()">
+                <i class="bi bi-stickies"></i>
+                发布
+              </button>
+            </div>
+          </div>
+          <hr>`;
+      }
       
       response.data.forEach((item, index) => {
         let dom = `

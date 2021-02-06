@@ -2,7 +2,7 @@ import * as tools from "/src/utils/tools.js";
 
 //模块初始化
 export default () => {
-    getPostDetail()
+    getPostDetail();
 };
 
 function getPostDetail() {
@@ -45,13 +45,13 @@ function getPostDetail() {
               </button>
             </div>
             <div class="reply-container">
-              <div class="card p-3 replyInput">
-                <div class="row d-flex align-items-center">
+              <div id="replyInput" class="sticky-on-top card p-3 m-3 border-d-blue">
+                <div class="row d-flex align-items-center ">
                   <div class="col-10 mr-auto bd-highlight">
                     <textarea class="form-control" id="reply" placeholder="写下你的评论..."></textarea>
                   </div>
                   <div class="col-2 bd-highlight">
-                    <button type="button" class="btn custom-select-sm bg-n-blue text-light" onclick="module.post()">
+                    <button type="button" class="btn custom-select-sm bg-n-blue text-light" onclick="post()">
                       <i class="bi bi-stickies"></i>
                       回复
                     </button>
@@ -62,6 +62,7 @@ function getPostDetail() {
               dom += `
               <div class="mt-5">`;
               replyDetailsModelList.forEach(item => {
+                console.log(item);
                 dom += `
                   <div class="reply">
                     <div class="row">
@@ -76,13 +77,14 @@ function getPostDetail() {
                             <span role="button" class="bd-highlight bi bi-heart-fill text-muted" onclick="">
                               <small> </small>
                             </span>
-                            <span role="button" class="d-highlight bi bi-chat-right-text ml-5" onclick="module.openReplyInput(this)">
+                            <span role="button" class="d-highlight bi bi-chat-right-text ml-5" 
+                            onclick="openReplyInput('${item.reply_id}','${item.created_account_nick_name}','${item.created_account}')">
                               <small> 回复</small>
                             </span>
                           </div>
                       </div>
                     </div>
-                  </div>`;
+                    `;
                 });
                 dom += `
                 </div>`;
@@ -100,6 +102,10 @@ function getPostDetail() {
   });
 }
 
-export function openReplyInput(e) {
-  console.log(e);
+export function openReplyInput(replyId,reply2AccountName, reply2AccountId) {
+  console.log(replyId,reply2AccountName, reply2AccountId);
+  let input = document.querySelector("#reply");
+  console.log(input);
+  input.value=`@${reply2AccountName}  `;
+  
 }
