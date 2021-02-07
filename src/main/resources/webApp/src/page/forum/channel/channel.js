@@ -8,12 +8,12 @@ export default () => {
 
 const getAllPost =() => {
   let forum_id = sessionStorage.getItem('forum');
-  console.log(forum_id);
   let channel_id = sessionStorage.getItem('channel');
   tools.ajax({
     url: `${HOST}/nesder/details/get/${channel_id}`,
     type: "GET",
     success: response => {
+      console.log(response);
       // 此处执行请求成功后的代码
       let container = document.querySelector("#details");
       // 当频道为【全部的时候】，不显示发布栏
@@ -52,7 +52,8 @@ const getAllPost =() => {
               </div>
             </div>
             <div class="btn-group btn-group-sm" role="group">
-              <button type="button" class="btn btn-light text-d-blue">
+              <button type="button" class="btn btn-light text-d-blue" 
+              onclick="openReplyInput('reply2post${item.post_id}')">
                 <i class="bi bi-chat-left-text"></i>
                 <small>${item.replayCount}</small>
               </button>
@@ -65,6 +66,19 @@ const getAllPost =() => {
                 <small>${item.marksCount}</small>
               </button>
             </div>
+            <div id="reply2post${item.post_id}" class="replyInput card p-3 m-3 border-d-blue d-none" >
+              <div class="row d-flex align-items-center ">
+                <div class="col-10 mr-auto bd-highlight">
+                  <textarea class="form-control" id="reply" placeholder="写下你的评论..."></textarea>
+                </div>
+                <div class="col-2 bd-highlight">
+                  <button type="button" class="btn custom-select-sm bg-n-blue text-light" onclick="post()">
+                    <i class="bi bi-stickies"></i>
+                    回复
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>`;
         container.innerHTML += dom;
       });
@@ -74,4 +88,12 @@ const getAllPost =() => {
       console.log(status);
     },
   });
+}
+
+export function openReplyInput(postId) {
+  let showedEle = document.querySelector(".replyInput:not(.d-none)");
+  if (showedEle != null) {
+    showedEle.classList.add("d-none");
+  }
+  document.querySelector(`#${postId}`).classList.remove("d-none");
 }

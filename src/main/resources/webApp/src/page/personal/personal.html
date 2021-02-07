@@ -1,15 +1,140 @@
 <div class="container pt-3">
   <div class="container-fluid">
-    <div class="row">
-      <!-- 左边 12分之三 宽度 -->
-      <div class="col-3">
-        <!-- 频道 -->
-        <div class="list-group" id="channel">
+    <div class="card p-3 my-5 shadow">
+      <div class="row">
+        <!-- 左边 12分之三 宽度 -->
+        <div class="col-3">
+          <img
+            src="http://127.0.0.1/avatar/default.png"
+            class="avatar-wrapper-big ml-3"
+          />
+        </div>
+        <div class="col-9 align-self-center">
+          <h5 class="card-title">${item.created_account_nick_name}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${item.title}</h6>
+          <div class="d-flex flex-row-reverse">
+            <button type="button"
+              class="btn mx-1 custom-select-sm bg-n-blue text-light width-10"
+              onclick="module.post()">
+              编辑个人信息
+            </button>
+          </div>
         </div>
       </div>
+    </div>
+    <hr />
+    <div class="row">
+      <!-- 左边 12分之三 宽度 -->
       <div class="col-9">
-        <!-- 二级路由视图 -->
-        <div id="routeView-sub"></div>
+        <div class="card p-3 shadow">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#/news">动态</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#/answers">回复</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#/collections">收藏</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#/posts">文章</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#/browseRecords">浏览记录</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#/following">关系圈</a>
+            </li>
+          </ul>
+          <div id="routeView-sub" class="mt-3">
+            <div class="card mb-3 post-item">
+              <div class="row">
+                <div class="col-1">
+                  <img src="${HOST}/${item.created_account_avatarurl}" class="avatar-wrapper ml-3 mt-4"/>
+                </div>
+                <div role="button" class="col-10 card-body">
+                  <h5 class="card-title">${item.created_account_nick_name}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">${item.title}</h6>
+                  <hr />
+                  <p class="card-text">${item.content}</p>
+                  <small>${item.create_date}</small>
+                </div>
+              </div>
+              <div class="btn-group btn-group-sm" role="group">
+                <button type="button" class="btn btn-light text-d-blue">
+                  <i class="bi bi-chat-left-text"></i>
+                  <small>${item.replayCount}</small>
+                </button>
+                <button type="button" class="btn btn-light text-d-blue border-left" >
+                  <i class="bi bi-heart"></i>
+                  <small>${item.likesCount}</small>
+                </button>
+                <button type="button" class="btn btn-light text-d-blue border-left">
+                  <i class="bi bi-star"></i>
+                  <small>${item.marksCount}</small>
+                </button>
+              </div>
+            </div>
+
+            <div class="card mb-3 post-item">
+              <div class="row">
+                <div class="col-1">
+                  <img src="${HOST}/${item.created_account_avatarurl}" class="avatar-wrapper ml-3 mt-4" />
+                </div>
+                <div role="button" class="col-10 card-body">
+                  <h5 class="card-title">${item.created_account_nick_name}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">${item.title}</h6>
+                  <hr />
+                  <p class="card-text">${item.content}</p>
+                  <small>${item.create_date}</small>
+                </div>
+              </div>
+              <div class="btn-group btn-group-sm" role="group">
+                <button type="button" class="btn btn-light text-d-blue">
+                  <i class="bi bi-chat-left-text"></i>
+                  <small>${item.replayCount}</small>
+                </button>
+                <button type="button" class="btn btn-light text-d-blue border-left">
+                  <i class="bi bi-heart"></i>
+                  <small>${item.likesCount}</small>
+                </button>
+                <button type="button" class="btn btn-light text-d-blue border-left" >
+                  <i class="bi bi-star"></i>
+                  <small>${item.marksCount}</small>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card p-3 shadow">
+          <div class="row">
+            <div class="col-6" role="button">
+              关注
+              <strong> 10 </strong>
+            </div>
+            <div class="col-6 border-left border-d-blue" role="button">
+              粉丝
+              <strong> 10 </strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-3 shadow mt-4">
+          <div class="col-10" role="button">
+            被赞次数 
+            <strong> 15 </strong>
+          </div>
+        </div>
+
+        <div class="card p-3 shadow mt-4">
+          <div class="col-10" role="button">
+            被收藏次数 
+            <strong> 12 </strong>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -47,9 +47,23 @@
         </button>
       </div>
       <div class="AppHeader-userInfo ml-3">
-        <span role="button" class="bi bi-bell-fill btn-lg" onclick=""></span>
-        <span role="button" class="bi bi-chat-right-text-fill btn-lg" onclick=""></span>
-        <img src="http://127.0.0.1/avatar/default.png" class="avatar-wrapper ml-3">
+        <div class="msg">
+          <span role="button" class="bi bi-bell-fill btn-lg " onclick=""></span>
+          <div class="alarm">15</div>
+        </div>
+        <div class="msg">
+          <span role="button" class="bi bi-chat-right-text-fill btn-lg" onclick=""></span>
+          <div class="alarm">5</div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="http://127.0.0.1/avatar/default.png" class="avatar-wrapper ml-3">
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="#/personal">个人中心</a>
+          <a class="dropdown-item" href="#/logout">注销</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -57,7 +71,7 @@
   <!-- 一级路由视图 -->
   <div id="routeView"></div>
 
-  <footer class="bg-d-blue text-center text-lg-start mt-5">
+  <footer class="bg-d-blue text-center text-lg-start mt-3">
     <!-- Copyright -->
     <div class="text-light p-3">
       © 2021 Copyright:

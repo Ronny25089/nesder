@@ -9,8 +9,8 @@ body {
 }
 
 /* 内容最小高度设置 */
-.container {
-  min-height: calc(100vh - 158px);
+#notFound ,#routeView {
+  min-height: calc(100vh - 126px);
   display: flex;
   flex-direction: column;
 }
@@ -38,6 +38,16 @@ body {
   height: 45px;
   width: 45px;
   border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 1px 1px 10px -5px black;
+  transition: all 0.3s ease;
+}
+
+/* 普通头像的基本设置 */
+.avatar-wrapper-big {
+  height: 180px;
+  width: 180px;
+  border-radius: 5%;
   overflow: hidden;
   box-shadow: 1px 1px 10px -5px black;
   transition: all 0.3s ease;
@@ -129,3 +139,24 @@ body {
   z-index: 2;
 }
 
+.msg {
+  position: relative;
+  float:left;
+}
+
+.alarm {
+  position: absolute;
+  color: white;
+  font-size: 6px;
+  background-color: red;
+  min-height: 12px;
+  min-width: 19px;
+  line-height: 12px;
+  left: 28px;
+  top: 0px;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  padding:2px;
+  border: solid #03506f 2px;
+}

@@ -78,7 +78,7 @@ function getPostDetail() {
                               <small> </small>
                             </span>
                             <span role="button" class="d-highlight bi bi-chat-right-text ml-5" 
-                            onclick="openReplyInput('${item.reply_id}','${item.created_account_nick_name}','${item.created_account}')">
+                            onclick="openPostReplyInput('${item.reply_id}','${item.created_account_nick_name}','${item.created_account}')">
                               <small> 回复</small>
                             </span>
                           </div>
@@ -102,7 +102,7 @@ function getPostDetail() {
   });
 }
 
-export function openReplyInput(replyId,reply2AccountName, reply2AccountId) {
+export function openPostReplyInput(replyId,reply2AccountName, reply2AccountId) {
   console.log(replyId,reply2AccountName, reply2AccountId);
   let input = document.querySelector("#reply");
   console.log(input);

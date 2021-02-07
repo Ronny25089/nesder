@@ -53,38 +53,38 @@ const Routers = [
       {
         //动态
         path: "news",
-        component: "src/page/news/news.html",
-        moduleJs: "/src/page/news/news.js",
+        component: "src/page/personal/news/news.html",
+        moduleJs: "/src/page/personal/news/news.js",
       },
       {
         //回复
         path: "answers",
-        component: "src/page/answers/answers.html",
-        moduleJs: "/src/page/answers/answers.js",
+        component: "src/page/personal/answers/answers.html",
+        moduleJs: "/src/page/personal/answers/answers.js",
       },
       {
         //收藏
         path: "collections",
-        component: "src/page/collections/collections.html",
-        moduleJs: "/src/page/collections/collections.js",
+        component: "src/page/personal/collections/collections.html",
+        moduleJs: "/src/page/personal/collections/collections.js",
       },
       {
         //文章
         path: "posts",
-        component: "src/page/posts/posts.html",
-        moduleJs: "/src/page/posts/posts.js",
+        component: "src/page/personal/posts/posts.html",
+        moduleJs: "/src/page/personal/posts/posts.js",
       },
       {
         //浏览记录
         path: "browseRecords",
-        component: "src/page/browseRecords/browseRecords.html",
-        moduleJs: "/src/page/browseRecords/browseRecords.js",
+        component: "src/page/personal/browseRecords/browseRecords.html",
+        moduleJs: "/src/page/personal/browseRecords/browseRecords.js",
       },
       {
         //关系圈
         path: "following",
-        component: "src/page/following/following.html",
-        moduleJs: "/src/page/following/following.js",
+        component: "src/page/personal/following/following.html",
+        moduleJs: "/src/page/personal/following/following.js",
       },
     ],
   },
@@ -109,7 +109,7 @@ const hashGo = (evet) => {
 
   // 未匹配到路由
   if (routerList.length == 0) {
-    location.hash = "404";
+    location.hash = "/404";
     return;
   }
 
